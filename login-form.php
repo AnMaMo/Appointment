@@ -10,24 +10,23 @@
 </head>
 <body>
     <div class="form-contenedor">
-        <div class="form-title central">Login</div>
+    
+        <div class="form-title posicio">Login</div>
+
         <div class="form-square-form "> 
             <form>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nom usuari</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                <input type="text" class="form-control" id="login-name" placeholder="Username" required>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Contraseya</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" class="form-control" id="login-password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">iniciar sessió</button>
+            <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>
-    </div>
-    
-    
+        <a class="posicio">Registre</a>
 
+    </div>
 </body>
 </html>
 <!-- JavaScript Bundle with Popper -->
