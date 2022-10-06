@@ -1,5 +1,48 @@
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css);
 body{
+<<<<<<< HEAD
+    background-color: #4B7FBC;
+}
+
+.form-contenedor{
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    padding: 10px;
+    /* border-radius:5px; */
+    box-shadow: 1px 1px 10px 1px #888888;
+    background-color: #D8D8D8;
+}
+
+.form-title{
+    font-size: 50px;
+    text-align: center;
+
+}
+
+.posicio{
+    display: flex;
+    justify-content: left;
+    margin-left: 50px;
+}
+
+.form-square-form{
+    padding: 50px;
+    padding-bottom: 10px;
+}
+
+.form-control{
+    border-radius: 0px;
+    text-align: center;
+}
+
+.btn{
+    background-color: #4B7FBC;
+    border-radius: 0px;
+    width: 100%;
+}
+
+=======
     background-color: rgb(238, 238, 238);
 }
 
@@ -10,3 +53,4 @@ body{
 .bg-dark{
     background-color: #2B2F3A !important;
 }
+>>>>>>> 4f9c0078c470ca190d4298b8186a21dc3f2eabca
