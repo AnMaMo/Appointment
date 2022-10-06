@@ -7,6 +7,14 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#logo{
+    width: 45px;
+}
+
+.bg-dark{
+    background-color: #2B2F3A !important;
+}
+
 .form-contenedor{
     width: 50%;
     margin: auto;
