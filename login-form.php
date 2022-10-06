@@ -11,7 +11,7 @@
 <body>
     <div class="form-contenedor">
     
-        <div class="form-title posicio">Login</div>
+    <span class="square"></span><div class="form-title posicio">Login</div>
 
         <div class="form-square-form "> 
             <form>
@@ -24,7 +24,7 @@
             <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>
-        <a class="posicio">Registre</a>
+        <div class="button"><a href="">Register</a></div>
 
     </div>
 </body>
