@@ -1,6 +1,10 @@
 @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css);
 body{
-    background-color: rgb(238, 238, 238);
+    background-color: #4B7FBC;
+}
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #logo{
@@ -10,3 +14,74 @@ body{
 .bg-dark{
     background-color: #2B2F3A !important;
 }
+
+.form-contenedor{
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    padding: 10px;
+    /* border-radius:5px; */
+    box-shadow: 1px 1px 10px 1px #000000;
+    background-color: #D8D8D8;
+}
+
+
+.form-square-form{
+    padding: 20px;
+    /* border-radius: 20px; */
+}
+
+.form-title{
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+.btn{
+    background-color: #4B7FBC;
+    border-radius: 0px;
+    width: 100%;
+}
+
+
+
+.form-control{
+    border-radius: 0px;
+    text-align: center;
+}
+
+.square{
+    width: 20px;
+    height: 30px;
+    background-color: #4B7FBC;
+    margin: 5px;
+    margin-left: 20px;
+}
+
+.square, .form-title{
+    display: inline-block;
+}
+
+.button a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.button{
+    text-align: right;
+}
+
+
+@media only screen and (max-width: 600px)  {
+    .form-contenedor{
+        width: 100%;
+        height: 100vh;
+        margin: 0px;
+    }
+  }
