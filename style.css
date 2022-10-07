@@ -20,15 +20,21 @@ body{
     height: 70px !important;
 }
 
+.container-fluid{
+    background-color: #2B2F3A;
+}
+
 
 /* All Pages*/
 .pagephp{
-    height: calc(100% - 70px);
+    height: calc(200%);
 }
+
 
 
 /* FOOTER */
 .footer{
+    height: 50px;
     background-color: #2B2F3A;
     color: white;
     display: flex;
@@ -43,6 +49,11 @@ body{
     font-weight: bold;
 }
 
+.footer-element{
+    margin: 0px;
+    width: fit-content;
+}
+
 .footer a, .footer p{
     margin: 0px;
 }
@@ -52,19 +63,12 @@ body{
 
 /* Login y Register form*/
 .form-contenedor{
-    width: 50%;
-    margin: auto;
-    margin-top: 10%;
-    padding: 10px;
-    box-shadow: 1px 1px 10px 1px #888888;
-    background-color: #D8D8D8;
-}
-
-.form-contenedor{
-    width: 50%;
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    width: 50vw;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc(20vh - 70px);
+    margin-bottom: calc(20vh - 50px);
     padding: 10px;
     box-shadow: 1px 1px 10px 1px #000000;
     background-color: #D8D8D8;
@@ -72,8 +76,7 @@ body{
 
 
 .form-square-form{
-    padding: 20px;
-    /* border-radius: 20px; */
+    padding: 10px;
 }
 
 .form-title{
@@ -90,6 +93,7 @@ body{
 
 .form-control{
     border-radius: 0px;
+
     text-align: center;
 }
 
@@ -123,13 +127,14 @@ body{
     background-color: #4B7FBC;
     border-radius: 0px;
     width: 100%;
+
 }
 
 
 @media only screen and (max-width: 600px)  {
     .form-contenedor{
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - (70px + 50px));
         margin: 0px;
     }
   }
