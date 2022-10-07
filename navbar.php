@@ -12,14 +12,14 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="media/logo.png" alt="logo" id="logo"></a>
+      <a class="navbar-brand" href="http://localhost:8080/index.php"><img src="media/logo.png" alt="logo" id="logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="http://localhost:8080/index.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Appointment</a>
@@ -31,8 +31,8 @@
         <!-- Login y register buttons -->
         <span class="navbar-text">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li><a class="nav-link" href="#">Login</a></li>
-            <li><a class="nav-link" href="#">Register</a></li>
+            <li><a class="nav-link" href="http://localhost:8080/index.php?page=login">Login</a></li>
+            <li><a class="nav-link" href="http://localhost:8080/index.php?page=register">Register</a></li>
           </ul>
         </span>
       </div>

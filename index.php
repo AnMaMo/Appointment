@@ -1,5 +1,7 @@
-<?php
-
+<link rel="icon" type="image/x-icon" href="/media/logo.ico">
+<title>Eurasia</title>
+  
+ <?php
 $page = "";
 
 if(isset($_GET['page'])){
@@ -16,3 +18,5 @@ if(isset($_GET['page'])){
     }
 
  ?>
+
+
