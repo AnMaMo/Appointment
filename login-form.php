@@ -9,8 +9,8 @@
 
 </head>
 <body>
+<div class="pagephp">
     <div class="form-contenedor">
-    
     <span class="square"></span><div class="form-title posicio">Login</div>
 
         <div class="form-square-form "> 
@@ -22,11 +22,14 @@
                 <input type="password" class="form-control" id="login-password" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
+            <div class="button"><a href="">Register</a></div>
             </form>
         </div>
-        <div class="button"><a href="">Register</a></div>
+
 
     </div>
+</div>
+
 </body>
 </html>
 <!-- JavaScript Bundle with Popper -->
