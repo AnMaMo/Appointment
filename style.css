@@ -20,6 +20,36 @@ body{
     height: 70px !important;
 }
 
+
+/* All Pages*/
+.pagephp{
+    height: calc(100% - 70px);
+}
+
+
+/* FOOTER */
+.footer{
+    background-color: #2B2F3A;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.footer a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.footer a, .footer p{
+    margin: 0px;
+}
+
+
+
+
 /* Login y Register form*/
 .form-contenedor{
     width: 50%;
@@ -93,27 +123,6 @@ body{
     background-color: #4B7FBC;
     border-radius: 0px;
     width: 100%;
-}
-
-
-/* FOOTER */
-.footer{
-    background-color: #2B2F3A;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-.footer a{
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.footer a, .footer p{
-    margin: 0px;
 }
 
 
