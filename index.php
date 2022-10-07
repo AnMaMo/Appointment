@@ -14,5 +14,7 @@ if(isset($_GET['page'])){
     }elseif($page === "register"){
       include 'register-form.php';
     }
-
+    
+    //Footer
+    include 'footer.php';
  ?>
