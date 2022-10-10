@@ -130,11 +130,22 @@ body{
 
 }
 
+.subform{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin: 20px;
+}
+
 
 @media only screen and (max-width: 600px)  {
     .form-contenedor{
         width: 100%;
         height: calc(100vh - (70px + 50px));
         margin: 0px;
+    }
+
+    .subform{
+        font-size: 15px;
     }
   }
