@@ -1,5 +1,8 @@
 <?php
 
+include "controllers/loginController.php";
+include "controllers/registerController.php";
+
 $page = "";
 
 if(isset($_GET['page'])){
@@ -7,14 +10,13 @@ if(isset($_GET['page'])){
 }
 
     //Navbar
-    include 'navbar.php';
+    include 'views/templates/navbar.php';
 
     if($page === "login"){
-      include 'login-form.php';
+      getLoginForm();
     }elseif($page === "register"){
-      include 'register-form.php';
+      getRegisterForm();
     }
     
     //Footer
-    include 'footer.php';
- ?>
+    include 'views/templates/footer.php';
