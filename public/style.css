@@ -121,13 +121,13 @@ body{
 .square-red{
     width: 20px;
     height: 30px;
+    background-color: #FC4549;
     margin: 5px;
     margin-left: 20px;
-    background-color: #FC4549;
 }
 
 
-.square, .form-title{
+.square, .form-title, .square-red{
     display: inline-block;
 }
 
@@ -149,8 +149,9 @@ body{
 
 }
   
-.btn{
-    background-color: #4B7FBC;
+
+.btn-red{
+    background-color: #FC4549;
     border-radius: 0px;
     width: 100%;
 
@@ -166,7 +167,6 @@ margin: 20px;
 /*Appointment-form*/
 .hours-div{
 margin: auto;
-border: 1px solid black;
 }
 
 .hour{
@@ -175,9 +175,15 @@ border: 1px solid black;
     background: #ffffff;
     border: 1px solid black;
     display: inline-block;
-    margin: 1px;
-    }
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 3px 1px 5px #888888;
+}
 
+.hour:hover{
+    background-color: #CDCFE0;
+    transition: 1s;
+}
 
 
 
