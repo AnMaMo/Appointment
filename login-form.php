@@ -11,7 +11,7 @@
 <body>
     <div class="form-contenedor">
     
-    <span class="square"></span><div class="form-title posicio">Login</div>
+        <span class="square"></span><div class="form-title posicio">Login</div>
 
         <div class="form-square-form "> 
             <form>
