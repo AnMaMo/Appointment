@@ -23,7 +23,7 @@
     <div class="pagephp">
         <div class="form-contenedor">
             <div class="centerVertical">
-                <span class="square"></span>
+                <span class="square-red"></span>
                 <div class="form-title posicio">Appointment</div>
 
                 <div class="form-square-form ">
@@ -32,34 +32,39 @@
                         <div class="mb-3">
                             <span>Date: </span><input type="text" id="datepicker" name="dateAppointment" onchange="validDay()">
                             <select name="Barber" id="Barber">
-                                <option value="1">Barber 1</option>
-                                <option value="2">Barber 2</option>
-                                <option value="3">Barber 3</option>
-                                <option value="4">Barber 4</option>
+                                <?php
+                                $barbers = ["barber 1", "barber 2", "barber 3", "barber 4", "barber 5"];
+
+                                for ($i = 0; $i < sizeof($barbers); $i++) {
+                                ?>
+                                    <option value=<?= $i ?>><?=$barbers[$i] ?></option>
+                                    
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
-                        <table class="hours-table">
-                            <tr>
-                                <td class="hour">9:00 - 9:30</td>
-                                <td class="hour">9:30 - 10:00</td>
-                                <td class="hour">10:00 - 10:30</td>
-                                <td class="hour">10:30 - 11:00</td>
-                                <td class="hour">11:00 - 11:30</td>
-                                <td class="hour">11:30 - 12:00</td>
-                                <td class="hour">12:00 - 12:30</td>
-                                <td class="hour">12:30 - 13:00</td>
-                            </tr>
-                            <tr>
-                                <td class="hour">16:00 - 16:30</td>
-                                <td class="hour">16:30 - 17:00</td>
-                                <td class="hour">17:00 - 17:30</td>
-                                <td class="hour">17:30 - 18:00</td>
-                                <td class="hour">18:00 - 18:30</td>
-                                <td class="hour">18:30 - 19:00</td>
-                                <td class="hour">19:00 - 19:30</td>
-                                <td class="hour">19:30 - 20:00</td>
-                            </tr>
-                        </table>
+
+
+                        <div class="hours-div">
+                            <div class="hour col-2">9:00-9:30</div>
+                            <div class="hour col-2">9:30-10:00</div>
+                            <div class="hour col-2">10:00-10:30</div>
+                            <div class="hour col-2">10:30-11:00</div>
+                            <div class="hour col-2">11:00-11:30</div>
+                            <div class="hour col-2">11:30-12:00</div>
+                            <div class="hour col-2">12:00-12:30</div>
+                            <div class="hour col-2">12:30-13:00</div>
+                            <div class="hour col-2">16:00-16:30</div>
+                            <div class="hour col-2">16:30-17:00</div>
+                            <div class="hour col-2">17:00-17:30</div>
+                            <div class="hour col-2">17:30-18:00</div>
+                            <div class="hour col-2">18:00-18:30</div>
+                            <div class="hour col-2">18:30-19:00</div>
+                            <div class="hour col-2">19:00-19:30</div>
+                            <div class="hour col-2">19:30-20:00</div>
+                        </div>
+
                         <input type="text" class="hidden" required>
                         <button type="submit" class="btn btn-primary">Take Appointment</button>
                     </form>
