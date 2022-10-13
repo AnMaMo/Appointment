@@ -118,6 +118,15 @@ body{
     margin-left: 20px;
 }
 
+.square-red{
+    width: 20px;
+    height: 30px;
+    margin: 5px;
+    margin-left: 20px;
+    background-color: #FC4549;
+}
+
+
 .square, .form-title{
     display: inline-block;
 }
@@ -155,18 +164,22 @@ margin: 20px;
 }
 
 /*Appointment-form*/
+.hours-div{
+margin: auto;
+border: 1px solid black;
+}
 
 .hour{
-font-size: 13px;
-text-align: center;
-background: #ffffff;
-border: 1px solid black;
-padding: 5px;
-height: 40px;
-}
-.hours-table{
-    margin: auto;
-}
+    text-align: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 1px;
+    }
+
+
+
 
 @media only screen and (max-width: 600px)  {
     .form-contenedor{
@@ -178,5 +191,9 @@ height: 40px;
     .subform{
         font-size: 15px;
     }
+    .hour{
+        font-size: 10px;
+       
+        }
   }
 
