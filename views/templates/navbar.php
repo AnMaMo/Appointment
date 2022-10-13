@@ -22,7 +22,7 @@
             <a class="nav-link active" aria-current="page" href="http://localhost:8080/index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Appointment</a>
+            <a class="nav-link" href="http://localhost:8080/index.php?page=appointment">Appointment</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
