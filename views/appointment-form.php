@@ -37,8 +37,8 @@
 
                                 for ($i = 0; $i < sizeof($barbers); $i++) {
                                 ?>
-                                    <option value=<?= $i ?>><?=$barbers[$i] ?></option>
-                                    
+                                    <option value=<?= $i ?>><?= $barbers[$i] ?></option>
+
                                 <?php
                                 }
                                 ?>
@@ -64,9 +64,8 @@
                             <div class="hour col-2">19:00-19:30</div>
                             <div class="hour col-2">19:30-20:00</div>
                         </div>
-
                         <input type="text" class="hidden" required>
-                        <button type="submit" class="btn btn-primary">Take Appointment</button>
+                        <button type="submit" class="btn-red btn-primary">Take Appointment</button>
                     </form>
 
                     <!--DatePicker-->
