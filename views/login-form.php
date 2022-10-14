@@ -18,7 +18,7 @@
                 <div class="form-title posicio">Login</div>
 
                 <div class="form-square-form ">
-                    <form>
+                    <form class="all-forms">
                         <div class="mb-3">
                             <input type="text" class="form-control" id="login-name" placeholder="Username" required>
                         </div>

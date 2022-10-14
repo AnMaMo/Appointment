@@ -76,7 +76,7 @@ body{
 
 /* Login y Register form*/
 .form-contenedor{
-    width: 50vw;
+    width: 65vw;
     height: 60vh;
     margin-left: auto;
     margin-right: auto;
@@ -106,7 +106,6 @@ body{
 
 .form-control{
     border-radius: 0px;
-
     text-align: center;
 }
 
@@ -156,25 +155,29 @@ justify-content: space-between;
 margin: 20px;
 }
 
+
+
+
 /*Appointment-form*/
 .hours-div{
-margin: auto;
+margin: 10px;
+display: block;
+text-align: center;
+width: 100%;
 }
 
 .hour{
-    text-align: center;
-    justify-content: center;
-    background: #ffffff;
-    border: 1px solid black;
     display: inline-block;
-    margin: 10px;
+    text-align: center;
+    background: #ffffff;
+
     cursor: pointer;
-    box-shadow: 3px 1px 5px #888888;
+    width: 24%;
+    margin: 0px;
 }
 
 .hour:hover{
     background-color: #CDCFE0;
-    transition: 1s;
 }
 
 .btn-red{
@@ -186,9 +189,11 @@ margin: auto;
 }
 .btn-red:hover{
     background-color: #D12424;
-
 }
 
+.all-forms{
+    height: max-content;
+}
 
 @media only screen and (max-width: 600px)  {
     .form-contenedor{
@@ -201,8 +206,7 @@ margin: auto;
         font-size: 15px;
     }
     .hour{
-        font-size: 10px;
-       
+        font-size: 15px;
         }
   }
 
