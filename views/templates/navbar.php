@@ -25,7 +25,7 @@
             <a class="nav-link" href="http://localhost:8080/index.php?page=appointment">Appointment</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="http://localhost:8080/index.php?page=contact">Contact</a>
           </li>
         </ul>
         <!-- Login y register buttons -->
