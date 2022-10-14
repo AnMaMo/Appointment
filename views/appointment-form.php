@@ -26,7 +26,7 @@
                 <div class="form-title posicio">Appointment</div>
 
                 <div class="form-square-form ">
-                    <form action="GET" name="appointmentForm" onsubmit="return appointmentValidate();">
+                    <form action="GET" class="all-forms" name="appointmentForm" onsubmit="return appointmentValidate();">
                         <div class="mb-3">
                             <span>Date: </span><input type="text" id="datepicker" name="dateAppointment" onchange="validDay()">
                             <select name="Barber" id="Barber">
@@ -45,22 +45,28 @@
                         </div>
 
                         <div class="hours-div">
-                            <div class="hour col-2">9:00-9:30</div>
-                            <div class="hour col-2">9:30-10:00</div>
-                            <div class="hour col-2">10:00-10:30</div>
-                            <div class="hour col-2">10:30-11:00</div>
-                            <div class="hour col-2">11:00-11:30</div>
-                            <div class="hour col-2">11:30-12:00</div>
-                            <div class="hour col-2">12:00-12:30</div>
-                            <div class="hour col-2">12:30-13:00</div>
-                            <div class="hour col-2">16:00-16:30</div>
-                            <div class="hour col-2">16:30-17:00</div>
-                            <div class="hour col-2">17:00-17:30</div>
-                            <div class="hour col-2">17:30-18:00</div>
-                            <div class="hour col-2">18:00-18:30</div>
-                            <div class="hour col-2">18:30-19:00</div>
-                            <div class="hour col-2">19:00-19:30</div>
-                            <div class="hour col-2">19:30-20:00</div>
+                            <div class="hour">9:00-9:30</div>
+                            <div class="hour">9:30-10:00</div>
+                            <div class="hour">10:00-10:30</div>
+                            <div class="hour">10:30-11:00</div>
+                        </div>
+                        <div class="hours-div">
+                            <div class="hour">11:00-11:30</div>
+                            <div class="hour">11:30-12:00</div>
+                            <div class="hour">12:00-12:30</div>
+                            <div class="hour">12:30-13:00</div>
+                        </div>
+                        <div class="hours-div">
+                            <div class="hour">16:00-16:30</div>
+                            <div class="hour">16:30-17:00</div>
+                            <div class="hour">17:00-17:30</div>
+                            <div class="hour">17:30-18:00</div>
+                        </div>
+                        <div class="hours-div">
+                            <div class="hour">18:00-18:30</div>
+                            <div class="hour">18:30-19:00</div>
+                            <div class="hour">19:00-19:30</div>
+                            <div class="hour">19:30-20:00</div>
                         </div>
                         <input type="text" class="hidden" required>
                         <button type="submit" class="btn-red btn-primary">Take Appointment</button>
