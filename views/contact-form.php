@@ -19,9 +19,19 @@
 
                 <div class="form-square-form ">
                     <form action="GET" name="appointmentForm" onsubmit="return appointmentValidate();">
-                      
-                        
+                        <div class="mb-3">
+                            <div class=" contact">
+                                <input type="text" class="form-control " id="contact-name" placeholder="Name" required>
+                            </div>
+                            <div class=" contact">
+                                <input type="text" class="form-control " id="contact-email" placeholder="Email" required>
+                            </div>
+                        </div>
 
+                        <div class="mb-3">
+                            <input type="text" class="form-control big-square" id="contact-text" placeholder="Text">
+                        </div>
+                        <button type="submit" class="btn-red btn-primary">Send</button>
                     </form>
 
                     <!--DatePicker-->

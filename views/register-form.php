@@ -15,13 +15,13 @@
     <div class="form-square-form "> 
         <form>
         <div class="mb-3">
-            <input type="text" class="form-control" id="login-name" placeholder="Username" required>
+            <input type="text" class="form-control" id="register-name" placeholder="Username" required>
         </div>
         <div class="mb-3">
-            <input type="email" class="form-control" id="login-mail" aria-describedby="emailHelp" placeholder="Mail" required>
+            <input type="email" class="form-control" id="register-mail" aria-describedby="emailHelp" placeholder="Mail" required>
         </div>
         <div class="mb-3">
-            <input type="password" class="form-control" id="login-password" placeholder="Password">
+            <input type="password" class="form-control" id="register-password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
         </form>
