@@ -148,14 +148,6 @@ body{
     font-size: 15px;
 
 }
-  
-
-.btn-red{
-    background-color: #FC4549;
-    border-radius: 0px;
-    width: 100%;
-
-}
 
 .subform{
 display: flex;
@@ -185,6 +177,17 @@ margin: auto;
     transition: 1s;
 }
 
+.btn-red{
+    background-color: #FC4549;
+    width: 100%;
+    border: 0px;
+    color: white;
+    border-radius: 0px;
+}
+.btn-red:hover{
+    background-color: #D12424;
+
+}
 
 
 @media only screen and (max-width: 600px)  {
