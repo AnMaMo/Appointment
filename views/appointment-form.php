@@ -19,7 +19,6 @@
 </head>
 
 <body>
-
     <div class="pagephp">
         <div class="form-contenedor">
             <div class="centerVertical">
@@ -27,12 +26,12 @@
                 <div class="form-title posicio">Appointment</div>
 
                 <div class="form-square-form ">
-
                     <form action="GET" name="appointmentForm" onsubmit="return appointmentValidate();">
                         <div class="mb-3">
                             <span>Date: </span><input type="text" id="datepicker" name="dateAppointment" onchange="validDay()">
                             <select name="Barber" id="Barber">
                                 <?php
+
                                 $barbers = ["barber 1", "barber 2", "barber 3", "barber 4", "barber 5"];
 
                                 for ($i = 0; $i < sizeof($barbers); $i++) {
@@ -44,7 +43,6 @@
                                 ?>
                             </select>
                         </div>
-
 
                         <div class="hours-div">
                             <div class="hour col-2">9:00-9:30</div>
@@ -73,6 +71,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </body>
 
 </html>
