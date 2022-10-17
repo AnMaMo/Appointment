@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -28,17 +30,37 @@
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
-        <!-- Login y register buttons -->
-        <span class="navbar-text">
+
+        <?php //start a session
+        session_start();
+        ?>
+
+        <?php if (isset($_SESSION['loged'])) : ?>
+          <span class="navbar-text">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li><a class="nav-link" href="/index.php?page=login">Login</a></li>
-            <li><a class="nav-link" href="/index.php?page=register">Register</a></li>
-          </ul>
-        </span>
+              <li><a class="nav-link" href="#"><?=$_SESSION['loged']?></a></li>
+              <li><a class="nav-link" href="logout.php">Logout</a></li>
+            </ul>
+          </span>
+        <?php else : ?>
+          <!-- Login y register buttons -->
+          <span class="navbar-text">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li><a class="nav-link" href="/index.php?page=login">Login</a></li>
+              <li><a class="nav-link" href="/index.php?page=register">Register</a></li>
+            </ul>
+          </span>
+        <?php endif; ?>
+
+
+
+
+
       </div>
     </div>
   </nav>
 
 </body>
+
 </html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

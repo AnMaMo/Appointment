@@ -43,6 +43,16 @@ try {
                 $role = $result[0]['role'];
                 echo "role = $role";
                 echo "<br>";
+
+
+                //Create a sesion with user id and value is user name
+                session_start();
+                $_SESSION['loged'] = $form_username;
+
+                //Redirect to index.php
+                header("Location: index.php");
+
+
             } else {
                 echo "Login incorrect";
                 echo "<br>";
