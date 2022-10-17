@@ -31,7 +31,15 @@
                         <div class="mb-3">
                             <input type="text" class="form-control big-square" id="contact-text" placeholder="Text">
                         </div>
+
                         <button type="submit" class="btn-red btn-primary">Send</button>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                            <label class="form-check-label" for="flexCheckIndeterminate">
+                                Accepto las condiciones de la privacidad
+                            </label>
+                        </div>
                     </form>
 
                     <!--DatePicker-->

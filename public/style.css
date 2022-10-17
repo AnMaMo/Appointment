@@ -198,6 +198,10 @@ margin: auto;
     height: 150px;
 }
 
+.form-check-label:hover{
+    text-decoration: underline blue;
+    color: blue;
+}
 
 @media only screen and (max-width: 600px)  {
     .form-contenedor{
