@@ -18,12 +18,12 @@
                 <div class="form-title posicio">Login</div>
 
                 <div class="form-square-form ">
-                    <form class="all-forms">
+                    <form class="all-forms" method="post" action="login.php">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="login-name" placeholder="Username" required>
+                            <input type="text" class="form-control" id="login-name" placeholder="Username" name="username" required>
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control" id="login-password" placeholder="Password">
+                            <input type="password" class="form-control" id="login-password" placeholder="Password" name="password" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
 
