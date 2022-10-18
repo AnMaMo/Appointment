@@ -4,6 +4,7 @@ include "../src/controllers/loginController.php";
 include "../src/controllers/registerController.php";
 include "../src/controllers/appointmentController.php";
 include "../src/controllers/errorController.php";
+include "../src/controllers/user-formController.php";
 
 $page = "";
 
@@ -22,7 +23,7 @@ if ($page === "login") {
   getAppointmentForm();
 }elseif ($page === "error") {
   getError();
-}elseif ($page ==="user-form") {
+}elseif ($page === "user-form") {
   getUserform();
 }
 
