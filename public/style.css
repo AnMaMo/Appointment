@@ -207,7 +207,20 @@ width: 100%;
     height: max-content;
 }
 
-
+/*error*/
+.error-square{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.error-square img{
+    margin: 50px;
+    width: 15%;
+}
+.error-text{
+    color: white;
+}
 
 @media only screen and (max-width: 600px)  {
     .form-contenedor{
