@@ -1,5 +1,5 @@
 <?php
-include "../controllers/registerController.php";
+include "../src/controllers/registerController.php";
 
 // Start the session
 session_start();
@@ -12,7 +12,7 @@ if (isset($_SESSION['loged'])){
 
 $servername = "localhost";
 $username = "root";
-$password = "1";
+$password = "";
 $database = "appointment";
 
 try {

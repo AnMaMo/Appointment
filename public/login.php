@@ -4,7 +4,7 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
-$password = "1";
+$password = "";
 $database = "appointment";
 
 try {

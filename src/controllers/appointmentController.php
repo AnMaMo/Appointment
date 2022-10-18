@@ -1,4 +1,4 @@
 <?php
 function getAppointmentForm(){
-    include "../views/appointment-form.php";
+    include "../src/views/appointment-form.php";
 };
