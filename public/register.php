@@ -41,7 +41,7 @@ try {
     }
 
     // Get the id of the last user
-    $stmt = $conn->prepare("SELECT id FROM USERS ORDER BY user_id DESC LIMIT 1");
+    $stmt = $conn->prepare("SELECT user_id FROM USERS ORDER BY user_id DESC LIMIT 1");
     $stmt->execute();
     // Set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
