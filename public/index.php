@@ -3,7 +3,7 @@
 include "../controllers/loginController.php";
 include "../controllers/registerController.php";
 include "../controllers/appointmentController.php";
-
+include "../controllers/errorController.php";
 
 $page = "";
 
@@ -20,6 +20,8 @@ if ($page === "login") {
   getRegisterForm();
 } elseif ($page === "appointment") {
   getAppointmentForm();
+}elseif ($page === "error") {
+  getError();
 }
 
 //Footer
