@@ -12,7 +12,7 @@ if (isset($_SESSION['loged'])){
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "1";
 $database = "appointment";
 
 try {
@@ -27,7 +27,7 @@ try {
 
 
     // Prepare statement to see if player exists
-    $stmt = $conn->prepare("SELECT * FROM users WHERE name = '$form_username'");
+    $stmt = $conn->prepare("SELECT * FROM USERS WHERE user_name = '$form_username'");
     $stmt->execute();
 
     // Set the resulting array to associative
@@ -41,16 +41,16 @@ try {
     }
 
     // Get the id of the last user
-    $stmt = $conn->prepare("SELECT id FROM users ORDER BY id DESC LIMIT 1");
+    $stmt = $conn->prepare("SELECT id FROM USERS ORDER BY user_id DESC LIMIT 1");
     $stmt->execute();
     // Set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();
-    $new_id = $result[0]['id'] + 1;
+    $new_id = $result[0]['user_id'] + 1;
 
 
     // statement to insert into database
-    $sql = $conn->prepare("INSERT INTO users (id, name, mail, password, role) VALUES ($new_id, '$form_username', '$form_mail', '$form_password', 'user')");
+    $sql = $conn->prepare("INSERT INTO USERS (user_id, user_name, user_mail, user_password, user_role) VALUES ($new_id, '$form_username', '$form_mail', '$form_password', 'user')");
     $sql->execute();
 
     header("Location: index.php?page=login");

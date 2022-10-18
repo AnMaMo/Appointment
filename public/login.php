@@ -4,7 +4,7 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "1";
 $database = "appointment";
 
 try {
@@ -17,7 +17,7 @@ try {
 
 
     // Prepare statement to see if player exists
-    $stmt = $conn->prepare("SELECT * FROM users WHERE name = '$form_username'");
+    $stmt = $conn->prepare("SELECT * FROM USERS WHERE user_name = '$form_username'");
     $stmt->execute();
 
     // Set the resulting array to associative
@@ -33,7 +33,7 @@ try {
         if ($userexist) {
 
             //Check the password
-            if ($result[0]['password'] == $form_password) {
+            if ($result[0]['user_password'] == $form_password) {
                 //Create a sesion with user id and value is user name
                 $_SESSION['loged'] = $form_username;
 
