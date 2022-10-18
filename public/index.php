@@ -1,9 +1,9 @@
 <?php
 
-include "../controllers/loginController.php";
-include "../controllers/registerController.php";
-include "../controllers/appointmentController.php";
-include "../controllers/errorController.php";
+include "../src/controllers/loginController.php";
+include "../src/controllers/registerController.php";
+include "../src/controllers/appointmentController.php";
+include "../src/controllers/errorController.php";
 
 $page = "";
 
@@ -12,7 +12,7 @@ if (isset($_GET['page'])) {
 }
 
 //Navbar
-include '../views/templates/navbar.php';
+include '../src/views/templates/navbar.php';
 
 if ($page === "login") {
   getLoginForm();
@@ -22,7 +22,9 @@ if ($page === "login") {
   getAppointmentForm();
 }elseif ($page === "error") {
   getError();
+}elseif ($page ==="user-form") {
+  getUserform();
 }
 
 //Footer
-include '../views/templates/footer.php';
+include '../src/views/templates/footer.php';
