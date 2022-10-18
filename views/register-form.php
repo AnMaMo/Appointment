@@ -13,15 +13,15 @@
     
     <span class="square"></span> <div class="form-title">Register</div>
     <div class="form-square-form "> 
-        <form>
+        <form class="all-forms" method="post" action="register.php">
         <div class="mb-3">
-            <input type="text" class="form-control" id="login-name" placeholder="Username" required>
+            <input type="text" class="form-control" id="login-name" placeholder="Username" name="username" required>
         </div>
         <div class="mb-3">
-            <input type="email" class="form-control" id="login-mail" aria-describedby="emailHelp" placeholder="Mail" required>
+            <input type="email" class="form-control" id="login-mail" aria-describedby="emailHelp" placeholder="Mail"  name="mail" required>
         </div>
         <div class="mb-3">
-            <input type="password" class="form-control" id="login-password" placeholder="Password">
+            <input type="password" class="form-control" id="login-password" placeholder="Password" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
         </form>
