@@ -1,3 +1,14 @@
+<?php
+
+if (!isset($_SESSION['loged'])){
+    //Redirect to index.php
+    header("Location: index.php?page=login");
+}
+?>
+
+
+
+
 <!doctype html>
 <html lang="en">
 

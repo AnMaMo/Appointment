@@ -3,6 +3,7 @@
 
 
 :root{
+
 }
 
 .hidden{
@@ -156,6 +157,17 @@ margin: 20px;
 }
 
 
+/*CORRECT CREDENTIALS*/
+.correct-credentials{
+    visibility: hidden;
+    display: none;
+}
+
+.incorrect-credentials{
+    visibility: visible;
+    color: red;
+    display: block;
+}
 
 
 /*Appointment-form*/
@@ -194,6 +206,8 @@ width: 100%;
 .all-forms{
     height: max-content;
 }
+
+
 
 @media only screen and (max-width: 600px)  {
     .form-contenedor{

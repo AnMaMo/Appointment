@@ -1,4 +1,7 @@
 <?php
+// Start the session
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -8,14 +11,9 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     //Set PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
-    echo "<br>";
-    echo "<br>";
-    echo "<br>";
-
 
     $form_username = $_POST['username'];
-    $form_password = $_POST['password'];
+    $form_password = hash('sha256', $_POST['password']);
 
 
     // Prepare statement to see if player exists
@@ -32,28 +30,37 @@ try {
     // See if user exists
     if (count($result) != 0) {
         $userexist = true;
-        if ($userexist){
+        if ($userexist) {
 
             //Check the password
             if ($result[0]['password'] == $form_password) {
-                echo "Login correct";
-                echo "<br>";
-                echo "user = $form_username";
-                echo "<br>";
-                $role = $result[0]['role'];
-                echo "role = $role";
-                echo "<br>";
+                //Create a sesion with user id and value is user name
+                $_SESSION['loged'] = $form_username;
+
+                //Redirect to index.php
+                header("Location: index.php");
             } else {
-                echo "Login incorrect";
-                echo "<br>";
+
+                // Create a invalid credentials session
+                $_SESSION['invalid-credentials'] = "true";
+
+                //Redirect to index.php
+                header("Location: index.php?page=login");
             }
         }
-    }else{
-        echo "User doesn't exist";
+    } else {
+        // Create a invalid credentials session
+        $_SESSION['invalid-credentials'] = "true";
+
+        //Redirect to index.php
+        header("Location: index.php?page=login");
     }
 
 
-
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    // Create a invalid credentials session
+    $_SESSION['no-database-found'] = "true";
+
+    //Redirect to index.php
+    header("Location: index.php?page=login");
 }
