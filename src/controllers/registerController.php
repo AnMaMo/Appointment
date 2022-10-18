@@ -1,4 +1,4 @@
 <?php
 function getRegisterForm(){
-    include "../views/register-form.php";
+    include "../src/views/register-form.php";
 };

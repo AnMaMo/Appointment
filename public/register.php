@@ -1,5 +1,5 @@
 <?php
-include "../controllers/registerController.php";
+include "../src/controllers/registerController.php";
 
 // Start the session
 session_start();

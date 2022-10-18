@@ -1,4 +1,4 @@
 <?php
 function getLoginForm(){
-    include "../views/login-form.php";
+    include "../src/views/login-form.php";
 };
