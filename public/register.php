@@ -12,7 +12,7 @@ if (isset($_SESSION['loged'])){
 
 $servername = "localhost";
 $username = "root";
-$password = "1";
+$password = "";
 $database = "appointment";
 
 try {
