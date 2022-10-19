@@ -10,13 +10,51 @@
 
 </head>
 
+<?php
+$username = "Pinlin";
+
+?>
+
 <body>
 
-    <div class="pagephp">
-        <div class="form-contenedor">
-            <div class="centerVertical">
-                    
-                  
+
+    <div class="container">
+        <form class="row align-items-start">
+            <div class="col">
+                <input type="text" class="form-control" id="inputPassword2" placeholder="Search user">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary mb-3"><img class="search-logo" src="../media/search.png" alt=""></button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <form action="">
+            <div class="row align-items-start">
+                <div class="col centre  ">
+                    <h1 ><?= $username ?></h1>
+                </div>
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Tria el rol</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col centre">
+                <h1>Appointment</h1>
+            </div>
+
+            <div class="col centre">
+                <h1>User info</h1>
+
             </div>
         </div>
     </div>
