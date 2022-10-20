@@ -17,11 +17,10 @@ $username = "Pinlin";
 
 <body>
 
-
     <div class="container">
         <form class="row align-items-start">
             <div class="col">
-                <input type="text" class="form-control" id="inputPassword2" placeholder="Search user">
+                <input type="text" class="form-control" id="searchUser" placeholder="Search user">
             </div>
             <div class="col">
                 <button type="submit" class="btn btn-primary mb-3"><img class="search-logo" src="../media/search.png" alt=""></button>
@@ -33,7 +32,7 @@ $username = "Pinlin";
         <form action="">
             <div class="row align-items-start">
                 <div class="col centre  ">
-                    <h1 ><?= $username ?></h1>
+                    <h1><?= $username ?></h1>
                 </div>
                 <div class="col">
                     <select class="form-select" aria-label="Default select example">
@@ -46,15 +45,33 @@ $username = "Pinlin";
         </form>
     </div>
 
-    <div class="container">
+    <div class="container user-margin">
         <div class="row align-items-start">
             <div class="col centre">
                 <h1>Appointment</h1>
+                <div class="row">
+                    <div class="col">
+                        <p>hola</p>
+                    </div>
+                    <div class="col">
+                        <p>hola2</p>
+                    </div>
+                    <div class="col">
+                        <p>hola3</p>
+                    </div>
+                </div>
+
             </div>
 
             <div class="col centre">
-                <h1>User info</h1>
+                <div>
+                    <h1>User info</h1>
 
+                </div>
+
+                <div> 
+                    <p>hola</p>
+                </div>
             </div>
         </div>
     </div>
