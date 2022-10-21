@@ -156,13 +156,6 @@ justify-content: space-between;
 margin: 20px;
 }
 
-
-/*CORRECT CREDENTIALS*/
-.correct-credentials{
-    visibility: hidden;
-    display: none;
-}
-
 .incorrect-credentials{
     visibility: visible;
     color: red;
@@ -222,6 +215,40 @@ width: 100%;
     color: white;
 }
 
+/*user-form*/
+.centre{
+    text-align: center;
+}
+
+.search-logo{
+    width: 15px;
+}
+.user-margin{
+    margin: 15px 50px 15px 50px;
+}
+
+.user-inputbox{
+    width: 400px;
+    height: 35px;
+    background-color: #ABAEC4;
+}
+.user-inputbox::placeholder{
+    color: white;
+}
+
+.user-square{
+    border: 1px solid black; 
+    background-color: #D9D9D9;
+}
+.user-buttom-search{
+    width: 35px;
+    height: 35px;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+
+
 @media only screen and (max-width: 600px)  {
     .form-contenedor{
         width: 100%;
@@ -236,4 +263,3 @@ width: 100%;
         font-size: 15px;
         }
   }
-
