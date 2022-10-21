@@ -40,7 +40,7 @@
             if (isset($_GET['userexist'])) {
             ?>
                 <div class="incorrect-credentials" id="credentials-error">
-                    <p>This username already exist!</p>
+                    <p>This mail already registered!</p>
                 </div>
             <?php
             }

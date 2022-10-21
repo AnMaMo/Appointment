@@ -1,6 +1,7 @@
 <link rel="icon" type="image/x-icon" href="/media/logo.ico">
 
 <?php
+/** Config */
 include "../src/config.php";
 
 /** Controllers */
@@ -10,8 +11,6 @@ include "../src/controllers/doLoginController.php";
 include "../src/controllers/registerController.php";
 include "../src/controllers/doRegisterController.php";
 include "../src/controllers/appointmentController.php";
-
-
 
 /** Models */
 include "../src/models/users.php";
@@ -28,6 +27,7 @@ $peticio = $contenidor->peticio();
 $resposta = $contenidor->resposta();
 
 
+/** Get the param "page" */
 $page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
 
 
@@ -48,16 +48,13 @@ if ($page === "index") {
   //
   // PAGES
 } elseif ($page === "appointment") {
-<<<<<<< HEAD
-  getAppointmentForm();
+  $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
 }elseif ($page === "error") {
   getError();
-=======
-  $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
+  $resposta = isLogged($peticio, $resposta, $contenidor, "error");
   //
 } else {
   $resposta = ctrlIndex($peticio, $resposta, $contenidor);
->>>>>>> 6e9f20a (Framework ok and login y register)
 }
 
 

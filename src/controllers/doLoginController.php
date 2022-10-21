@@ -29,6 +29,7 @@ function initLogin($peticio, $resposta, $contenidor)
         $resposta->setSession("loged", $usermail);
         $resposta->setSession("username", $username);
         $resposta->redirect("location: index.php");
+    // Else is a bad credentials    
     }else{
         $resposta->setSession("loged", false);
         $resposta->redirect("location: index.php?page=login&badcredentials=1");
