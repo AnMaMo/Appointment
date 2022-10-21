@@ -32,19 +32,20 @@ $page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
 
 
 if ($page === "index") {
-  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
-  //
-  // REGISTER
-} elseif ($page === "register") {
-  $resposta = getRegisterForm($peticio, $resposta, $contenidor);
-} elseif ($page === "doregister") {
-  $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
+  $resposta = ctrlIndex($peticio, $resposta, $contenidor);  
   //
   // LOGIN
 } elseif ($page === "login") {
   $resposta = getLoginForm($peticio, $resposta, $contenidor);
 } elseif ($page === "dologin") {
   $resposta = initLogin($peticio, $resposta, $contenidor);
+  //
+  // REGISTER
+} elseif ($page === "register") {
+  $resposta = getRegisterForm($peticio, $resposta, $contenidor);
+} elseif ($page === "doregister") {
+  $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
+
   //
   // PAGES
 } elseif ($page === "appointment") {
