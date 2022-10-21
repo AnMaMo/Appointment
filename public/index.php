@@ -1,28 +1,64 @@
-<?php
+<link rel="icon" type="image/x-icon" href="/media/logo.ico">
 
+<?php
+include "../src/config.php";
+
+/** Controllers */
+include "../src/controllers/indexController.php";
 include "../src/controllers/loginController.php";
+include "../src/controllers/doLoginController.php";
 include "../src/controllers/registerController.php";
+include "../src/controllers/doRegisterController.php";
 include "../src/controllers/appointmentController.php";
 
 
-$page = "";
 
-if (isset($_GET['page'])) {
-  $page = $_GET['page'];
-}
+/** Models */
+include "../src/models/users.php";
 
-//Navbar
-include '../src/views/templates/navbar.php';
+/* MiddleWare*/
+include "../src/midleware/isLoged.php";
 
-if ($page === "login") {
-  getLoginForm();
+// EMESET
+include "../src/Emeset/Contenidor.php";
+include "../src/Emeset/Peticio.php";
+include "../src/Emeset/Resposta.php";
+$contenidor = new \Emeset\Contenidor($config);
+$peticio = $contenidor->peticio();
+$resposta = $contenidor->resposta();
+
+
+$page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
+
+
+if ($page === "index") {
+  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
+  //
+  // REGISTER
 } elseif ($page === "register") {
-  getRegisterForm();
+  $resposta = getRegisterForm($peticio, $resposta, $contenidor);
+} elseif ($page === "doregister") {
+  $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
+  //
+  // LOGIN
+} elseif ($page === "login") {
+  $resposta = getLoginForm($peticio, $resposta, $contenidor);
+} elseif ($page === "dologin") {
+  $resposta = initLogin($peticio, $resposta, $contenidor);
+  //
+  // PAGES
 } elseif ($page === "appointment") {
+<<<<<<< HEAD
   getAppointmentForm();
 }elseif ($page === "error") {
   getError();
+=======
+  $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
+  //
+} else {
+  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
+>>>>>>> 6e9f20a (Framework ok and login y register)
 }
 
-//Footer
-include '../src/views/templates/footer.php';
+
+$resposta->resposta();

@@ -1,3 +1,5 @@
+<?php include '../src/views/templates/navbar.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,20 +10,6 @@
     <title>login-form</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-
-    <?php
-    if (isset($_SESSION['invalid-credentials'])) {
-    ?>
-        <script>
-            alert("Invalid credentials");
-           // invalidCredentials();
-        </script>
-    <?php
-        // close invalid-credentials session
-        unset($_SESSION['invalid-credentials']);
-    }
-    
-    ?>
 </head>
 
 <body>
@@ -32,17 +20,24 @@
                 <div class="form-title posicio">Login</div>
 
                 <div class="form-square-form ">
-                    <form class="all-forms" method="post" action="login.php">
+                    <form class="all-forms" method="post" action="index.php">
+                        <input type="hidden" name="page" value="dologin">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="login-name" placeholder="Username" name="username" required>
+                            <input type="mail" class="form-control" id="login-name" placeholder="Mail" name="usermail" required>
                         </div>
                         <div class="mb-3">
                             <input type="password" class="form-control" id="login-password" placeholder="Password" name="password" required>
                         </div>
 
-                        <div class="correct-credentials" id="credentials-error">
-                            <p>Username or Password is incorrect</p>
-                        </div>
+                        <?php
+                        if (isset($_GET['badcredentials'])) {
+                        ?>
+                            <div class="incorrect-credentials" id="badcredenti-error">
+                                <p>Mail or Password is incorrect</p>
+                            </div>
+                        <?php
+                        }
+                        ?>
 
                         <button type="submit" class="btn btn-primary">Login</button>
 
@@ -61,9 +56,9 @@
         </div>
     </div>
 
+    <?php include '../src/views/templates/footer.php'; ?>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
-
 </html>
-
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
