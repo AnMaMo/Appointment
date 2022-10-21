@@ -1,4 +1,4 @@
 <?php
 function getError(){
-    include "../views/error.php";
+    include "../src/views/error.php";
 };

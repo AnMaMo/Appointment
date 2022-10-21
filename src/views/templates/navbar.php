@@ -30,6 +30,7 @@
             <a class="nav-link" href="#">About</a>
           </li>
         </ul>
+ 
 
         <?php //start a session
         session_start();
