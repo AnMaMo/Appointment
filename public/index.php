@@ -36,7 +36,7 @@ $page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
 
 
 if ($page === "index") {
-  $resposta = ctrlIndex($peticio, $resposta, $contenidor);  
+  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
   //
   // LOGIN
 } elseif ($page === "login") {
@@ -54,19 +54,16 @@ if ($page === "index") {
   // PAGES
 } elseif ($page === "appointment") {
   $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
-}elseif ($page === "error") {
+} elseif ($page === "error") {
   getError();
-<<<<<<< HEAD
-}elseif ($page === "user-form") {
+} elseif ($page === "userform") {
   getUserform();
-}elseif ($page === "useraccount") {
+} elseif ($page === "useraccount") {
   getUseraccount();
-=======
   $resposta = isLogged($peticio, $resposta, $contenidor, "error");
   //
 } else {
   $resposta = ctrlIndex($peticio, $resposta, $contenidor);
->>>>>>> f31b883a9a2ef13588d337a67d942cd9bebc0fa3
 }
 
 
