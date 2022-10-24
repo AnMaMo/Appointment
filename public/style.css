@@ -2,49 +2,66 @@
 @import url(https://www.jqueryscript.net/css/jquerysctipttop.css);
 
 
-:root{
-
+:root {
+    --color1: #2B2F3A;
+    --color2: #575F64;
+    --color3: #ABAEC4;
+    --color4: #CDCFE0;
+    --color5: #D12424;
+    --color6: #FC4549;
+    --color7: #2B6299;
+    --color8: #4B7FBC;
 }
 
-.hidden{
+.hidden {
     visibility: hidden;
 }
 
-body{
-    background-color: #4B7FBC;
+body {
+    background-color: var(--color8);
 }
 
-*{
+* {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.bg-dark{
+.bg-dark {
     background-color: #2B2F3A !important;
 }
 
 /* NavBar */
-#logo{
+#logo {
     width: 45px;
 }
 
-.navbar{
+
+.navbar {
     height: 70px !important;
 }
 
-.container-fluid{
+.container-fluid {
     background-color: #2B2F3A;
 }
 
 
 /* All Pages*/
-.pagephp{
-    height: calc(200%);
+.pagephp {
+    height: 200%;
+}
+
+
+.logoindex {
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 
 
+
 /* FOOTER */
-.footer{
+.footer {
     height: 50px;
     background-color: #2B2F3A;
     color: white;
@@ -56,27 +73,46 @@ body{
     width: 100%;
 }
 
-.footer a{
+.footer a {
     text-decoration: none;
     color: white;
     cursor: pointer;
     font-weight: bold;
 }
 
-.footer-element{
+.footer-element {
     margin: 0px;
     width: fit-content;
 }
 
-.footer a, .footer p{
+.footer a,
+.footer p {
     margin: 0px;
 }
 
+.indexPage {
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-image: url(media/background.jpg);
+    background-size: cover;
+    background-position: top;
+}
 
+.principalPage {
+    width: 100%;
+    height: calc(100vh - 120px);
+    backdrop-filter: blur(5px);
+}
+
+.principalPage h1 {
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
 
 
 /* Login y Register form*/
-.form-contenedor{
+.form-contenedor {
     width: 65vw;
     height: 60vh;
     margin-left: auto;
@@ -89,49 +125,51 @@ body{
 }
 
 
-.form-square-form{
+.form-square-form {
     padding: 10px;
 }
 
-.form-title{
+.form-title {
     font-size: 50px;
     text-align: center;
     font-weight: bold;
 }
 
-.btn{
-    background-color: #4B7FBC;
+.btn {
+    background-color: var(--color8);
     border-radius: 0px;
     width: 100%;
 }
 
-.form-control{
+.form-control {
     border-radius: 0px;
     text-align: center;
 }
 
-.square{
+.square {
     width: 20px;
     height: 30px;
-    background-color: #4B7FBC;
+    background-color: var(--color8);
     margin: 5px;
     margin-left: 20px;
 }
 
-.square-red{
+.square-red {
     width: 20px;
     height: 30px;
-    background-color: #FC4549;
+    background-color: var(--color6);
     margin: 5px;
     margin-left: 20px;
 }
 
 
-.square, .form-title, .square-red{
+.square,
+.form-title,
+.square-red {
     display: inline-block;
 }
 
-.button a{
+.button a {
     cursor: pointer;
     text-decoration: none;
     color: black;
@@ -140,23 +178,23 @@ body{
     font-size: 20px;
 }
 
-.button{
+.button {
     text-align: right;
 }
 
-.button a{
+.button a {
     font-size: 15px;
 
 }
 
-.subform{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-margin: 20px;
+.subform {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
 }
 
-.incorrect-credentials{
+.incorrect-credentials {
     visibility: visible;
     color: red;
     display: block;
@@ -164,14 +202,14 @@ margin: 20px;
 
 
 /*Appointment-form*/
-.hours-div{
-margin: 10px;
-display: block;
-text-align: center;
-width: 100%;
+.hours-div {
+    margin: 10px;
+    display: block;
+    text-align: center;
+    width: 100%;
 }
 
-.hour{
+.hour {
     display: inline-block;
     text-align: center;
     background: #ffffff;
@@ -181,85 +219,122 @@ width: 100%;
     margin: 0px;
 }
 
-.hour:hover{
+.hour:hover {
     background-color: #CDCFE0;
 }
 
-.btn-red{
-    background-color: #FC4549;
+.btn-red {
+    background-color: var(--color6);
     width: 100%;
     border: 0px;
     color: white;
     border-radius: 0px;
 }
-.btn-red:hover{
+
+.btn-red:hover {
     background-color: #D12424;
 }
 
-.all-forms{
+.all-forms {
     height: max-content;
 }
 
 /*error*/
-.error-square{
+.error-square {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.error-square img{
+
+.error-square img {
     margin: 50px;
     width: 15%;
 }
-.error-text{
+
+.error-text {
     color: white;
 }
 
 /*user-form*/
-.centre{
+.centre {
     text-align: center;
 }
 
-.search-logo{
+.search-logo {
     width: 15px;
 }
-.user-margin{
+
+.user-margin {
     margin: 15px 50px 15px 50px;
 }
 
-.user-inputbox{
+.user-inputbox {
     width: 400px;
     height: 35px;
     background-color: #ABAEC4;
 }
-.user-inputbox::placeholder{
+
+.user-inputbox::placeholder {
     color: white;
 }
 
-.user-square{
-    border: 1px solid black; 
+.user-square {
+    border: 1px solid black;
     background-color: #D9D9D9;
 }
-.user-buttom-search{
+
+.user-buttom-search {
     width: 35px;
     height: 35px;
     background-color: blue;
     border-radius: 10px;
 }
 
+/** Index page */
+.indexoptions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.option_index{
+    width: 25%;
+    text-align: center;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
 
 
-@media only screen and (max-width: 600px)  {
-    .form-contenedor{
+@media only screen and (max-width: 600px) {
+    .form-contenedor {
         width: 100%;
         height: calc(100vh - (70px + 50px));
         margin: 0px;
     }
 
-    .subform{
+    .subform {
         font-size: 15px;
     }
-    .hour{
+
+    .hour {
         font-size: 15px;
-        }
-  }
+    }
+
+
+    /** Index page */
+    .indexoptions {
+        flex-direction: column;
+    }
+
+    .option_index{
+        width: 75%;
+        text-align: center;
+        margin: 10px;
+        border: 1px solid black;
+        padding: 10px;
+    }
+}

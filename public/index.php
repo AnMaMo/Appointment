@@ -11,6 +11,7 @@ include "../src/controllers/doLoginController.php";
 include "../src/controllers/registerController.php";
 include "../src/controllers/doRegisterController.php";
 include "../src/controllers/appointmentController.php";
+include "../src/controllers/errorController.php";
 
 /** Models */
 include "../src/models/users.php";
@@ -50,12 +51,11 @@ if ($page === "index") {
   // PAGES
 } elseif ($page === "appointment") {
   $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
-}elseif ($page === "error") {
-  getError();
-  $resposta = isLogged($peticio, $resposta, $contenidor, "error");
+} elseif ($page === "error") {
+  $resposta = errorPage($peticio, $resposta, $contenidor);
   //
 } else {
-  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
+  $resposta = errorPage($peticio, $resposta, $contenidor);
 }
 
 
