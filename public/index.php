@@ -1,35 +1,73 @@
-<?php
+<link rel="icon" type="image/x-icon" href="/media/logo.ico">
 
+<?php
+/** Config */
+include "../src/config.php";
+
+/** Controllers */
+include "../src/controllers/indexController.php";
 include "../src/controllers/loginController.php";
+include "../src/controllers/doLoginController.php";
 include "../src/controllers/registerController.php";
+include "../src/controllers/doRegisterController.php";
 include "../src/controllers/appointmentController.php";
 include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
 
 
-$page = "";
+/** Models */
+include "../src/models/users.php";
 
-if (isset($_GET['page'])) {
-  $page = $_GET['page'];
-}
+/* MiddleWare*/
+include "../src/midleware/isLoged.php";
 
-//Navbar
-include '../src/views/templates/navbar.php';
+// EMESET
+include "../src/Emeset/Contenidor.php";
+include "../src/Emeset/Peticio.php";
+include "../src/Emeset/Resposta.php";
+$contenidor = new \Emeset\Contenidor($config);
+$peticio = $contenidor->peticio();
+$resposta = $contenidor->resposta();
 
-if ($page === "login") {
-  getLoginForm();
+
+/** Get the param "page" */
+$page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
+
+
+if ($page === "index") {
+  $resposta = ctrlIndex($peticio, $resposta, $contenidor);  
+  //
+  // LOGIN
+} elseif ($page === "login") {
+  $resposta = getLoginForm($peticio, $resposta, $contenidor);
+} elseif ($page === "dologin") {
+  $resposta = initLogin($peticio, $resposta, $contenidor);
+  //
+  // REGISTER
 } elseif ($page === "register") {
-  getRegisterForm();
+  $resposta = getRegisterForm($peticio, $resposta, $contenidor);
+} elseif ($page === "doregister") {
+  $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
+
+  //
+  // PAGES
 } elseif ($page === "appointment") {
-  getAppointmentForm();
+  $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
 }elseif ($page === "error") {
   getError();
+<<<<<<< HEAD
 }elseif ($page === "user-form") {
   getUserform();
 }elseif ($page === "useraccount") {
   getUseraccount();
+=======
+  $resposta = isLogged($peticio, $resposta, $contenidor, "error");
+  //
+} else {
+  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
+>>>>>>> f31b883a9a2ef13588d337a67d942cd9bebc0fa3
 }
 
-//Footer
-include '../src/views/templates/footer.php';
+
+$resposta->resposta();

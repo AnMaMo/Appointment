@@ -36,10 +36,10 @@
         session_start();
         ?>
 
-        <?php if (isset($_SESSION['loged'])) : ?>
+        <?php if (isset($_SESSION['username'])) : ?>
           <span class="navbar-text">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li><a class="nav-link" href="#"><?=$_SESSION['loged']?></a></li>
+              <li><a class="nav-link" href="#"><?=$_SESSION['username']?></a></li>
               <li><a class="nav-link" href="logout.php">Logout</a></li>
             </ul>
           </span>
