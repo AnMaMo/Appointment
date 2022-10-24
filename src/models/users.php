@@ -18,7 +18,8 @@ class Users
         try {
             $this->sql = new PDO($dsn, $usuari, $clau);
         } catch (PDOException $e) {
-            die('Ha fallat la connexió: ' . $e->getMessage());
+            header("Location: index.php?page=error");
+            exit();
         }
     }
 
