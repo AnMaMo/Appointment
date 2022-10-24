@@ -55,12 +55,8 @@ if ($page === "index") {
 } elseif ($page === "appointment") {
   $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
 } elseif ($page === "error") {
-  getError();
-<<<<<<< HEAD
+  errorPage($peticio, $resposta, $contenidor);
 } elseif ($page === "userform") {
-=======
-}elseif ($page === "user-form") {
->>>>>>> 36af5093d8e3e9d80b7e27ce689c48a4c0624f4e
   getUserform();
 } elseif ($page === "useraccount") {
   getUseraccount();
@@ -68,11 +64,7 @@ if ($page === "index") {
   $resposta = errorPage($peticio, $resposta, $contenidor);
   //
 } else {
-<<<<<<< HEAD
   $resposta = errorPage($peticio, $resposta, $contenidor);
-=======
-  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
->>>>>>> 36af5093d8e3e9d80b7e27ce689c48a4c0624f4e
 }
 
 
