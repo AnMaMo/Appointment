@@ -61,9 +61,10 @@ if ($page === "index") {
 } elseif ($page === "useraccount") {
   getUseraccount();
   $resposta = isLogged($peticio, $resposta, $contenidor, "error");
+  $resposta = errorPage($peticio, $resposta, $contenidor);
   //
 } else {
-  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
+  $resposta = errorPage($peticio, $resposta, $contenidor);
 }
 
 

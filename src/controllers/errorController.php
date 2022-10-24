@@ -1,4 +1,8 @@
 <?php
-function getError(){
-    include "../src/views/error.php";
-};
+function errorPage($peticio, $resposta, $contenidor){
+
+    $resposta->setTemplate("error.php");
+    
+    return $resposta;
+    
+    } 

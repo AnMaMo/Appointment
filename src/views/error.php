@@ -1,3 +1,4 @@
+<?php include '../src/views/templates/navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,8 @@
     <div class="error-square">
         <img src="../media/error.png" alt="error">
         <h1 class="error-text">Error 404</h1>
+        <p class="error-text">Page Not Found</p>
     </div>
 </body>
 </html>
+<?php include '../src/views/templates/footer.php'; ?>
