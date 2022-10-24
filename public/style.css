@@ -254,6 +254,31 @@ width: 100%;
     border-radius: 10px;
 }
 
+/*useraccount*/
+
+.useraccount{
+    margin: 20PX;
+}
+.useraccount-text{
+    font-weight: bold;
+}
+
+.useraccount-button-save{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.cancelApp, .date, .barber{
+    width: fit-content;
+}
+
+
+
 
 
 @media only screen and (max-width: 600px)  {

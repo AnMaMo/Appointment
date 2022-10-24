@@ -5,6 +5,8 @@ include "../src/controllers/registerController.php";
 include "../src/controllers/appointmentController.php";
 include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
+include "../src/controllers/useraccountController.php";
+
 
 $page = "";
 
@@ -25,6 +27,8 @@ if ($page === "login") {
   getError();
 }elseif ($page === "user-form") {
   getUserform();
+}elseif ($page === "useraccount") {
+  getUseraccount();
 }
 
 //Footer
