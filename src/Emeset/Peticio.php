@@ -35,6 +35,7 @@ class Peticio
      * @param $id      string amb la tasca.
      * @param $filtre  int filtre a aplicar
      * @param $options int opcions del filtre si volem un array FILTER_REQUIRE_ARRAY
+     * @deprecated
      **/
     public function get($input, $id, $filter = FILTER_SANITIZE_STRING, $options = 0)
     {

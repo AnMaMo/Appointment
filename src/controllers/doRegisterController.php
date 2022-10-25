@@ -1,6 +1,6 @@
 <?php
 function setUserInDatabase($peticio, $resposta, $contenidor){
-    //Get the user controller
+    //Get the user model
     $users = $contenidor->users();
 
     // Get the post info to user
@@ -28,4 +28,4 @@ function setUserInDatabase($peticio, $resposta, $contenidor){
     }
 
     return $resposta;
-}    
+}

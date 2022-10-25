@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 class appointment
+=======
+class Appointment
+>>>>>>> 12779e4 (mostra les dates de cites desde BD)
 {
 
     private $sql;
@@ -23,6 +27,7 @@ class appointment
         }
     }
 
+<<<<<<< HEAD
 
     /**
      * Function to add appointment to database
@@ -47,11 +52,34 @@ class appointment
     {
         $query = 'SELECT * FROM appointments';
         $stm = $this->sql->prepare($query);
+=======
+    // public function getAppointment($userid)
+    // {
+    //     $query = "select * from appointments where user_id=:id;";
+    //     $stm = $this->sql->prepare($query);
+    //     $stm->bindValue(':searchuser', $userid);
+    //     $result = $stm->execute();
+    //     return $stm->fetch(\PDO::FETCH_ASSOC);
+        
+ 
+    // }
+
+
+    /**
+     * Function to get all workstations
+     */
+    public function getUserAppointments($userid)
+    {
+        $query = 'SELECT * FROM appointments where user_id=:userid';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':userid', $userid);
+>>>>>>> 12779e4 (mostra les dates de cites desde BD)
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
+<<<<<<< HEAD
 /**
  * Function returns ocuped hours to appointments specific date
  */
@@ -62,4 +90,15 @@ class appointment
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+=======
+    // public function getWsId($wsid){
+    //     $query = 'SELECT * FROM workstation where ws_id=:wsid';
+    //     $stm = $this->sql->prepare($query);
+    //     $stm->bindValue(':wsid', $wsid);
+    //     $stm->execute();
+    //     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+    //     return $result;
+    // }
+
+>>>>>>> 12779e4 (mostra les dates de cites desde BD)
 }

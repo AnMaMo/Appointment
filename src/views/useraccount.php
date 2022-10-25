@@ -44,22 +44,15 @@
                     <p>My appointments</p>
                 </div>
                 <div class="useraccount">
-                    <!-- esborrany, ha de anar php iterran les cites que te el client -->
-                    <div class="row">
-                        <p class="date">20/09/2022</p>
-                        <p class="barber">barber</p>
+                <?php
+                foreach ($appointmentsList as $appointment) {   
+                    echo '<div class="row">
+                        <p class="date">'.$appointment['app_date'].'</p>
+                        <p class="barber">'.$appointment['ws_id'].'</p>
                         <button type="button" class="btn btn-danger cancelApp">Cancelar</button>
-                    </div>
-                    <div class="row">
-                        <p class="date">20/09/2022</p>
-                        <p class="barber">barber</p>
-                        <button type="button" class="btn btn-danger cancelApp">Cancelar</button>
-                    </div>
-                    <div class="row">
-                        <p class="date">20/09/2022</p>
-                        <p class="barber">barber</p>
-                        <button type="button" class="btn btn-danger cancelApp">Cancelar</button>
-                    </div>
+                    </div>';
+                }                    
+                ?>
                 </div>
             </div>
         </div>
