@@ -207,16 +207,27 @@ body {
 .hour {
     display: inline-block;
     text-align: center;
-    background: #ffffff;
-
+    background: var(--color4);
     cursor: pointer;
     width: 24%;
     margin: 0px;
 }
 
 .hour:hover {
-    background-color: #CDCFE0;
+    background-color: var(--color2);
+    color: var(--color4);
 }
+
+.hourclicked {
+    display: inline-block;
+    text-align: center;
+    background: var(--color3);
+    cursor: pointer;
+    width: 24%;
+    margin: 0px;
+}
+
+
 
 .btn-red {
     background-color: var(--color6);
@@ -288,24 +299,28 @@ body {
 
 /*useraccount*/
 
-.useraccount{
+.useraccount {
     margin: 20PX;
 }
-.useraccount-text{
+
+.useraccount-text {
     font-weight: bold;
 }
 
-.useraccount-button-save{
+.useraccount-button-save {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.row{
+
+.row {
     display: flex;
     justify-content: space-between;
     margin: 5px;
 }
 
-.cancelApp, .date, .barber{
+.cancelApp,
+.date,
+.barber {
     width: fit-content;
 }
 
@@ -320,7 +335,7 @@ body {
     justify-content: center;
 }
 
-.option_index{
+.option_index {
     width: 25%;
     text-align: center;
     margin: 10px;
@@ -350,7 +365,7 @@ body {
         flex-direction: column;
     }
 
-    .option_index{
+    .option_index {
         width: 75%;
         text-align: center;
         margin: 10px;

@@ -11,6 +11,7 @@ include "../src/controllers/doLoginController.php";
 include "../src/controllers/registerController.php";
 include "../src/controllers/doRegisterController.php";
 include "../src/controllers/appointmentController.php";
+include "../src/controllers/doAppointmentController.php";
 include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
@@ -18,6 +19,7 @@ include "../src/controllers/useraccountController.php";
 
 /** Models */
 include "../src/models/users.php";
+include "../src/models/appointment.php";
 
 /* MiddleWare*/
 include "../src/midleware/isLoged.php";
@@ -49,11 +51,14 @@ if ($page === "index") {
   $resposta = getRegisterForm($peticio, $resposta, $contenidor);
 } elseif ($page === "doregister") {
   $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
-
   //
-  // PAGES
+  // APPOINTMENT
 } elseif ($page === "appointment") {
   $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
+}elseif($page === "doAppointment"){
+  $resposta = saveAppointment($peticio, $resposta, $contenidor);
+
+
 } elseif ($page === "error") {
   errorPage($peticio, $resposta, $contenidor);
 } elseif ($page === "userform") {
