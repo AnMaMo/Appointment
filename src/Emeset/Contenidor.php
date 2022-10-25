@@ -46,4 +46,7 @@ class Contenidor
         return new \users($this->config);
     }
 
+    public function appointment(){
+        return new \appointment($this->config);
+    }
 }

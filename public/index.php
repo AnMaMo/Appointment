@@ -14,10 +14,12 @@ include "../src/controllers/appointmentController.php";
 include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
+include "../src/controllers/getuserappointments.php";
 
 
 /** Models */
 include "../src/models/users.php";
+include "../src/models/appointment.php";
 
 /* MiddleWare*/
 include "../src/midleware/isLoged.php";
@@ -49,7 +51,14 @@ if ($page === "index") {
   $resposta = getRegisterForm($peticio, $resposta, $contenidor);
 } elseif ($page === "doregister") {
   $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
+//
+// USER ACCOUNT
+}elseif ($page === "useraccount") {
+  $resposta = getUseraccount($peticio, $resposta, $contenidor);
 
+// }elseif ($page === "userappointments") {
+//   $resposta = getUserAppointmets($peticio, $resposta, $contenidor);
+ 
   //
   // PAGES
 } elseif ($page === "appointment") {
@@ -58,12 +67,7 @@ if ($page === "index") {
   errorPage($peticio, $resposta, $contenidor);
 } elseif ($page === "userform") {
   getUserform();
-} elseif ($page === "useraccount") {
-  getUseraccount();
-  $resposta = isLogged($peticio, $resposta, $contenidor, "error");
-  $resposta = errorPage($peticio, $resposta, $contenidor);
-  //
-} else {
+}  else {
   $resposta = errorPage($peticio, $resposta, $contenidor);
 }
 
