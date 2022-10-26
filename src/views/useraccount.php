@@ -46,12 +46,21 @@
                 <div class="useraccount">
                 <?php
                 foreach ($appointmentsList as $appointment) {   
-                    echo '<div class="row">
+
+                    foreach ($workstationList as $workstation) {
+                        $wsid = $appointment['ws_id'];
+
+                        if ($workstation['ws_id'] === $wsid) {
+                            $wsid = $workstation['ws_name'];
+                        
+                        echo '<div class="row">
                         <p class="date">'.$appointment['app_date'].'</p>
-                        <p class="barber">'.$appointment['ws_id'].'</p>
+                        <p class="barber">'.$wsid.'</p>
                         <button type="button" class="btn btn-danger cancelApp">Cancelar</button>
-                    </div>';
-                }                    
+                        </div>';
+                        }
+                    }
+                }                   
                 ?>
                 </div>
             </div>
