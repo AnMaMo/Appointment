@@ -20,6 +20,7 @@ include "../src/controllers/getuserappointments.php";
 /** Models */
 include "../src/models/users.php";
 include "../src/models/appointment.php";
+include "../src/models/workstations.php";
 
 /* MiddleWare*/
 include "../src/midleware/isLoged.php";

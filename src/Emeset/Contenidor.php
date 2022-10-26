@@ -49,4 +49,8 @@ class Contenidor
     public function appointment(){
         return new \appointment($this->config);
     }
+    
+    public function workstations(){
+        return new \workstations($this->config);
+    }
 }
