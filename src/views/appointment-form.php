@@ -19,7 +19,7 @@
 </head>
 
 <body>
-<?php include '../src/views/templates/navbar.php'; ?>
+    <?php include '../src/views/templates/navbar.php'; ?>
     <div class="pagephp">
         <div class="form-contenedor">
             <div class="centerVertical">
@@ -30,20 +30,22 @@
                     <form action="index.php" method="POST" class="all-forms" name="appointmentForm">
                         <input type="hidden" name="page" value="doAppointment">
                         <div class="mb-3">
-                            <span>Date: </span><input type="text" id="datepicker" name="dateAppointment" onchange="validDay()">
-                            <select name="Barber" id="Barber">
+                            <input type="text" id="datepicker" name="dateAppointment" placeholder="Select a date" onchange="selectDate()">
+                            <select id="workstation" name="workstation_selected" onchange="selectDate()">
                                 <?php
-                                $barbers = ["barber 1", "barber 2", "barber 3", "barber 4", "barber 5"];
-                                for ($i = 0; $i < sizeof($barbers); $i++) {
-                                ?>
-                                    <option value=<?= $i ?>><?= $barbers[$i] ?></option>
+                                //Get the workstations of resposta
 
+                                foreach ($workstations as $workstation) {
+                                ?>
+                                    <option value=<?= $workstation['ws_id'] ?>><?= $workstation['ws_name'] ?></option>
                                 <?php
                                 }
+
                                 ?>
                             </select>
                         </div>
 
+                        <div class="hour_selector">
                         <div class="hours-div">
                             <div class="hour" id="hour1" name="9:00" onclick="clickHour(this)">9:00-9:30</div>
                             <div class="hour" id="hour2" name="9:30" onclick="clickHour(this)">9:30-10:00</div>
@@ -67,6 +69,7 @@
                             <div class="hour" id="hour14" name="18:30" onclick="clickHour(this)">18:30-19:00</div>
                             <div class="hour" id="hour15" name="19:00" onclick="clickHour(this)">19:00-19:30</div>
                             <div class="hour" id="hour16" name="19:30" onclick="clickHour(this)">19:30-20:00</div>
+                        </div>
                         </div>
                         <input type="text" class="hidden" name="hour_selected" id="hour_selected" required>
                         <button type="submit" class="btn-red btn-primary">Take Appointment</button>

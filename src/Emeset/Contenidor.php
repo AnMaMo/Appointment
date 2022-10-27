@@ -42,12 +42,19 @@ class Contenidor
         return new \Emeset\Peticio();
     }
 
+
+    // MODELS
+    
     public function users(){
         return new \users($this->config);
     }
 
     public function appointment(){
         return new \appointment($this->config);
+    }
+
+    public function workstations(){
+        return new \workstations($this->config);
     }
 
 }

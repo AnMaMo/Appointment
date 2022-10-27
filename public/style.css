@@ -197,19 +197,20 @@ body {
 
 
 /*Appointment-form*/
-.hours-div {
-    margin: 10px;
-    display: block;
+
+#datepicker{
     text-align: center;
-    width: 100%;
+}
+
+.hours-div {
+    display: flex;
 }
 
 .hour {
-    display: inline-block;
     text-align: center;
     background: var(--color4);
     cursor: pointer;
-    width: 24%;
+    width: 100%;
     margin: 0px;
 }
 
@@ -223,7 +224,17 @@ body {
     text-align: center;
     background: var(--color3);
     cursor: pointer;
-    width: 24%;
+    width: 100%;
+    margin: 0px;
+}
+
+.noValidHour{
+    display: inline-block;
+    text-align: center;
+    background: var(--color1);
+    color: var(--color4);
+    cursor: pointer;
+    width: 100%;
     margin: 0px;
 }
 
