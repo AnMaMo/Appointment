@@ -57,6 +57,11 @@ class Users
         $result = $stm->execute();
     }
 
-
-    
+    public function changePasswordUser($newpass, $userid){
+        $query ='UPDATE users set user_password:newpass where user_id:userid';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':newpass', $newpass);
+        $stm->bindValue(':userid', $userid);
+        $result = $stm->execute();
+    }
 }

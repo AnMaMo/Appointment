@@ -325,7 +325,7 @@ body {
     margin-bottom: 10px;
 }
 
-.row {
+.row{
     display: flex;
     justify-content: space-between;
     margin: 5px;
@@ -337,8 +337,14 @@ body {
     width: fit-content;
 }
 
+.title-views{
+    color: white;
+}
 
-
+.changeconfig{
+    margin: 0px;
+    padding: 0px;
+}
 /** Index page */
 .indexoptions {
     display: flex;
