@@ -197,9 +197,16 @@ body {
 
 
 /*Appointment-form*/
+.dateAndWorkstation{
+    display: flex;
+    justify-content: left;
+}
 
-#datepicker{
+#datepicker, #workstation{
     text-align: center;
+    width: 50%;
+    height: 25px;
+    margin: 10px;
 }
 
 .hours-div {
