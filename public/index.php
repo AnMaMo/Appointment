@@ -1,4 +1,5 @@
 <?php
+
 /** Config */
 include "../src/config.php";
 
@@ -11,6 +12,7 @@ include "../src/controllers/doRegisterController.php";
 include "../src/controllers/appointmentController.php";
 include "../src/controllers/doAppointmentController.php";
 include "../src/controllers/avaliableHoursController.php";
+include "../src/controllers/getDisabledDaysController.php";
 include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
@@ -19,6 +21,7 @@ include "../src/controllers/useraccountController.php";
 include "../src/models/users.php";
 include "../src/models/appointment.php";
 include "../src/models/workstations.php";
+include "../src/models/days.php";
 
 /* MiddleWare*/
 include "../src/midleware/isLoged.php";
@@ -56,6 +59,8 @@ if ($page === "index") {
   $resposta = saveAppointment($peticio, $resposta, $contenidor);
 } elseif ($page === "checkhours") {
   $resposta = getAvaliableHours($peticio, $resposta, $contenidor);
+} elseif ($page === "setDisabledDates") {
+  $resposta = getDisabledDays($peticio, $resposta, $contenidor);
   // USER
 } elseif ($page === "userform") {
   getUserform();

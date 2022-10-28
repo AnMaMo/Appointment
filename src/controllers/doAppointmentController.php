@@ -4,8 +4,7 @@ function saveAppointment($peticio, $resposta, $contenidor)
     //Get the Models
     $appointments = $contenidor->appointment();
     $users = $contenidor->users();
-    $workstations = $contenidor->workstations();
-
+    $days = $contenidor->days();
 
     // Get the session mail to user
     $usermail = $peticio->get("SESSION", "loged");
@@ -19,13 +18,14 @@ function saveAppointment($peticio, $resposta, $contenidor)
     // Get the post info to user
     $dateTimeForm = $peticio->get(INPUT_POST, "dateAppointment");
     $time = $peticio->get(INPUT_POST, "hour_selected");
-
+ 
 
     //Array the date
-    $dateArray = explode("/", $dateTimeForm);
+    $dateArray = explode("-", $dateTimeForm);
     $year = $dateArray[0];
     $month = $dateArray[1];
     $day = $dateArray[2];
+
     //Array the time
     $arrayTime = explode(":", $time);
     $hour = $arrayTime[0];
@@ -33,15 +33,35 @@ function saveAppointment($peticio, $resposta, $contenidor)
     // Create DateTime
     $dateTime = $year . "-" . $month . "-" . $day . " " . $hour . ":" . $minute . ":00";
 
+    // Get the date
+    $date = $year . "-" . $month . "-" . $day;
 
-    // Get the workstation id by post name
-    $workstation_id = $peticio->get(INPUT_POST, "workstation_selected");
+    // Get all days blocked
+    $daysBlocked = $days->getBlockedDays();
 
-    // Execute the query
-    $appointments->addAppointmentToDatabase($user_id, $dateTime, $workstation_id, "user");
+    // Check if the date is blocked
+    $dateIsBlocked = false;
+    foreach ($daysBlocked as $key) {
+        if ($date == $key["day"]) {
+            $dateIsBlocked = true;
+        }
+    }
 
-    $resposta->redirect("location: index.php");
+    // If date is blocked
+    if ($dateIsBlocked) {
+        $resposta->redirect("location: index.php?page=error");
+        return $resposta;
+    // If date is not blocked    
+    } else {
+        // Get the workstation id by post name
+        $workstation_id = $peticio->get(INPUT_POST, "workstation_selected");
 
-    //return resposta
-    return $resposta;
+        // Execute the query
+        $appointments->addAppointmentToDatabase($user_id, $dateTime, $workstation_id, "user");
+
+        $resposta->redirect("location: index.php");
+
+        //return resposta
+        return $resposta;
+    }
 }

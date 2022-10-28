@@ -1,25 +1,60 @@
+var disabledDays = [];
+UpdateDisabledDays();
+
+
 /**
  * This function set the params of the datepicker JQuery
  */
-$(function datepicker() {
-    $("#datepicker").datepicker({ dateFormat: "yy/mm/dd" }).val();
+$(function () {
+    $("#datepicker").datepicker({
+        dateFormat: 'yy-mm-dd',
+        firstDay: 1,
+        //TODO: A parte de poner las fechas que estan limitadas hay que hacer lo mismo al enviar el formulario si no se puede reservar un dia bloqueado
+
+        // Iterate the array of dates to disable
+        beforeShowDay: function (date) {
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [disabledDays.indexOf(string) == -1]
+        }
+    });
 });
 
 /**
- * Function to see if user has entered an hour
+ * Function calls when you click the datepicker
  */
-function appointmentHourValidation(){
-    var hour = $("#hour_selected").val();
-    if (hour == "") {
-        alert("Please select an hour");
-        return false;
+function UpdateDisabledDays() {
+    /**
+* CALL AJAX
+* url: call a controller to get the no avaliable hours for the selected date
+* type: POST
+* data: date and workstation id (send to the controller)
+* success: call the function ProcessInvalidHours when the ajax is success
+*/
+    $.ajax({
+        url: 'index.php?page=setDisabledDates',
+        dataType: "json",
+        success: setdisabledates
+    });
+}
+
+/**
+ * Function to set a disabled date in the datepicker
+ * @param {*} disabledates 
+ */
+function setdisabledates(disabledates) {
+    // Clear the array of disabled dates
+    disabledDays = [];
+
+    for (const date of disabledates.novalidDays) {
+        // Save the date in a datetime variable
+        disabledDays.push(date.day);
     }
 }
 
 /**
  * Function to call ajax to get the hours available for the selected date
  */
-function selectDate(date) {
+function selectDate() {
     // Get the workstation id and the date selected
     var workstation = $("#workstation").val();
     var date = $("#datepicker").val();

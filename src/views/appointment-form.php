@@ -49,32 +49,32 @@
 
                         <div class="hour_selector">
                             <div class="hours-div">
-                                <div class="hour" id="hour1" name="9:00" onclick="clickHour(this)">9:00-9:30</div>
-                                <div class="hour" id="hour2" name="9:30" onclick="clickHour(this)">9:30-10:00</div>
-                                <div class="hour" id="hour3" name="10:00" onclick="clickHour(this)">10:00-10:30</div>
-                                <div class="hour" id="hour4" name="10:30" onclick="clickHour(this)">10:30-11:00</div>
+                                <div class="hour" id="hour1" name="9:00" onclick="clickHour(this)">9:00</div>
+                                <div class="hour" id="hour2" name="9:30" onclick="clickHour(this)">9:30</div>
+                                <div class="hour" id="hour3" name="10:00" onclick="clickHour(this)">10:00</div>
+                                <div class="hour" id="hour4" name="10:30" onclick="clickHour(this)">10:30</div>
                             </div>
                             <div class="hours-div">
-                                <div class="hour" id="hour5" name="11:00" onclick="clickHour(this)">11:00-11:30</div>
-                                <div class="hour" id="hour6" name="11:30" onclick="clickHour(this)">11:30-12:00</div>
-                                <div class="hour" id="hour7" name="12:00" onclick="clickHour(this)">12:00-12:30</div>
-                                <div class="hour" id="hour8" name="12:30" onclick="clickHour(this)">12:30-13:00</div>
+                                <div class="hour" id="hour5" name="11:00" onclick="clickHour(this)">11:00</div>
+                                <div class="hour" id="hour6" name="11:30" onclick="clickHour(this)">11:30</div>
+                                <div class="hour" id="hour7" name="12:00" onclick="clickHour(this)">12:00</div>
+                                <div class="hour" id="hour8" name="12:30" onclick="clickHour(this)">12:30</div>
                             </div>
                             <div class="hours-div">
-                                <div class="hour" id="hour9" name="16:00" onclick="clickHour(this)">16:00-16:30</div>
-                                <div class="hour" id="hour10" name="16:30" onclick="clickHour(this)">16:30-17:00</div>
-                                <div class="hour" id="hour11" name="17:00" onclick="clickHour(this)">17:00-17:30</div>
-                                <div class="hour" id="hour12" name="17:30" onclick="clickHour(this)">17:30-18:00</div>
+                                <div class="hour" id="hour9" name="16:00" onclick="clickHour(this)">16:00</div>
+                                <div class="hour" id="hour10" name="16:30" onclick="clickHour(this)">16:30</div>
+                                <div class="hour" id="hour11" name="17:00" onclick="clickHour(this)">17:00</div>
+                                <div class="hour" id="hour12" name="17:30" onclick="clickHour(this)">17:30</div>
                             </div>
                             <div class="hours-div">
-                                <div class="hour" id="hour13" name="18:00" onclick="clickHour(this)">18:00-18:30</div>
-                                <div class="hour" id="hour14" name="18:30" onclick="clickHour(this)">18:30-19:00</div>
-                                <div class="hour" id="hour15" name="19:00" onclick="clickHour(this)">19:00-19:30</div>
-                                <div class="hour" id="hour16" name="19:30" onclick="clickHour(this)">19:30-20:00</div>
+                                <div class="hour" id="hour13" name="18:00" onclick="clickHour(this)">18:00</div>
+                                <div class="hour" id="hour14" name="18:30" onclick="clickHour(this)">18:30</div>
+                                <div class="hour" id="hour15" name="19:00" onclick="clickHour(this)">19:00</div>
+                                <div class="hour" id="hour16" name="19:30" onclick="clickHour(this)">19:30</div>
                             </div>
                         </div>
                         <input type="text" class="hidden" name="hour_selected" id="hour_selected" required>
-                        <button type="submit" class="btn-red btn-primary" onclick="appointmentHourValidation()">Take Appointment</button>
+                        <button type="submit" class="btn btn-red btn-primary" onclick="appointmentHourValidation()">Take Appointment</button>
                     </form>
                 </div>
             </div>
