@@ -9,7 +9,6 @@ $(function () {
     $("#datepicker").datepicker({
         dateFormat: 'yy-mm-dd',
         firstDay: 1,
-        //TODO: A parte de poner las fechas que estan limitadas hay que hacer lo mismo al enviar el formulario si no se puede reservar un dia bloqueado
 
         // Iterate the array of dates to disable
         beforeShowDay: function (date) {
