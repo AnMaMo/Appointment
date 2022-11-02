@@ -23,23 +23,23 @@
                     <p>Change personal information</p>
                 </div>
                 <div class="useraccount col">
-                    <form class="form-inline" action="" method="POST">
+                    <form class="form-inline" method="POST">
                         <div class="col">
-                            <input type="text" class="changeconfig" id="name" placeholder="<?= $user['user_name'] ?>">
-                            <button type="submit" class="btn btn-success cancelApp">Save</button>
+                            <input type="text" class="changeconfig" id="name_new" placeholder="<?= $user['user_name'] ?>" required>
+                            <button type="submit" class="btn btn-success cancelApp" onclick="sendchangename()">Save</button>
                         </div>
                     </form>
                     <form action="" method="POST">
                         <div class="col">
-                            <input type="text" class="changeconfig" id="email" placeholder="<?= $user['user_mail'] ?>">
-                            <button type="submit" class="btn btn-success cancelApp">Save</button>
+                            <input type="text" class="changeconfig" id="email_new" placeholder="<?= $user['user_mail'] ?>" required>
+                            <button type="button" class="btn btn-success cancelApp" onchange="sendchangemail()">Save</button>
                         </div>
                     </form>
                     <form action="" method="POST">
                         <div class="col">
-                            <input type="password" class="changeconfig" id="currentpass" placeholder="Current password">
-                            <input type="password" class="changeconfig" id="newpass" placeholder="New password">
-                            <button type="submit" class="btn btn-success cancelApp">Save</button>
+                            <input type="password" class="changeconfig" id="password_current" placeholder="Current password" required>
+                            <input type="password" class="changeconfig" id="password_new" placeholder="New password" required>
+                            <button type="button" class="btn btn-success cancelApp" onchange="sendchangepassword()">Save</button>
                         </div>
                     </form>
                 </div>
@@ -62,12 +62,12 @@
                                 //if the id are the same
                                 if ($workstation['ws_id'] === $wsid) {
                                     //take the name and store it in a variable(wsidname)
-                                    $wsidname = $workstation['ws_name'];
+                                    $wsname = $workstation['ws_name'];
 
                                     //print
                                     echo '<div class="row">
                                     <p class="date">' . $appointment['app_date'] . '</p>
-                                    <p class="barber">' . $wsidname . '</p>
+                                    <p class="barber">' . $wsname . '</p>
                                     <button type="button" id="delete_' . $appointment['app_id'] . '" class="btn btn-danger cancelApp">Cancelar</button>
                                     </div>';
                                 }

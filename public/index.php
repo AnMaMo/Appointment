@@ -15,6 +15,9 @@ include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
 include "../src/controllers/getuserappointments.php";
+include "../src/controllers/getchangename.php";
+include "../src/controllers/getchangemail.php";
+include "../src/controllers/getchangepassword.php";
 
 
 /** Models */
@@ -52,14 +55,16 @@ if ($page === "index") {
   $resposta = getRegisterForm($peticio, $resposta, $contenidor);
 } elseif ($page === "doregister") {
   $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
-//
-// USER ACCOUNT
-}elseif ($page === "useraccount") {
+  //
+  // USER ACCOUNT
+} elseif ($page === "useraccount") {
   $resposta = getUseraccount($peticio, $resposta, $contenidor);
-
-// }elseif ($page === "userappointments") {
-//   $resposta = getUserAppointmets($peticio, $resposta, $contenidor);
- 
+} elseif ($page === "getchangename") {
+  $resposta = getchangename($peticio, $resposta, $contenidor);
+} elseif ($page === "getchangemail") {
+  $resposta = getchangemail($peticio, $resposta, $contenidor);
+}elseif ($page === "getchangepassword") {
+  $resposta = getchangepassword($peticio, $resposta, $contenidor); 
   //
   // PAGES
 } elseif ($page === "appointment") {
@@ -68,7 +73,7 @@ if ($page === "index") {
   errorPage($peticio, $resposta, $contenidor);
 } elseif ($page === "userform") {
   getUserform();
-}  else {
+} else {
   $resposta = errorPage($peticio, $resposta, $contenidor);
 }
 

@@ -57,11 +57,18 @@ class Users
         $result = $stm->execute();
     }
 
-    public function changePasswordUser($newpass, $userid){
-        $query ='UPDATE users set user_password:newpass where user_id:userid';
+    // public function changePasswordUser($newpass, $userid){
+    //     $query ='UPDATE users set user_password:newpass where user_id:userid';
+    //     $stm = $this->sql->prepare($query);
+    //     $stm->bindValue(':newpass', $newpass);
+    //     $stm->bindValue(':userid', $userid);
+    //     $result = $stm->execute();
+    // }
+
+    public function changename($name_new){
+        $query ='UPDATE users set user_name:name_new where user_id:userid';
         $stm = $this->sql->prepare($query);
-        $stm->bindValue(':newpass', $newpass);
-        $stm->bindValue(':userid', $userid);
+        $stm->bindValue(':name_new', $name_new);
         $result = $stm->execute();
     }
 }

@@ -7,8 +7,8 @@ function getUseraccount($peticio, $resposta, $contenidor)
     $workstation = $contenidor->workstations();
 
 
-    $currentpass = $peticio->get(INPUT_POST, "currentpass");
-    $newpass = $peticio->get(INPUT_POST, "newpass");
+    // $currentpass = $peticio->get(INPUT_POST, "currentpass");
+    // $newpass = $peticio->get(INPUT_POST, "newpass");
 
     //agafa el email de la sesio
     $usermail = $peticio->get("SESSION", "loged");
