@@ -9,13 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Useraccount</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="script.js"></script>
 
 </head>
 
 <body>
 
     <div class="container ">
-        <h1 class="centre useraccount title-views"><?=$user['user_name']?> configuration</h1>
+        <h1 class="centre useraccount title-views"><?= $user['user_name'] ?> configuration</h1>
         <div class="row align-items-start ">
             <div class="col centre user-square useraccount">
 
@@ -23,25 +26,24 @@
                     <p>Change personal information</p>
                 </div>
                 <div class="useraccount col">
-                    <form class="form-inline" method="POST">
+
+                    <!--change name -->
+                    <form method="POST">
                         <div class="col">
-                            <input type="text" class="changeconfig" id="name_new" placeholder="<?= $user['user_name'] ?>" required>
+                            <input type="text" class="changeconfig" id="newName" placeholder="<?= $user['user_name'] ?>">
                             <button type="submit" class="btn btn-success cancelApp" onclick="sendchangename()">Save</button>
                         </div>
                     </form>
-                    <form action="" method="POST">
-                        <div class="col">
-                            <input type="text" class="changeconfig" id="email_new" placeholder="<?= $user['user_mail'] ?>" required>
-                            <button type="button" class="btn btn-success cancelApp" onchange="sendchangemail()">Save</button>
-                        </div>
-                    </form>
-                    <form action="" method="POST">
+
+                    <!-- change password -->
+                    <form method="POST">
                         <div class="col">
                             <input type="password" class="changeconfig" id="password_current" placeholder="Current password" required>
                             <input type="password" class="changeconfig" id="password_new" placeholder="New password" required>
-                            <button type="button" class="btn btn-success cancelApp" onchange="sendchangepassword()">Save</button>
+                            <button type="submit" class="btn btn-success cancelApp" onclick="sendchangepassword()">Save</button>
                         </div>
                     </form>
+
                 </div>
             </div>
             <div class="col centre user-square useraccount">
@@ -84,5 +86,10 @@
     <?php include '../src/views/templates/footer.php'; ?>
 
 </body>
+<!-- <script>
+    if ($page === "errorpassword") {
+        alert("The password are not the same")
+    }
+</script> -->
 
 </html>
