@@ -148,24 +148,22 @@ function invalidCredentials(){
     element.classList.remove("correct-credentials");
 }
 
+
+
 function sendchangename(){
-    var name_new = $("#name_new").val();
+
+    var name_new = $("#newName").val();
+
+    //
+    if (name_new === null || name_new === "") {
+        alert("write a new name!!!");
+        return;
+    }
 
     $.ajax({
-        url: 'index.php?page=getchangeinfo',
+        url: 'index.php?page=getchangename',
         type: 'POST',
         data: { name_new: name_new},
-        dataType: "json"
-    });
-}
-
-function sendchangemail(){
-    var email_new = $("#email_new").val();
-
-    $.ajax({
-        url: 'index.php?page=getchangemail',
-        type: 'POST',
-        data: { email_new: email_new},
         dataType: "json"
     });
 }
@@ -173,7 +171,7 @@ function sendchangemail(){
 function sendchangepassword(){
     var password_new = $("#password_new").val();
     var password_current =$("#password_current").val();
-    
+  
     $.ajax({
         url: 'index.php?page=getchangepassword',
         type: 'POST',
