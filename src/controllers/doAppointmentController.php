@@ -4,7 +4,7 @@ function saveAppointment($peticio, $resposta, $contenidor)
     //Get the Models
     $appointments = $contenidor->appointment();
     $users = $contenidor->users();
-    $days = $contenidor->days();
+    $days = $contenidor->disabledDays();
 
     // Get the session mail to user
     $usermail = $peticio->get("SESSION", "loged");

@@ -57,7 +57,7 @@ class Contenidor
         return new \workstations($this->config);
     }
 
-    public function days(){
-        return new \days($this->config);
+    public function disabledDays(){
+        return new \disabledDays($this->config);
     }
 }

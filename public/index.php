@@ -6,10 +6,10 @@
  * @version 1.0
  */
 
-/** Get the Config */
+/* Get the Config */
 include "../src/config.php";
 
-/** Get the Controllers */
+/* Get the Controllers */
 include "../src/controllers/indexController.php";
 include "../src/controllers/loginController.php";
 include "../src/controllers/doLoginController.php";
@@ -23,11 +23,11 @@ include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
 
-/** Get the Models */
+/* Get the Models */
 include "../src/models/users.php";
 include "../src/models/appointment.php";
 include "../src/models/workstations.php";
-include "../src/models/days.php";
+include "../src/models/disabledDays.php";
 
 /* Get the MiddleWare */
 include "../src/midleware/isLoged.php";

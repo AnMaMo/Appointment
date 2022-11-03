@@ -1,5 +1,5 @@
 <?php
-class days
+class disabledDays
 {
 
     private $sql;
@@ -29,7 +29,7 @@ class days
  */
     public function getBlockedDays()
     {
-        $stm = $this->sql->prepare("select * from nulldays");
+        $stm = $this->sql->prepare("select * from disableddays");
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;

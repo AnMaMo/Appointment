@@ -26,9 +26,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/index.php?page=appointment">Appointment</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
         </ul>
  
 

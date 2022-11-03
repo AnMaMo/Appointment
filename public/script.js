@@ -69,7 +69,7 @@ function selectDate() {
      * success: call the function ProcessInvalidHours when the ajax is success
      */
     $.ajax({
-        url: 'index.php?page=checkhours',
+        url: 'index.php?page=checkAvaliableHours',
         type: 'POST',
         data: { date: date, workstation: workstation },
         dataType: "json",

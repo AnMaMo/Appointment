@@ -1,7 +1,7 @@
 <?php
 function getDisabledDays($peticio, $resposta, $contenidor){
 //Get the user controller
-$days = $contenidor->days();
+$days = $contenidor->disabledDays();
 
 // Get all null days
 $noAvaliableDays = $days->getBlockedDays();
