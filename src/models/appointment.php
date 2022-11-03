@@ -1,6 +1,5 @@
 <?php
 class Appointment
->>>>>>> 12779e4 (mostra les dates de cites desde BD)
 {
 
     private $sql;
@@ -24,17 +23,6 @@ class Appointment
         }
     }
 
-    // public function getAppointment($userid)
-    // {
-    //     $query = "select * from appointments where user_id=:id;";
-    //     $stm = $this->sql->prepare($query);
-    //     $stm->bindValue(':searchuser', $userid);
-    //     $result = $stm->execute();
-    //     return $stm->fetch(\PDO::FETCH_ASSOC);
-        
- 
-    // }
-
 
     /**
      * Function to get all workstations
@@ -44,7 +32,6 @@ class Appointment
         $query = 'SELECT * FROM appointments where user_id=:userid';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':userid', $userid);
->>>>>>> 12779e4 (mostra les dates de cites desde BD)
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
