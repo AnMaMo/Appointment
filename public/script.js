@@ -30,12 +30,15 @@ function invalidCredentials(){
 }
 
 
-
+/**
+ * It passes the new name
+ * @returns 
+ */
 function sendchangename(){
 
     var name_new = $("#newName").val();
 
-    //
+    // If you have nothing 
     if (name_new === null || name_new === "") {
         alert("write a new name!!!");
         return;
@@ -49,26 +52,18 @@ function sendchangename(){
     });
 }
 
-// function sendchangepassword(){
-//     var password_new = $("#password_new").val();
-//     var password_current =$("#password_current").val();
-  
-//     $.ajax({
-//         url: 'index.php?page=getchangepassword',
-//         type: 'POST',
-//         data: { password_new: password_new, password_current:password_current},
-//         dataType: "json"
-//     });
-// }
+/**
+ * It passes the id of the appointment
+ * @param {*} appointment 
+ */
+function sendcancelappointment(appointment) {
 
-function sendcancelappointment() {
-    var appointment_cancel = $($appointment['app_date']).val();
-    var wsname = $($wsname).val();
-
+    var appointment_id = $(appointment).data("id");
+   
     $.ajax({
-        url: 'index.php?page=getchangepassword',
+        url: 'index.php?page=getcancelappointment',
         type: 'POST',
-        data: { password_new: password_new, password_current:password_current},
+        data: { appointment_id: appointment_id},
         dataType: "json" 
-    })
+    });
 }

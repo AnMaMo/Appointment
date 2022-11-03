@@ -18,6 +18,7 @@ include "../src/controllers/getuserappointments.php";
 include "../src/controllers/getchangename.php";
 include "../src/controllers/getchangemail.php";
 include "../src/controllers/getchangepassword.php";
+include "../src/controllers/getcancelappointment.php";
 
 
 /** Models */
@@ -65,6 +66,8 @@ if ($page === "index") {
   $resposta = isLogged($peticio, $resposta, $contenidor, "getchangepassword");
 }elseif ($page === "getchangepassword") {
   $resposta = getchangepassword($peticio, $resposta, $contenidor); 
+}elseif ($page === "getcancelappointment") {
+  $resposta = getCancelAppointment($peticio, $resposta, $contenidor);
   //
   // PAGES
 } elseif ($page === "appointment") {

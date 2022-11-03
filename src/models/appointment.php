@@ -35,4 +35,16 @@ class Appointment
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
+
+    /**
+     * Function to remove appointment
+     */
+    public function cancelUserAppointment($appointment_id, $userid)
+    {
+        $query = 'DELETE FROM appointments WHERE app_id = :appointment_id and user_id = :userid';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':userid', $userid);
+        $stm->bindValue(':appointment_id', $appointment_id);
+        $result = $stm->execute();
+    }
 }
