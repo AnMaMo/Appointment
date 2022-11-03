@@ -1,10 +1,15 @@
-<link rel="icon" type="image/x-icon" href="/media/logo.ico">
-
 <?php
-/** Config */
+/**
+ * @author André Martínez
+ * @author Pinlin Lin
+ * 
+ * @version 1.0
+ */
+
+/** Get the Config */
 include "../src/config.php";
 
-/** Controllers */
+/** Get the Controllers */
 include "../src/controllers/indexController.php";
 include "../src/controllers/loginController.php";
 include "../src/controllers/doLoginController.php";
@@ -12,19 +17,22 @@ include "../src/controllers/registerController.php";
 include "../src/controllers/doRegisterController.php";
 include "../src/controllers/appointmentController.php";
 include "../src/controllers/doAppointmentController.php";
+include "../src/controllers/avaliableHoursController.php";
+include "../src/controllers/getDisabledDaysController.php";
 include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
 
-
-/** Models */
+/** Get the Models */
 include "../src/models/users.php";
 include "../src/models/appointment.php";
+include "../src/models/workstations.php";
+include "../src/models/days.php";
 
-/* MiddleWare*/
+/* Get the MiddleWare */
 include "../src/midleware/isLoged.php";
 
-// EMESET
+/* Get the Emeset Framework */
 include "../src/Emeset/Contenidor.php";
 include "../src/Emeset/Peticio.php";
 include "../src/Emeset/Resposta.php";
@@ -33,44 +41,48 @@ $peticio = $contenidor->peticio();
 $resposta = $contenidor->resposta();
 
 
-/** Get the param "page" */
+/* Get the param "page", if is null or "" set to "index" */
 $page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
 
-
-if ($page === "index") {
-  $resposta = ctrlIndex($peticio, $resposta, $contenidor);
-  //
-  // LOGIN
-} elseif ($page === "login") {
-  $resposta = getLoginForm($peticio, $resposta, $contenidor);
-} elseif ($page === "dologin") {
-  $resposta = initLogin($peticio, $resposta, $contenidor);
-  //
-  // REGISTER
-} elseif ($page === "register") {
-  $resposta = getRegisterForm($peticio, $resposta, $contenidor);
-} elseif ($page === "doregister") {
-  $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
-  //
-  // APPOINTMENT
-} elseif ($page === "appointment") {
-  $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
-}elseif($page === "doAppointment"){
-  $resposta = saveAppointment($peticio, $resposta, $contenidor);
-
-
-} elseif ($page === "error") {
-  errorPage($peticio, $resposta, $contenidor);
-} elseif ($page === "userform") {
-  getUserform();
-} elseif ($page === "useraccount") {
-  getUseraccount();
-  $resposta = isLogged($peticio, $resposta, $contenidor, "error");
-  $resposta = errorPage($peticio, $resposta, $contenidor);
-  //
-} else {
-  $resposta = errorPage($peticio, $resposta, $contenidor);
+/* Switch to select the controller */
+switch ($page) {
+  case 'index':
+    $resposta = ctrlIndex($peticio, $resposta, $contenidor);
+    break;
+  case "login":
+    $resposta = getLoginForm($peticio, $resposta, $contenidor);
+    break;
+  case "doLogin":
+    $resposta = initLogin($peticio, $resposta, $contenidor);
+    break;
+  case "register":
+    $resposta = getRegisterForm($peticio, $resposta, $contenidor);
+    break;
+  case "doRegister":
+    $resposta = setUserInDatabase($peticio, $resposta, $contenidor);
+    break;
+  case "appointment":
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
+    break;
+  case "doAppointment":
+    $resposta = saveAppointment($peticio, $resposta, $contenidor);
+    break;
+  case "checkAvaliableHours":
+    $resposta = getAvaliableHours($peticio, $resposta, $contenidor);
+    break;
+  case "setDisabledDates":
+    $resposta = getDisabledDays($peticio, $resposta, $contenidor);
+    break;
+  case "userform":
+    getUserform();
+    break;
+  case "useraccount":
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getUseraccount");
+    break;
+  default:
+    $resposta = errorPage($peticio, $resposta, $contenidor);
+    break;
 }
 
-
+/* Return the reply */
 $resposta->resposta();

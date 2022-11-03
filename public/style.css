@@ -136,6 +136,15 @@ body {
     width: 100%;
 }
 
+.btn-red {
+    background-color: var(--color6);
+    border: 0px;
+}
+
+.btn-red:hover {
+    background-color: var(--color5);
+}
+
 .form-control {
     border-radius: 0px;
     text-align: center;
@@ -197,20 +206,34 @@ body {
 
 
 /*Appointment-form*/
-.hours-div {
-    margin: 10px;
-    display: block;
+.dateAndWorkstation{
+    display: flex;
+    justify-content: left;
+}
+
+#datepicker, #workstation{
     text-align: center;
-    width: 100%;
+    width: 50%;
+    height: 25px;
+    margin: 10px;
+}
+
+.ui-datepicker-unselectable .ui-state-disabled .undefined{
+    background-color: red;
+}
+
+.hours-div {
+    display: flex;
 }
 
 .hour {
-    display: inline-block;
     text-align: center;
     background: var(--color4);
     cursor: pointer;
-    width: 24%;
-    margin: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .hour:hover {
@@ -223,22 +246,18 @@ body {
     text-align: center;
     background: var(--color3);
     cursor: pointer;
-    width: 24%;
+    width: 100%;
     margin: 0px;
 }
 
-
-
-.btn-red {
-    background-color: var(--color6);
+.noValidHour{
+    display: inline-block;
+    text-align: center;
+    background: var(--color1);
+    color: var(--color4);
+    cursor: pointer;
     width: 100%;
-    border: 0px;
-    color: white;
-    border-radius: 0px;
-}
-
-.btn-red:hover {
-    background-color: #D12424;
+    margin: 0px;
 }
 
 .all-forms {

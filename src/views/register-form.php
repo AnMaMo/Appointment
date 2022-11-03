@@ -19,7 +19,7 @@
         <div class="form-title">Register</div>
         <div class="form-square-form ">
             <form class="all-forms" method="post" action="index.php">
-                <input type="hidden" name="page" value="doregister">
+                <input type="hidden" name="page" value="doRegister">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="login-name" placeholder="Username" name="username" required>
                 </div>

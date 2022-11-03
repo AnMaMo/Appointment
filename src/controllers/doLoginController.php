@@ -16,7 +16,7 @@ function initLogin($peticio, $resposta, $contenidor)
 
     // If user dont exist return to the login form
     if ($user === false) {
-        $resposta->setSession("logat", false);
+        $resposta->setSession("loged", false);
         $resposta->redirect("location: index.php?page=login&badcredentials=1");
     }
 
