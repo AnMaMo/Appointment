@@ -49,14 +49,4 @@ class Appointment
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-
-    // public function getWsId($wsid){
-    //     $query = 'SELECT * FROM workstation where ws_id=:wsid';
-    //     $stm = $this->sql->prepare($query);
-    //     $stm->bindValue(':wsid', $wsid);
-    //     $stm->execute();
-    //     $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-    //     return $result;
-    // }
-
 }

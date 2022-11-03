@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <div class="container ">
         <h1 class="centre useraccount title-views"><?= $user['user_name'] ?> configuration</h1>
         <div class="row align-items-start ">
@@ -35,26 +34,7 @@
                         </div>
                     </form>
 
-                    <!-- change password -->
-                    <!-- <form method="POST" action="">
-                        <div class="col">
-                            <input type="password" class="changeconfig" id="password_current" placeholder="Current password" required>
-                            <input type="password" class="changeconfig" id="password_new" placeholder="New password" required>
-                            <button type="submit" class="btn btn-success cancelApp" onclick="sendchangepassword()">Save</button>
-                            <?php
-                            // if (isset($_GET['error'])) {
-                            //     if ($_GET['error'] === "password") {
-
-                            ?>
-                                    <div class="incorrect-credentials" id="badcredenti-error">
-                                        <p>Password not equals</p>
-                                    </div>
-                            <?php
-                            //     }
-                            // }
-                            ?>
-                        </div>
-                    </form> -->
+                    <!-- Change password -->
                     <form method="POST" action="index.php">
                         <input type="hidden" name="page" value="changepassword">
                         <div class="col">
@@ -62,6 +42,7 @@
                             <input type="password" class="changeconfig" name="password_new" placeholder="New password" required>
                             <button type="submit" class="btn btn-success cancelApp">Save</button>
                             <?php
+                            //if the password does not match
                             if (isset($_GET['error'])) {
                                 if ($_GET['error'] === "password") {
 
@@ -97,13 +78,15 @@
                                 if ($workstation['ws_id'] === $wsid) {
                                     //take the name and store it in a variable(wsidname)
                                     $wsname = $workstation['ws_name'];
+                    ?>
+                                    <!-- Print -->
+                                    <div class="row">
+                                        <p class="date"><?= $appointment['app_date'] ?></p>
+                                        <p class="barber"><?= $wsname ?></p>
+                                        <button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-danger cancelApp" onclick="sendcancelappointment(this)">Cancelar</button>
+                                    </div>
+                    <?php
 
-                                    //print
-                                    echo '<div class="row">
-                                    <p class="date">' . $appointment['app_date'] . '</p>
-                                    <p class="barber">' . $wsname . '</p>
-                                    <button type="button" id="delete_' . $appointment['app_id'] . '" class="btn btn-danger cancelApp" onclick="sendcancelappointment()">Cancelar</button>
-                                    </div>';
                                 }
                             }
                         }

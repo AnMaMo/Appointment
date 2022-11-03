@@ -57,6 +57,9 @@ class Users
         $result = $stm->execute();
     }
 
+    /**
+     * Change the password
+     */
     public function changePassword($password_new, $userid){
         $query ='UPDATE users set user_password = :newpass where user_id = :userid';
         $stm = $this->sql->prepare($query);
@@ -65,6 +68,10 @@ class Users
         $result = $stm->execute();
     }
 
+    /**
+     * 
+     * Change the name
+     */
     public function changeName($name_new, $userid){
         $query ='UPDATE users set user_name = :name_new where user_id = :userid';
         $stm = $this->sql->prepare($query);

@@ -26,6 +26,7 @@ include "../src/controllers/getuserappointments.php";
 include "../src/controllers/getchangename.php";
 include "../src/controllers/getchangemail.php";
 include "../src/controllers/getchangepassword.php";
+include "../src/controllers/getcancelappointment.php";
 
 /* Get the Models */
 include "../src/models/users.php";
