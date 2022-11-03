@@ -21,7 +21,7 @@
 
                 <div class="form-square-form ">
                     <form class="all-forms" method="post" action="index.php">
-                        <input type="hidden" name="page" value="dologin">
+                        <input type="hidden" name="page" value="doLogin">
                         <div class="mb-3">
                             <input type="mail" class="form-control" id="login-name" placeholder="Mail" name="usermail" required>
                         </div>

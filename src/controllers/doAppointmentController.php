@@ -18,7 +18,7 @@ function saveAppointment($peticio, $resposta, $contenidor)
     // Get the post info to user
     $dateTimeForm = $peticio->get(INPUT_POST, "dateAppointment");
     $time = $peticio->get(INPUT_POST, "hour_selected");
- 
+
 
     //Array the date
     $dateArray = explode("-", $dateTimeForm);
@@ -47,21 +47,38 @@ function saveAppointment($peticio, $resposta, $contenidor)
         }
     }
 
-    // If date is blocked
-    if ($dateIsBlocked) {
-        $resposta->redirect("location: index.php?page=error");
-        return $resposta;
-    // If date is not blocked    
-    } else {
-        // Get the workstation id by post name
-        $workstation_id = $peticio->get(INPUT_POST, "workstation_selected");
 
-        // Execute the query
-        $appointments->addAppointmentToDatabase($user_id, $dateTime, $workstation_id, "user");
+    // Get the actual date
+    $actualDate = date("Y-m-d H:i:s");
 
-        $resposta->redirect("location: index.php");
-
-        //return resposta
+    // if the date is in the past
+    if ($dateTime < $actualDate) {
+        $resposta->redirect("index.php?page=appointment");
         return $resposta;
     }
+
+    // if the date is more than 2 months to actual date
+    if ($dateTime > date("Y-m-d H:i:s", strtotime("+2 months"))) {
+        $resposta->redirect("index.php?page=appointment");
+        return $resposta;
+    }
+
+    // if the date is blocked
+    if ($dateIsBlocked) {
+        $resposta->redirect("index.php?page=appointment");
+        return $resposta;
+    }
+
+    /* Here the date is valid now save the array */
+
+    // Get the workstation id by post name
+    $workstation_id = $peticio->get(INPUT_POST, "workstation_selected");
+
+    // Execute the query
+    $appointments->addAppointmentToDatabase($user_id, $dateTime, $workstation_id, "user");
+
+    $resposta->redirect("location: index.php");
+
+    //return resposta
+    return $resposta;
 }

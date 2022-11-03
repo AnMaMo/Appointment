@@ -56,4 +56,7 @@ class Users
         $stm->bindValue(':mail', $mail);
         $result = $stm->execute();
     }
+
+
+    
 }

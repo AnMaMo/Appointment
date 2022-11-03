@@ -46,7 +46,7 @@ $page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
 
 /* Switch to select the controller */
 switch ($page) {
-  case "index":
+  case 'index':
     $resposta = ctrlIndex($peticio, $resposta, $contenidor);
     break;
   case "login":

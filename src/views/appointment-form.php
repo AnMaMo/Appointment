@@ -31,7 +31,7 @@
                         <input type="hidden" name="page" value="doAppointment">
                         <div class="mb-3">
                             <div class="dateAndWorkstation">
-                            <input type="text" id="datepicker" name="dateAppointment" placeholder="Select a date" onchange="selectDate()" required>
+                            <input type="text" id="datepicker" name="dateAppointment" placeholder="Select a date" onchange="selectDate()" required readonly>
                             <select id="workstation" name="workstation_selected" onchange="selectDate()">
                                 <?php
                                 //Get the workstations of resposta

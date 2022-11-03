@@ -218,6 +218,10 @@ body {
     margin: 10px;
 }
 
+.ui-datepicker-unselectable .ui-state-disabled .undefined{
+    background-color: red;
+}
+
 .hours-div {
     display: flex;
 }

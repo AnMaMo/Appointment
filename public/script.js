@@ -9,6 +9,8 @@ $(function () {
     $("#datepicker").datepicker({
         dateFormat: 'yy-mm-dd',
         firstDay: 1,
+        minDate: "dateToday",
+        maxDate: "+2M",
 
         // Iterate the array of dates to disable
         beforeShowDay: function (date) {
