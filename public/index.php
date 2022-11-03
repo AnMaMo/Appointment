@@ -61,8 +61,8 @@ if ($page === "index") {
   $resposta = getUseraccount($peticio, $resposta, $contenidor);
 } elseif ($page === "getchangename") {
   $resposta = getchangename($peticio, $resposta, $contenidor);
-} elseif ($page === "getchangemail") {
-  $resposta = getchangemail($peticio, $resposta, $contenidor);
+} elseif ($page === "changepassword") {
+  $resposta = isLogged($peticio, $resposta, $contenidor, "getchangepassword");
 }elseif ($page === "getchangepassword") {
   $resposta = getchangepassword($peticio, $resposta, $contenidor); 
   //
