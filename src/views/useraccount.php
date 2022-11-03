@@ -81,9 +81,9 @@
                     ?>
                                     <!-- Print -->
                                     <div class="row">
-                                        <p class="date"><?= $appointment['app_date'] ?></p>
+                                        <p class="date"><?= $appointment['app_datetime'] ?></p>
                                         <p class="barber"><?= $wsname ?></p>
-                                        <button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-danger cancelApp" onclick="sendcancelappointment(this)">Cancelar</button>
+                                        <button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-danger cancelApp" onclick="sendcancelappointment(this)">Cancel</button>
                                     </div>
                     <?php
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author André Martínez
  * @author Pinlin Lin
@@ -83,6 +84,18 @@ switch ($page) {
     break;
   case "useraccount":
     $resposta = isLogged($peticio, $resposta, $contenidor, "getUseraccount");
+    break;
+  case "getchangename":
+    $resposta = getchangename($peticio, $resposta, $contenidor);
+    break;
+  case "changepassword":
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getchangepassword");
+    break;
+  case "getchangepassword":
+    $resposta = getchangepassword($peticio, $resposta, $contenidor);
+    break;
+  case "getcancelappointment":
+    $resposta = getCancelAppointment($peticio, $resposta, $contenidor);
     break;
   default:
     $resposta = errorPage($peticio, $resposta, $contenidor);

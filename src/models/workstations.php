@@ -23,7 +23,6 @@ class workstations
         }
     }
 
-<<<<<<< HEAD
 
     /**
      * Function to get all workstations
@@ -52,9 +51,6 @@ class workstations
 
 
      /**
-=======
-    /**
->>>>>>> 9f054af (afegeix nom barber)
      * Function to get a workstation by id
      */
     public function getWorkstationById($wsId)
@@ -67,18 +63,4 @@ class workstations
         return $result;
     }
 
-<<<<<<< HEAD
-=======
-    /**
-     * Function to get all workstations
-     */
-    public function getAllWorkstations()
-    {
-        $query = 'SELECT * FROM workstation';
-        $stm = $this->sql->prepare($query);
-        $stm->execute();
-        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
->>>>>>> 9f054af (afegeix nom barber)
 }

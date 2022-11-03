@@ -115,7 +115,6 @@ function ProcessInvalidHours(data) {
 }
 
 
-<<<<<<< HEAD
 /**
  * Function executed when the user clicks on an hour.
  * @param {*} hourclicked 
@@ -137,10 +136,6 @@ function clickHour(hourclicked) {
  * Function to see if user has entered invalid credentials
  * in the login form and hide the error message
  */
-function invalidCredentials() {
-    // Hidde the error message
-    $(".credentials-error").removeClass("correct-credentials").addClass("invalid-credentials");
-=======
 function invalidCredentials(){
     //get element and set new class
     var element = document.getElementById("credentials-error");
@@ -175,26 +170,14 @@ function sendchangename(){
  * It passes the id of the appointment
  * @param {*} appointment 
  */
-function sendcancelappointment(appointment) {
+ function sendcancelappointment(appointment) {
 
     var appointment_id = $(appointment).data("id");
    
     $.ajax({
         url: 'index.php?page=getcancelappointment',
         type: 'POST',
-<<<<<<< HEAD
-        data: { password_new: password_new, password_current:password_current},
-<<<<<<< HEAD
-        dataType: "json"
-    });
->>>>>>> 5f15457 (controlador y function de name, mail, password)
-=======
-        dataType: "json" 
-    })
->>>>>>> 019e2ed (cambia contraseña)
-=======
         data: { appointment_id: appointment_id},
         dataType: "json" 
     });
->>>>>>> 4e7cdbf (comentat)
 }
