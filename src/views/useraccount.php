@@ -36,11 +36,43 @@
                     </form>
 
                     <!-- change password -->
-                    <form method="POST">
+                    <!-- <form method="POST" action="">
                         <div class="col">
                             <input type="password" class="changeconfig" id="password_current" placeholder="Current password" required>
                             <input type="password" class="changeconfig" id="password_new" placeholder="New password" required>
                             <button type="submit" class="btn btn-success cancelApp" onclick="sendchangepassword()">Save</button>
+                            <?php
+                            // if (isset($_GET['error'])) {
+                            //     if ($_GET['error'] === "password") {
+
+                            ?>
+                                    <div class="incorrect-credentials" id="badcredenti-error">
+                                        <p>Password not equals</p>
+                                    </div>
+                            <?php
+                            //     }
+                            // }
+                            ?>
+                        </div>
+                    </form> -->
+                    <form method="POST" action="index.php">
+                        <input type="hidden" name="page" value="changepassword">
+                        <div class="col">
+                            <input type="password" class="changeconfig" name="password_current" placeholder="Current password" required>
+                            <input type="password" class="changeconfig" name="password_new" placeholder="New password" required>
+                            <button type="submit" class="btn btn-success cancelApp">Save</button>
+                            <?php
+                            if (isset($_GET['error'])) {
+                                if ($_GET['error'] === "password") {
+
+                            ?>
+                                    <div class="incorrect-credentials" id="badcredenti-error">
+                                        <p>Password not equals</p>
+                                    </div>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </form>
 
@@ -70,7 +102,7 @@
                                     echo '<div class="row">
                                     <p class="date">' . $appointment['app_date'] . '</p>
                                     <p class="barber">' . $wsname . '</p>
-                                    <button type="button" id="delete_' . $appointment['app_id'] . '" class="btn btn-danger cancelApp">Cancelar</button>
+                                    <button type="button" id="delete_' . $appointment['app_id'] . '" class="btn btn-danger cancelApp" onclick="sendcancelappointment()">Cancelar</button>
                                     </div>';
                                 }
                             }
@@ -82,14 +114,7 @@
         </div>
 
     </div>
-
     <?php include '../src/views/templates/footer.php'; ?>
-
 </body>
-<!-- <script>
-    if ($page === "errorpassword") {
-        alert("The password are not the same")
-    }
-</script> -->
 
 </html>

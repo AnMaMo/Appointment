@@ -168,15 +168,32 @@ function sendchangename(){
     });
 }
 
-function sendchangepassword(){
-    var password_new = $("#password_new").val();
-    var password_current =$("#password_current").val();
+// function sendchangepassword(){
+//     var password_new = $("#password_new").val();
+//     var password_current =$("#password_current").val();
   
+//     $.ajax({
+//         url: 'index.php?page=getchangepassword',
+//         type: 'POST',
+//         data: { password_new: password_new, password_current:password_current},
+//         dataType: "json"
+//     });
+// }
+
+function sendcancelappointment() {
+    var appointment_cancel = $($appointment['app_date']).val();
+    var wsname = $($wsname).val();
+
     $.ajax({
         url: 'index.php?page=getchangepassword',
         type: 'POST',
         data: { password_new: password_new, password_current:password_current},
+<<<<<<< HEAD
         dataType: "json"
     });
 >>>>>>> 5f15457 (controlador y function de name, mail, password)
+=======
+        dataType: "json" 
+    })
+>>>>>>> 019e2ed (cambia contraseña)
 }
