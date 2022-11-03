@@ -1,5 +1,5 @@
 <?php
-class appointment
+class Appointment
 {
 
     private $sql;
@@ -25,40 +25,14 @@ class appointment
 
 
     /**
-     * Function to add appointment to database
-     */
-    public function addAppointmentToDatabase($userId, $dateTime, $wsId, $app_type)
-    {
-        $query = 'INSERT INTO appointments (app_datetime, app_type, user_id, ws_id) VALUES (:appDate, :appType, :userId, :wsId)';
-        $stm = $this->sql->prepare($query);
-
-        $stm->bindValue(':appDate', $dateTime);
-        $stm->bindValue(':appType', $app_type);
-        $stm->bindValue(':userId', $userId);
-        $stm->bindValue(':wsId', $wsId);
-        $result = $stm->execute();
-    }
-
-
-     /**
      * Function to get all workstations
      */
-    public function getAllAppointments()
+    public function getUserAppointments($userid)
     {
-        $query = 'SELECT * FROM appointments';
+        $query = 'SELECT * FROM appointments where user_id=:userid';
         $stm = $this->sql->prepare($query);
+        $stm->bindValue(':userid', $userid);
         $stm->execute();
-        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-/**
- * Function returns ocuped hours to appointments specific date
- */
-    public function getNoAvaliableHours($date, $ws_id){
-        $stm = $this->sql->prepare("select app_datetime from appointments where date(app_datetime) = :date AND ws_id = :ws_id");
-        $stm->execute([':date' => $date, ':ws_id' => $ws_id]);
-        
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }

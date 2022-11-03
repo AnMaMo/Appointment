@@ -1,3 +1,4 @@
+<?php include '../src/views/templates/navbar.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,16 +78,7 @@ $username = "Pinlin";
             </div>
         </form>
     </div>
-
-
-    <!--<div class="container user-margin">
-        <form action="">
-            <div class="row align-items-start">
-                
-            </div>
-        </form>
-    </div> -->
-
+    <?php include '../src/views/templates/footer.php'; ?>
 </body>
 
 </html>

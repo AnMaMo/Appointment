@@ -22,6 +22,11 @@ include "../src/controllers/getDisabledDaysController.php";
 include "../src/controllers/errorController.php";
 include "../src/controllers/user-formController.php";
 include "../src/controllers/useraccountController.php";
+include "../src/controllers/getuserappointments.php";
+include "../src/controllers/getchangename.php";
+include "../src/controllers/getchangemail.php";
+include "../src/controllers/getchangepassword.php";
+include "../src/controllers/getcancelappointment.php";
 
 /* Get the Models */
 include "../src/models/users.php";
