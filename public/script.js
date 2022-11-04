@@ -1,18 +1,20 @@
+/* Create a array with disabled days and call function to fill it */
 var disabledDays = [];
 UpdateDisabledDays();
 
 
-/**
- * This function set the params of the datepicker JQuery
- */
+/* Function when open the page configure the Datepicker */
 $(function () {
     $("#datepicker").datepicker({
-        dateFormat: 'yy-mm-dd',
-        firstDay: 1,
-        minDate: "dateToday",
-        maxDate: "+2M",
+        dateFormat: 'yy-mm-dd', // Set the format of the date
+        firstDay: 1, // Monday
+        minDate: "dateToday", // Calendar starts today
+        maxDate: "+2M", // Calendar ends in 2 months
 
-        // Iterate the array of dates to disable
+// TODO: Function to disable the days
+      //  beforeShowDay: DisableSpecificDates, // Call function to disable specific dates
+
+        /* Iterate the array of dates to disable */
         beforeShowDay: function (date) {
             var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
             return [disabledDays.indexOf(string) == -1]
@@ -20,8 +22,12 @@ $(function () {
     });
 });
 
+
+
 /**
- * Function calls when you click the datepicker
+ * This function actualize the disabled days array.
+ * Call a ajax controller to get the disabled days.
+ * 
  */
 function UpdateDisabledDays() {
     /**
@@ -136,7 +142,7 @@ function clickHour(hourclicked) {
  * Function to see if user has entered invalid credentials
  * in the login form and hide the error message
  */
-function invalidCredentials(){
+function invalidCredentials() {
     //get element and set new class
     var element = document.getElementById("credentials-error");
     element.classList.add("invalid-credentials");
@@ -148,7 +154,7 @@ function invalidCredentials(){
  * It passes the new name
  * @returns 
  */
-function sendchangename(){
+function sendchangename() {
 
     var name_new = $("#newName").val();
 
@@ -161,7 +167,7 @@ function sendchangename(){
     $.ajax({
         url: 'index.php?page=getchangename',
         type: 'POST',
-        data: { name_new: name_new},
+        data: { name_new: name_new },
         dataType: "json"
     });
 }
@@ -170,14 +176,14 @@ function sendchangename(){
  * It passes the id of the appointment
  * @param {*} appointment 
  */
- function sendcancelappointment(appointment) {
+function sendcancelappointment(appointment) {
 
     var appointment_id = $(appointment).data("id");
-   
+
     $.ajax({
         url: 'index.php?page=getcancelappointment',
         type: 'POST',
-        data: { appointment_id: appointment_id},
-        dataType: "json" 
+        data: { appointment_id: appointment_id },
+        dataType: "json"
     });
 }
