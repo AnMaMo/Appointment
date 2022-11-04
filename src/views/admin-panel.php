@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User-form</title>
+    <title>Admin-panel</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -21,7 +21,7 @@ $username = "Pinlin";
     <div class="container">
         <form class="row centre">
             <div class="col user-margin">
-                <input type="text" class="user-inputbox centre" id="searchUser" placeholder="Search user">
+                <input type="text" class="user-inputbox centre" id="searchUser" placeholder="Search user mail">
                 <button type="reset" class="user-buttom-search"><img class="search-logo" src="../media/search.png" alt="search"></button>
             </div>
         </form>

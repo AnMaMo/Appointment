@@ -21,7 +21,7 @@ include "../src/controllers/doAppointmentController.php";
 include "../src/controllers/avaliableHoursController.php";
 include "../src/controllers/getDisabledDaysController.php";
 include "../src/controllers/errorController.php";
-include "../src/controllers/user-formController.php";
+include "../src/controllers/admin-panelController.php";
 include "../src/controllers/useraccountController.php";
 include "../src/controllers/getuserappointments.php";
 include "../src/controllers/getchangename.php";
@@ -79,8 +79,8 @@ switch ($page) {
   case "setDisabledDates":
     $resposta = getDisabledDays($peticio, $resposta, $contenidor);
     break;
-  case "userform":
-    getUserform();
+  case "adminpanel":
+    getAdminPanel();
     break;
   case "useraccount":
     $resposta = isLogged($peticio, $resposta, $contenidor, "getUseraccount");
