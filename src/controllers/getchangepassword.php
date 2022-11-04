@@ -24,7 +24,7 @@ function getChangePassword($peticio, $resposta, $contenidor)
     if ($password_current === $userpassword_current) {
         // Call the function
         $users->changePassword($password_new, $userid);
-        $resposta->redirect("Location: index.php?page=useraccount");
+        $resposta->redirect("Location: logout.php");
         return $resposta;
     } else {
         // Redirect

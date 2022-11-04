@@ -20,7 +20,6 @@
 
 <body>
     <?php include '../src/views/templates/navbar.php'; ?>
-    <div class="pagephp">
         <div class="form-contenedor">
             <div class="centerVertical">
                 <span class="square-red"></span>
@@ -79,7 +78,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <?php include '../src/views/templates/footer.php'; ?>
 
     <!-- JavaScript Bundle with Popper -->

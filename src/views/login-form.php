@@ -13,7 +13,6 @@
 </head>
 
 <body>
-    <div class="pagephp">
         <div class="form-contenedor">
             <div class="centerVertical">
                 <span class="square"></span>
@@ -54,7 +53,6 @@
             </div>
 
         </div>
-    </div>
 
     <?php include '../src/views/templates/footer.php'; ?>
 

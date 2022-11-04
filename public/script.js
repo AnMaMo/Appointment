@@ -23,6 +23,18 @@ $(function () {
 });
 
 
+/* */
+$(document).ready( function () {
+    $('.table-useraccount').DataTable(
+        // set max length of the table to 3 and not show the search bar
+        { "lengthMenu": [ 3 ], "searching": false, "lengthChange": false }
+    );
+
+
+} );
+
+
+
 
 /**
  * This function actualize the disabled days array.
@@ -155,7 +167,6 @@ function invalidCredentials() {
  * @returns 
  */
 function sendchangename() {
-
     var name_new = $("#newName").val();
 
     // If you have nothing 
@@ -168,7 +179,7 @@ function sendchangename() {
         url: 'index.php?page=getchangename',
         type: 'POST',
         data: { name_new: name_new },
-        dataType: "json"
+        dataType: "json",
     });
 }
 
@@ -186,4 +197,7 @@ function sendcancelappointment(appointment) {
         data: { appointment_id: appointment_id },
         dataType: "json"
     });
+
+    // Reload the page
+    location.reload();
 }
