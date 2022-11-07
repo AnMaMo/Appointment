@@ -11,7 +11,7 @@ function isLogged($peticio, $resposta, $contenidor, $next){
 
     // if not exist redirect to index    
     } else {
-        $resposta->redirect("location: index.php?page=error");
+        $resposta->redirect("location: index.php?page=login");
     }
 
     return $resposta;
