@@ -336,6 +336,7 @@ body {
 
 .useraccount-text {
     font-weight: bold;
+    margin: 0px;
 }
 
 .useraccount-button-save {
@@ -421,4 +422,34 @@ body {
         border: 1px solid black;
         padding: 10px;
     }
+}
+
+
+#adminDatepicker{
+    margin-bottom: 25px;
+}
+
+.blockedDay{
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 1px solid var(--color1);
+}
+
+.blockedDay:hover{
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 1px solid var(--color1);
+}
+
+.addWSDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.addWSDiv input{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
 }
