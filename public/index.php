@@ -28,6 +28,10 @@ include "../src/controllers/getchangename.php";
 include "../src/controllers/getchangemail.php";
 include "../src/controllers/getchangepassword.php";
 include "../src/controllers/getcancelappointment.php";
+include "../src/controllers/searchusermail.php";
+include "../src/controllers/changeuserrole.php";
+include "../src/controllers/removeuser.php";
+
 
 /* Get the Models */
 include "../src/models/users.php";
@@ -80,7 +84,16 @@ switch ($page) {
     $resposta = getDisabledDays($peticio, $resposta, $contenidor);
     break;
   case "adminpanel":
-    getAdminPanel();
+    adminpanelController($peticio, $resposta, $contenidor);
+    break;
+  case "search":
+    getSearchUsermail($peticio, $resposta, $contenidor);
+    break;
+  case "role":
+    changeUserRole($peticio, $resposta, $contenidor);
+    break;
+  case "removeuser":
+    removeUser($peticio, $resposta, $contenidor);
     break;
   case "useraccount":
     $resposta = isLogged($peticio, $resposta, $contenidor, "getUseraccount");

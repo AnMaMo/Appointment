@@ -20,6 +20,12 @@ $(function () {
     });
 });
 
+
+
+
+
+
+
 /**
  * Function calls when you click the datepicker
  */
@@ -136,7 +142,7 @@ function clickHour(hourclicked) {
  * Function to see if user has entered invalid credentials
  * in the login form and hide the error message
  */
-function invalidCredentials(){
+function invalidCredentials() {
     //get element and set new class
     var element = document.getElementById("credentials-error");
     element.classList.add("invalid-credentials");
@@ -148,7 +154,7 @@ function invalidCredentials(){
  * It passes the new name
  * @returns 
  */
-function sendchangename(){
+function sendchangename() {
 
     var name_new = $("#newName").val();
 
@@ -161,7 +167,7 @@ function sendchangename(){
     $.ajax({
         url: 'index.php?page=getchangename',
         type: 'POST',
-        data: { name_new: name_new},
+        data: { name_new: name_new },
         dataType: "json"
     });
 }
@@ -170,14 +176,101 @@ function sendchangename(){
  * It passes the id of the appointment
  * @param {*} appointment 
  */
- function sendcancelappointment(appointment) {
+function sendcancelappointment(appointment) {
 
     var appointment_id = $(appointment).data("id");
-   
+
     $.ajax({
         url: 'index.php?page=getcancelappointment',
         type: 'POST',
-        data: { appointment_id: appointment_id},
-        dataType: "json" 
+        data: { appointment_id: appointment_id },
+        dataType: "json"
+    });
+
+    //
+    location.reload();
+}
+
+
+/**
+ * search user mail
+ */
+function changeadminpanel() {
+
+    var searchusermail = $("#searchusermail").val();
+
+    // alert(searchusermail);
+    // return;
+    $.ajax({
+        url: 'index.php?page=search',
+        type: 'POST',
+        data: { searchusermail: searchusermail },
+        dataType: "json",
+        success: changeuseradminpanel
+
+    });
+}
+
+function changeUserRole() {
+
+    var userrole = $("#select_role").val();
+
+    $.ajax({
+        url: 'index.php?page=role',
+        type: 'POST',
+        data: { userrole: userrole },
+        dataType: "json",
+
+    });
+}
+
+function changeuseradminpanel(data) {
+
+    // console.log(user.user.user_name);
+    // const appointmentsList = appointmentsList;
+    // const workstationList = workstationList;
+
+    var username = data.user.user_name;
+    var usermail = data.usermail;
+
+        $("#username").text(username);
+        $("#usernametitle").text(username);
+        $("#usermail").text(usermail);
+
+        $("#removeuser").attr("onclick", "removeUser('"+usermail+"')");
+
+    for (const app of data.appointmentsList) {
+        var appointment = app.app_datetime;
+        var app_id = app.app_id;
+        var ws_name = "default";
+
+        for (const workstation of data.workstationList) {
+            if (app.ws_id === workstation.ws_id) {
+                ws_name = workstation.ws_name;
+                $("#appointment_table").append('<tr>');
+                $("#appointment_table").append('<td class="date">' + appointment + '</td>');
+                $("#appointment_table").append('<td class="workstation">' + ws_name + '</td>');
+                $("#appointment_table").append('<td><button type="submit" id="user_app" data-id="' + app_id + '" class="btn btn-primary" onclick="sendcancelappointment(this)">Cancel</button></td>');
+                $("#appointment_table").append('</tr>');
+            }
+        }
+    }
+
+    $('.table-useraccount').DataTable(
+        // set max length of the table to 3 and not show the search bar
+        { "lengthMenu": [3], "searching": false, "lengthChange": false }
+    );
+
+
+}
+
+function removeUser(usermail) {
+
+    $.ajax({
+        url: 'index.php?page=removeuser',
+        type: 'POST',
+        data: { usermail: usermail },
+        dataType: "json",
+
     });
 }

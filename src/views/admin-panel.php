@@ -8,73 +8,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin-panel</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <?php
-$username = "Pinlin";
-
 ?>
 
 <body>
-    <!--buscador-->
+    <!--search-->
     <div class="container">
-        <form class="row centre">
+        <form class="row centre" method="POST">
             <div class="col user-margin">
-                <input type="text" class="user-inputbox centre" id="searchUser" placeholder="Search user mail">
-                <button type="reset" class="user-buttom-search"><img class="search-logo" src="../media/search.png" alt="search"></button>
+                <input type="text" class="user-inputbox centre" id="searchusermail" placeholder="Search user mail">
+                <button type="reset" class="user-buttom-search" onclick="changeadminpanel()"><img class="search-logo" src="../media/search.png" alt="search"></button>
             </div>
         </form>
     </div>
 
-    <!-- Canvi de rol -->
     <div class="container">
         <form action="">
             <div class="row align-items-start">
                 <div class="col centre user-square ">
-                    <p><?= $username ?></p>
-                    <!--
-                    -->
-                    <select class="form-select centre" aria-label="Default select example">
-                        <option selected>Tria el rol</option>
-                        <option value="admin">Admin</option>
-                        <option value="gestor">Gestor</option>
-                        <option value="user">User</option>
-                    </select>
+                    <p><span id="usernametitle"></span></p>
+
+                    <!-- Change the user role -->
+                    <form action="" method="POST">
+                        <select class="form-select centre" id="select_role" aria-label="Default select example">
+                            <option selected>Tria el rol</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                        <button type="submit" class="btn btn-danger cancelApp" onclick="changeUserRole()">Change the role</button>
+                    </form>
+
+                    <!-- Show appointments -->
                     <div class="col centre user-square user-margin">
                         <h1>Appointment</h1>
                         <div class="row ">
+                            <!-- Appointment table -->
+                            <table class="table-useraccount display" title="asd">
+                                <!-- TABLE HEAD -->
+                                <thead>
+                                    <tr>
+                                        <th>datetime</th>
+                                        <th>workstation</th>
+                                        <th>cancel</th>
+                                    </tr>
+                                </thead>
+                                <!-- TABLE BODY -->
+                                <tbody id="appointment_table">
+                                    <!--print the appointment-->
 
-                            <div class="col">
-                                <p>cita1</p>
-                                <button type="button" class="btn btn-danger">Cancelar</button>
-
-                            </div>
-                            <div class="col">
-                                <p>cita2</p>
-                                <button type="button" class="btn btn-danger">Cancelar</button>
-
-                            </div>
-                            <div class="col">
-                                <p>cita3</p>
-                                <button type="button" class="btn btn-danger">Cancelar</button>
-
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
+                    <!-- User info -->
                     <div class="col centre user-margin user-square">
                         <div>
                             <h1>User info</h1>
-
                         </div>
-
                         <div>
-                            <p>hola</p>
+                            <form action="" method="POST">
+                                <p>Name: <span id="username"></span></p>
+                                <p>Mail: <span id="usermail"><?=$usermail?></span></p>
+                                <input type="hidden" name="page" value="removeuser" >
+                                <button type="reset" id="removeuser" class="btn btn-danger cancelApp" onclick="removeUser()">Remove user</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-
             </div>
         </form>
     </div>
