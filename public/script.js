@@ -11,8 +11,7 @@ $(function () {
         minDate: "dateToday", // Calendar starts today
         maxDate: "+2M", // Calendar ends in 2 months
 
-// TODO: Function to disable the days
-      //  beforeShowDay: DisableSpecificDates, // Call function to disable specific dates
+        //  beforeShowDay: DisableSpecificDates, // Call function to disable specific dates
 
         /* Iterate the array of dates to disable */
         beforeShowDay: function (date) {
@@ -24,14 +23,13 @@ $(function () {
 
 
 /* */
-$(document).ready( function () {
+$(document).ready(function () {
     $('.table-useraccount').DataTable(
         // set max length of the table to 3 and not show the search bar
-        { "lengthMenu": [ 3 ], "searching": false, "lengthChange": false }
+        { "lengthMenu": [2], "searching": false, "lengthChange": false }
     );
 
-
-} );
+});
 
 
 
@@ -200,4 +198,62 @@ function sendcancelappointment(appointment) {
 
     // Reload the page
     location.reload();
+}
+
+
+///// ADMIN APPOINTMENT PANNEL /////
+
+/* Function when open the page configure the Datepicker */
+$(function () {
+    $('#adminDatepicker').datepicker({
+        //iterate the array of dates to disable and set the dates to highlight
+        beforeShowDay: function (date) {
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [disabledDays.indexOf(string)]
+        }
+    });
+});
+
+function selectDate(){
+    // get the element of the datepicker of the date selected
+    var date = $("#adminDatepicker").val();
+    
+    // get day month and year of the date selected
+    var day = date.substring(8,10);
+    var month = date.substring(5,7);
+    var year = date.substring(0,4);
+
+    // get the element of the document with data-month = var month
+    var monthElement = document.querySelector("[data-month='" + month + "']");
+
+    // set the class "monthSelected" to the element of the month selected with jquery
+    $(monthElement).addClass("monthSelected");
+
+    //no close the datepicker
+    return false;
+}
+
+function adminBlockDay(){
+    var date = $("#admindatepicker").val();
+
+    //date get day, month and year
+    var day = date.substring(0,2);
+    var month = date.substring(3,5);
+    var year = date.substring(6,10);
+
+
+//Add to the datepicker date the class "disabledDay"
+
+}
+
+
+
+function addWorkStation(wsName){
+
+    $.ajax({
+        url: 'index.php?page=addWorkstation',
+        type: 'POST',
+        data: { name: wsName },
+        dataType: "json"
+    });
 }

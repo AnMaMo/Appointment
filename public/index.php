@@ -28,6 +28,7 @@ include "../src/controllers/getchangename.php";
 include "../src/controllers/getchangemail.php";
 include "../src/controllers/getchangepassword.php";
 include "../src/controllers/getcancelappointment.php";
+include "../src/controllers/adminAppointmetController.php";
 
 /* Get the Models */
 include "../src/models/users.php";
@@ -96,6 +97,13 @@ switch ($page) {
     break;
   case "getcancelappointment":
     $resposta = getCancelAppointment($peticio, $resposta, $contenidor);
+    break;
+  case "adminapp":
+    //TODO: add isadmin middelware
+    $resposta = getAdminAppForm($peticio, $resposta, $contenidor);
+    break;
+  case "addWorkstation":
+    $resposta = addWorkstation($peticio, $resposta, $contenidor);
     break;
   default:
     $resposta = errorPage($peticio, $resposta, $contenidor);
