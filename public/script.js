@@ -199,8 +199,7 @@ function changeadminpanel() {
 
     var searchusermail = $("#searchusermail").val();
 
-    // alert(searchusermail);
-    // return;
+
     $.ajax({
         url: 'index.php?page=search',
         type: 'POST',
@@ -211,14 +210,17 @@ function changeadminpanel() {
     });
 }
 
-function changeUserRole() {
+function changeuserrole() {
 
-    var userrole = $("#select_role").val();
+    var user_role = $("#select_role").val();
 
+    // alert(userrole);
+    // return;
+     
     $.ajax({
         url: 'index.php?page=role',
         type: 'POST',
-        data: { userrole: userrole },
+        data: { user_role: user_role },
         dataType: "json",
 
     });
@@ -273,4 +275,6 @@ function removeUser(usermail) {
         dataType: "json",
 
     });
+
+    location.reload();
 }

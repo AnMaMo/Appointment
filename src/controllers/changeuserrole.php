@@ -1,19 +1,19 @@
 <?php
-function changeUserRole($peticio, $resposta, $contenidor)
-{
-   // Get the user model
-   $users = $contenidor->users();
+function UserRole($peticio, $resposta, $contenidor){
+    // Get the user model
+    $users = $contenidor->users();
 
-   // Import
-   $user_role = $peticio->get(INPUT_POST, "userrole");
+    // Import
+    $user_role = $peticio->get(INPUT_POST, "user_role");
 
-   //Call the function
-   $users->removeUser($usermail_remove_user);
+    var_dump($user_role) ;
+    die();
 
-   //
-   $resposta->setTemplate("admin-panel.php");
-   return $resposta;
+    //
+    $usermail = $peticio->get("SESSION", "edit");
 
-    $resposta->setTemplate("useraccount.php");
-    return $resposta;
+
+    //Call the function
+    $users->changeUserRoleMysql($user_role, $usermail);
+
 };

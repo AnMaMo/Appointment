@@ -11,6 +11,5 @@ function removeUser($peticio, $resposta, $contenidor)
     $users->removeUser($usermail_remove_user);
 
     //
-    $resposta->setTemplate("admin-panel.php");
     return $resposta;
 };

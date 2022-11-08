@@ -90,10 +90,10 @@ switch ($page) {
     getSearchUsermail($peticio, $resposta, $contenidor);
     break;
   case "role":
-    changeUserRole($peticio, $resposta, $contenidor);
+    $resposta = UserRole($peticio, $resposta, $contenidor);
     break;
   case "removeuser":
-    removeUser($peticio, $resposta, $contenidor);
+    $resposta = removeUser($peticio, $resposta, $contenidor);
     break;
   case "useraccount":
     $resposta = isLogged($peticio, $resposta, $contenidor, "getUseraccount");

@@ -36,14 +36,15 @@
                     <p><span id="usernametitle"></span></p>
 
                     <!-- Change the user role -->
-                    <form action="" method="POST">
-                        <select class="form-select centre" id="select_role" aria-label="Default select example">
-                            <option selected>Tria el rol</option>
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
-                        </select>
-                        <button type="submit" class="btn btn-danger cancelApp" onclick="changeUserRole()">Change the role</button>
-                    </form>
+
+                    <select class="form-select centre" id="select_role" aria-label="Default select example">
+                        <option selected>Tria el rol</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                    <input type="hidden" name="page" value="role">
+                    <button class="btn btn-danger cancelApp" onclick="changeuserrole()">Change the role</button>
+
 
                     <!-- Show appointments -->
                     <div class="col centre user-square user-margin">
@@ -74,12 +75,10 @@
                             <h1>User info</h1>
                         </div>
                         <div>
-                            <form action="" method="POST">
-                                <p>Name: <span id="username"></span></p>
-                                <p>Mail: <span id="usermail"><?=$usermail?></span></p>
-                                <input type="hidden" name="page" value="removeuser" >
-                                <button type="reset" id="removeuser" class="btn btn-danger cancelApp" onclick="removeUser()">Remove user</button>
-                            </form>
+                            <p>Name: <span id="username"></span></p>
+                            <p>Mail: <span id="usermail"><?= $usermail ?></span></p>
+                            <input type="hidden" name="page" value="removeuser">
+                            <button type="reset" id="removeuser" class="btn btn-danger cancelApp" onclick="removeUser()">Remove user</button>
                         </div>
                     </div>
                 </div>

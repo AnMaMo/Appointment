@@ -91,4 +91,17 @@ class Users
         $stm->bindValue(':usermail_remove_user', $usermail_remove_user);
         $result = $stm->execute();
     }
+
+    /**
+     * change user role
+     */
+    public function changeUserRoleMysql($user_role, $usermail)
+    {
+        $query = 'UPDATE users set user_role = :user_role where user_mail = :usermail';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':user_role', $user_role);
+        $stm->bindValue(':usermail', $usermail);
+        $result = $stm->execute();
+    }
+
 }
