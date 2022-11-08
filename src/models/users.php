@@ -60,8 +60,9 @@ class Users
     /**
      * Change the password
      */
-    public function changePassword($password_new, $userid){
-        $query ='UPDATE users set user_password = :newpass where user_id = :userid';
+    public function changePassword($password_new, $userid)
+    {
+        $query = 'UPDATE users set user_password = :newpass where user_id = :userid';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':newpass', $password_new);
         $stm->bindValue(':userid', $userid);
@@ -69,14 +70,38 @@ class Users
     }
 
     /**
-     * 
      * Change the name
      */
-    public function changeName($name_new, $userid){
-        $query ='UPDATE users set user_name = :name_new where user_id = :userid';
+    public function changeName($name_new, $userid)
+    {
+        $query = 'UPDATE users set user_name = :name_new where user_id = :userid';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':name_new', $name_new);
         $stm->bindValue(':userid', $userid);
         $result = $stm->execute();
     }
+
+    /**
+     * Remove user from database
+     */
+    public function removeUser($usermail_remove_user)
+    {
+        $query = 'DELETE FROM users WHERE user_mail = :usermail_remove_user;';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':usermail_remove_user', $usermail_remove_user);
+        $result = $stm->execute();
+    }
+
+    /**
+     * change user role
+     */
+    public function changeUserRoleMysql($user_role, $usermail)
+    {
+        $query = 'UPDATE users set user_role = :user_role where user_mail = :usermail';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':user_role', $user_role);
+        $stm->bindValue(':usermail', $usermail);
+        $result = $stm->execute();
+    }
+
 }

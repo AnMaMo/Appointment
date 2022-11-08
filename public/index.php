@@ -21,13 +21,17 @@ include "../src/controllers/doAppointmentController.php";
 include "../src/controllers/avaliableHoursController.php";
 include "../src/controllers/getDisabledDaysController.php";
 include "../src/controllers/errorController.php";
-include "../src/controllers/user-formController.php";
+include "../src/controllers/admin-panelController.php";
 include "../src/controllers/useraccountController.php";
 include "../src/controllers/getuserappointments.php";
 include "../src/controllers/getchangename.php";
 include "../src/controllers/getchangemail.php";
 include "../src/controllers/getchangepassword.php";
 include "../src/controllers/getcancelappointment.php";
+include "../src/controllers/searchusermail.php";
+include "../src/controllers/changeuserrole.php";
+include "../src/controllers/removeuser.php";
+
 
 /* Get the Models */
 include "../src/models/users.php";
@@ -79,8 +83,17 @@ switch ($page) {
   case "setDisabledDates":
     $resposta = getDisabledDays($peticio, $resposta, $contenidor);
     break;
-  case "userform":
-    getUserform();
+  case "adminpanel":
+    adminpanelController($peticio, $resposta, $contenidor);
+    break;
+  case "search":
+    getSearchUsermail($peticio, $resposta, $contenidor);
+    break;
+  case "role":
+    $resposta = UserRole($peticio, $resposta, $contenidor);
+    break;
+  case "removeuser":
+    $resposta = removeUser($peticio, $resposta, $contenidor);
     break;
   case "useraccount":
     $resposta = isLogged($peticio, $resposta, $contenidor, "getUseraccount");
