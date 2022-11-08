@@ -3,6 +3,6 @@
 $config = [
     "db" => "appointment",
     "user" => "root",
-    "pass" => "",
+    "pass" => "1234",
     "host" => "localhost"
 ];

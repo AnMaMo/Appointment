@@ -91,4 +91,19 @@ class appointment
         $result = $stm->execute();
     }
 
+
+    /**
+     * Function to create admin appointment
+     */
+    public function createAdminAppointment($dateTime, $app_type)
+    {
+        $query = 'INSERT INTO appointments (app_datetime, app_type, ws_id) VALUES (:appDate, :appType, :wsId)';
+        $stm = $this->sql->prepare($query);
+
+        $stm->bindValue(':appDate', $dateTime);
+        $stm->bindValue(':appType', $app_type);
+        $stm->bindValue(':wsId', $wsId);
+        $result = $stm->execute();
+    }
+
 }

@@ -41,31 +41,34 @@
                     </div>
                 </form>
 
+                <!-- Enable/Disable days Button -->
+                <button class="dateOn" id="onoffDate" onclick="enableDisableDate()">Enable/Disable</button>
+
                 <p class="useraccount-text">Enable/Disable Hours</p>
                 <div class="hour_selector">
                     <div class="hours-div">
-                        <div class="hour" id="hour1" name="9:00" onclick="clickHour(this)">9:00</div>
-                        <div class="hour" id="hour2" name="9:30" onclick="clickHour(this)">9:30</div>
-                        <div class="hour" id="hour3" name="10:00" onclick="clickHour(this)">10:00</div>
-                        <div class="hour" id="hour4" name="10:30" onclick="clickHour(this)">10:30</div>
+                        <div class="hour hourOn" id="hour1" name="9:00" onclick="onoffHour(this)">9:00</div>
+                        <div class="hour hourOn" id="hour2" name="9:30" onclick="onoffHour(this)">9:30</div>
+                        <div class="hour hourOn" id="hour3" name="10:00" onclick="onoffHour(this)">10:00</div>
+                        <div class="hour hourOn" id="hour4" name="10:30" onclick="onoffHour(this)">10:30</div>
                     </div>
                     <div class="hours-div">
-                        <div class="hour" id="hour5" name="11:00" onclick="clickHour(this)">11:00</div>
-                        <div class="hour" id="hour6" name="11:30" onclick="clickHour(this)">11:30</div>
-                        <div class="hour" id="hour7" name="12:00" onclick="clickHour(this)">12:00</div>
-                        <div class="hour" id="hour8" name="12:30" onclick="clickHour(this)">12:30</div>
+                        <div class="hour hourOn" id="hour5" name="11:00" onclick="onoffHour(this)">11:00</div>
+                        <div class="hour hourOn" id="hour6" name="11:30" onclick="onoffHour(this)">11:30</div>
+                        <div class="hour hourOn" id="hour7" name="12:00" onclick="onoffHour(this)">12:00</div>
+                        <div class="hour hourOn" id="hour8" name="12:30" onclick="onoffHour(this)">12:30</div>
                     </div>
                     <div class="hours-div">
-                        <div class="hour" id="hour9" name="16:00" onclick="clickHour(this)">16:00</div>
-                        <div class="hour" id="hour10" name="16:30" onclick="clickHour(this)">16:30</div>
-                        <div class="hour" id="hour11" name="17:00" onclick="clickHour(this)">17:00</div>
-                        <div class="hour" id="hour12" name="17:30" onclick="clickHour(this)">17:30</div>
+                        <div class="hour hourOn" id="hour9" name="16:00" onclick="onoffHour(this)">16:00</div>
+                        <div class="hour hourOn" id="hour10" name="16:30" onclick="onoffHour(this)">16:30</div>
+                        <div class="hour hourOn" id="hour11" name="17:00" onclick="onoffHour(this)">17:00</div>
+                        <div class="hour hourOn" id="hour12" name="17:30" onclick="onoffHour(this)">17:30</div>
                     </div>
                     <div class="hours-div">
-                        <div class="hour" id="hour13" name="18:00" onclick="clickHour(this)">18:00</div>
-                        <div class="hour" id="hour14" name="18:30" onclick="clickHour(this)">18:30</div>
-                        <div class="hour" id="hour15" name="19:00" onclick="clickHour(this)">19:00</div>
-                        <div class="hour" id="hour16" name="19:30" onclick="clickHour(this)">19:30</div>
+                        <div class="hour hourOn" id="hour13" name="18:00" onclick="onoffHour(this)">18:00</div>
+                        <div class="hour hourOn" id="hour14" name="18:30" onclick="onoffHour(this)">18:30</div>
+                        <div class="hour hourOn" id="hour15" name="19:00" onclick="onoffHour(this)">19:00</div>
+                        <div class="hour hourOn" id="hour16" name="19:30" onclick="onoffHour(this)">19:30</div>
                     </div>
                 </div>
 
@@ -77,10 +80,11 @@
             <div class="col centre user-square useraccount">
                 <!-- Section Title -->
                 <p class="useraccount-text">Add a Workstation</p>
-                <div class="addWSDiv">
-                    <input type="text" name="newWS" placeholder="Add a Workstation">
-                    <button class="btn btn-primary" type="submit" name="AddWS" onclick="addWorkStation(this.value)">Add</button>
-                </div>
+                <form class="addWSDiv" method="POST" action="index.php">
+                    <input type="hidden" name="page" value="addWorkstation">
+                    <input type="text" name="newWS" placeholder="Add a Workstation" required>
+                    <button class="btn btn-primary" type="submit" name="AddWS">Add</button>
+                </form>
 
                 <!-- Section Title -->
                 <p class="useraccount-text">Workstations</p>
@@ -112,11 +116,11 @@
                             }
                         ?>
 
-                            <!--print the appointment-->
+                            <!--print the workstations-->
                             <tr>
                                 <td class="ws_id"><?= $wsid ?></td>
                                 <td class="ws_name"><?= $wsname ?></td>
-                                <td><button type="submit" id="user_app" data-id="<?= $workstation['ws_id'] ?>" class="btn btn-primary" onclick="sendcancelappointment(this)">Delete</button></td>
+                                <td><button type="submit" id="user_app" data-id="<?= $workstation['ws_id'] ?>" class="btn btn-primary" onclick="deleteWorkStation(<?= $workstation['ws_id'] ?>)">Delete</button></td>
                             </tr>
                         <?php
 
