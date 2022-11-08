@@ -1,103 +1,112 @@
 <?php include '../src/views/templates/navbar.php'; ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Useraccount</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="script.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="script.js"></script>
 
-</head>
+<!-- PRINCIPAL PAGE (VIEW) -->
+<div class="principalPage">
+    <h1 class="title">CONFIG <?= strtoupper($user['user_name']); ?></h1>
 
-<body>
-    <div class="container ">
-        <h1 class="centre useraccount title-views"><?= $user['user_name'] ?> configuration</h1>
-        <div class="row align-items-start ">
-            <div class="col centre user-square useraccount">
+    <!-- PAGE FLEXBOX ROW -->
+    <div class="row align-items-start">
 
-                <div class="useraccount useraccount-text">
-                    <p>Change personal information</p>
+        <!-- PAGE FLEXBOX COLUMN -->
+        <div class="col centre user-square useraccount">
+            <!-- Section Title -->
+            <p class="useraccount-text">Change Info</p>
+
+
+            <!-- Change Name Form -->
+            <form method="POST">
+                <div name="changeNameForm">
+                    <div class="changeconfig"><input type="text" id="newName" placeholder="<?= $user['user_name'] ?>"></div>
+                    <div class="changeconfig"><button type="submit" class="btn btn-primary" onclick="sendchangename()">Save</button></div>
                 </div>
-                <div class="useraccount col">
+            </form>
 
-                    <!--change name -->
-                    <form method="POST">
-                        <div class="col">
-                            <input type="text" class="changeconfig" id="newName" placeholder="<?= $user['user_name'] ?>">
-                            <button type="submit" class="btn btn-success cancelApp" onclick="sendchangename()">Save</button>
+            <!-- Change Password Form -->
+            <form method="POST" action="index.php" name="changePasswordForm">
+
+                <div name="changeNameForm">
+                    <input type="hidden" name="page" value="changepassword">
+                    <div class="changeconfig"><input type="password" name="password_current" placeholder="Current password" required></div>
+                    <div class="changeconfig"><input type="password" name="password_new" placeholder="New password" required></div>
+                    <div class="changeconfig"><button type="submit" class="btn btn-primary">Save</button></div>
+                </div>
+
+
+
+                <?php
+
+                /* If the password does not match */
+                if (isset($_GET['error'])) {
+                    if ($_GET['error'] === "password") {
+
+                ?>
+                        <div class="incorrect-credentials" id="badcredenti-error">
+                            <p>Password not equals</p>
                         </div>
-                    </form>
-
-                    <!-- Change password -->
-                    <form method="POST" action="index.php">
-                        <input type="hidden" name="page" value="changepassword">
-                        <div class="col">
-                            <input type="password" class="changeconfig" name="password_current" placeholder="Current password" required>
-                            <input type="password" class="changeconfig" name="password_new" placeholder="New password" required>
-                            <button type="submit" class="btn btn-success cancelApp">Save</button>
-                            <?php
-                            //if the password does not match
-                            if (isset($_GET['error'])) {
-                                if ($_GET['error'] === "password") {
-
-                            ?>
-                                    <div class="incorrect-credentials" id="badcredenti-error">
-                                        <p>Password not equals</p>
-                                    </div>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-            <div class="col centre user-square useraccount">
-                <div class="useraccount useraccount-text">
-                    <p>My appointments</p>
-                </div>
-                <div class="useraccount">
-                    <?php
-                    //if you don't have dates
-                    if (sizeof($appointmentsList) === 0) {
-                        //print
-                        echo "<p>You don't have appointments</p>";
-                    } else {
-                        foreach ($appointmentsList as $appointment) {
-                            foreach ($workstationList as $workstation) {
-                                //take the id and store it in a variable(wsid)
-                                $wsid = $appointment['ws_id'];
-                                //if the id are the same
-                                if ($workstation['ws_id'] === $wsid) {
-                                    //take the name and store it in a variable(wsidname)
-                                    $wsname = $workstation['ws_name'];
-                    ?>
-                                    <!-- Print -->
-                                    <div class="row">
-                                        <p class="date"><?= $appointment['app_datetime'] ?></p>
-                                        <p class="barber"><?= $wsname ?></p>
-                                        <button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-danger cancelApp" onclick="sendcancelappointment(this)">Cancel</button>
-                                    </div>
-                    <?php
-
-                                }
-                            }
-                        }
+                <?php
                     }
-                    ?>
-                </div>
-            </div>
+                }
+                ?>
+            </form>
+
         </div>
 
-    </div>
-    <?php include '../src/views/templates/footer.php'; ?>
-</body>
 
-</html>
+
+        <!-- PAGE FLEXBOX COLUMN -->
+        <div class="col centre user-square useraccount">
+            <!-- Section Title -->
+            <p class="useraccount-text">My appointments</p>
+
+            <!-- TABLE OF USER APPOINTMENTS -->
+            <table class="table-useraccount display" title="asd">
+                <!-- TABLE HEAD -->
+                <thead>
+                    <tr>
+                        <th>datetime</th>
+                        <th>workstation</th>
+                        <th>cancel</th>
+                    </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody>
+                    <?php
+                    /* Iterate the appointments */
+                    foreach ($appointmentsList as $appointment) {
+                        /* Get the workstation id */
+                        $wsid = $appointment['ws_id'];
+                        $wsname = "default";
+
+                        /* Iterate the workstations to get the name with the id */
+                        foreach ($workstationList as $workstation) {
+                            if ($workstation['ws_id'] === $wsid) {
+                                $wsname = $workstation['ws_name'];
+                            }
+                        }
+                    ?>
+                        <!--print the appointment-->
+                        <tr>
+                            <td class="date"><?= $appointment['app_datetime'] ?></td>
+                            <td class="workstation"><?= $wsname ?></td>
+                            <td><button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-primary" onclick="sendcancelappointment(this)">Cancel</button></td>
+                        </tr>
+                    <?php
+
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+<?php include '../src/views/templates/footer.php'; ?>

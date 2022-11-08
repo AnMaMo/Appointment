@@ -12,6 +12,7 @@
     --color6: #FC4549;
     --color7: #2B6299;
     --color8: #4B7FBC;
+    --color9: #f3f3f3;
 }
 
 .hidden {
@@ -19,11 +20,24 @@
 }
 
 body {
-    background-color: var(--color8);
+    background-image: url(media/background.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 * {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+    background-color: var(--color1);
+    padding: 10px;
+    width: max-content;
+    margin: auto;
+    margin-top: 75px;
+    text-align: center;
+    color: var(--color9);
+    text-shadow: 2px 1px 2px black;
 }
 
 .bg-dark {
@@ -37,24 +51,17 @@ body {
 
 
 .navbar {
+    width: 100%;
     height: 70px !important;
+    position: fixed;
+    top: 0;
+    z-index: 100;
 }
 
+/* Mobile Navbar */
 .container-fluid {
     background-color: #2B2F3A;
 }
-
-
-
-.logoindex {
-    width: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-}
-
-
-
 
 /* FOOTER */
 .footer {
@@ -86,17 +93,22 @@ body {
     margin: 0px;
 }
 
+
+.indexPage,
+.principalPage {
+    width: 100%;
+    height: auto;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+
 .indexPage {
     width: 100%;
     height: calc(100vh - 120px);
     background-image: url(media/background.jpg);
     background-size: cover;
     background-position: center;
-}
-
-.principalPage {
-    width: 100%;
-    height: calc(100vh - 120px);
 }
 
 
@@ -106,8 +118,7 @@ body {
     height: 60vh;
     margin-left: auto;
     margin-right: auto;
-    margin-top: calc(20vh - 70px);
-    margin-bottom: calc(20vh - 50px);
+    margin-top: 100px;
     padding: 10px;
     box-shadow: 1px 1px 10px 1px #000000;
     background-color: #D8D8D8;
@@ -125,19 +136,24 @@ body {
 }
 
 .btn {
-    background-color: var(--color8);
+    background-color: var(--color6);
     border-radius: 0px;
     width: 100%;
-}
-
-.btn-red {
-    background-color: var(--color6);
     border: 0px;
+    color: var(--color4);
 }
 
-.btn-red:hover {
+
+.btn:hover {
     background-color: var(--color5);
+    color: var(--color4);
 }
+
+/* btn primary change background color active */
+.btn-primary:active {
+    background-color: var(--color5) !important;
+}
+
 
 .form-control {
     border-radius: 0px;
@@ -145,14 +161,6 @@ body {
 }
 
 .square {
-    width: 20px;
-    height: 30px;
-    background-color: var(--color8);
-    margin: 5px;
-    margin-left: 20px;
-}
-
-.square-red {
     width: 20px;
     height: 30px;
     background-color: var(--color6);
@@ -200,19 +208,20 @@ body {
 
 
 /*Appointment-form*/
-.dateAndWorkstation{
+.dateAndWorkstation {
     display: flex;
     justify-content: left;
 }
 
-#datepicker, #workstation{
+#datepicker,
+#workstation {
     text-align: center;
     width: 50%;
     height: 25px;
     margin: 10px;
 }
 
-.ui-datepicker-unselectable .ui-state-disabled .undefined{
+.ui-datepicker-unselectable .ui-state-disabled .undefined {
     background-color: red;
 }
 
@@ -244,7 +253,7 @@ body {
     margin: 0px;
 }
 
-.noValidHour{
+.noValidHour {
     display: inline-block;
     text-align: center;
     background: var(--color1);
@@ -314,6 +323,15 @@ body {
 
 .useraccount {
     margin: 20PX;
+    padding: 10px;
+    box-shadow: 1px 1px 10px 1px #000000;
+    background-color: #D8D8D8;
+    border: 0px;
+}
+
+.table-useraccount {
+    width: 100%;
+    margin: auto;
 }
 
 .useraccount-text {
@@ -325,26 +343,38 @@ body {
     margin-bottom: 10px;
 }
 
-.row{
+.row {
     display: flex;
     justify-content: space-between;
     margin: 5px;
 }
 
-.cancelApp,
-.date,
-.barber {
-    width: fit-content;
-}
-
-.title-views{
+.title-views {
     color: white;
 }
 
-.changeconfig{
-    margin: 0px;
-    padding: 0px;
+.changeNameForm {
+    display: flex;
+    flex-direction: row;
 }
+
+.changeconfig{
+    margin: auto;
+    margin-top: 5px;
+    width: 75%;
+}
+
+
+.changeconfig input {
+    width: 100%;
+    text-align: center;
+}
+.changeconfig button {
+    margin-bottom: 10px;
+}
+
+
+
 /** Index page */
 .indexoptions {
     display: flex;
@@ -367,7 +397,7 @@ body {
     .form-contenedor {
         width: 100%;
         height: calc(100vh - (70px + 50px));
-        margin: 0px;
+        margin-top: calc(20vh - 70px);
     }
 
     .subform {

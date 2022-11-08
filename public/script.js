@@ -1,18 +1,20 @@
+/* Create a array with disabled days and call function to fill it */
 var disabledDays = [];
 UpdateDisabledDays();
 
 
-/**
- * This function set the params of the datepicker JQuery
- */
+/* Function when open the page configure the Datepicker */
 $(function () {
     $("#datepicker").datepicker({
-        dateFormat: 'yy-mm-dd',
-        firstDay: 1,
-        minDate: "dateToday",
-        maxDate: "+2M",
+        dateFormat: 'yy-mm-dd', // Set the format of the date
+        firstDay: 1, // Monday
+        minDate: "dateToday", // Calendar starts today
+        maxDate: "+2M", // Calendar ends in 2 months
 
-        // Iterate the array of dates to disable
+// TODO: Function to disable the days
+      //  beforeShowDay: DisableSpecificDates, // Call function to disable specific dates
+
+        /* Iterate the array of dates to disable */
         beforeShowDay: function (date) {
             var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
             return [disabledDays.indexOf(string) == -1]
@@ -20,14 +22,10 @@ $(function () {
     });
 });
 
-
-
-
-
-
-
 /**
- * Function calls when you click the datepicker
+ * This function actualize the disabled days array.
+ * Call a ajax controller to get the disabled days.
+ * 
  */
 function UpdateDisabledDays() {
     /**
@@ -142,7 +140,7 @@ function clickHour(hourclicked) {
  * Function to see if user has entered invalid credentials
  * in the login form and hide the error message
  */
-function invalidCredentials() {
+function invalidCredentials(){
     //get element and set new class
     var element = document.getElementById("credentials-error");
     element.classList.add("invalid-credentials");
@@ -154,7 +152,7 @@ function invalidCredentials() {
  * It passes the new name
  * @returns 
  */
-function sendchangename() {
+function sendchangename(){
 
     var name_new = $("#newName").val();
 
@@ -167,7 +165,7 @@ function sendchangename() {
     $.ajax({
         url: 'index.php?page=getchangename',
         type: 'POST',
-        data: { name_new: name_new },
+        data: { name_new: name_new},
         dataType: "json"
     });
 }
@@ -176,128 +174,14 @@ function sendchangename() {
  * It passes the id of the appointment
  * @param {*} appointment 
  */
-function sendcancelappointment(appointment) {
+ function sendcancelappointment(appointment) {
 
     var appointment_id = $(appointment).data("id");
-
+   
     $.ajax({
         url: 'index.php?page=getcancelappointment',
         type: 'POST',
-        data: { appointment_id: appointment_id },
-        dataType: "json"
+        data: { appointment_id: appointment_id},
+        dataType: "json" 
     });
-
-    //
-    location.reload();
-}
-
-/**
- * 
- * @param {*} appointment 
- */
-function sendcancelappointmentadmin(appointment) {
-
-    var appointment_id = $(appointment).data("id");
-
-    $.ajax({
-        url: 'index.php?page=getcancelappointment',
-        type: 'POST',
-        data: { appointment_id: appointment_id },
-        dataType: "json"
-    });
-
-    //
-    location.reload();
-}
-
-/**
- * search user mail
- */
-function changeadminpanel() {
-
-    var searchusermail = $("#searchusermail").val();
-
-
-    $.ajax({
-        url: 'index.php?page=search',
-        type: 'POST',
-        data: { searchusermail: searchusermail },
-        dataType: "json",
-        success: changeuseradminpanel
-
-    });
-}
-
-/**
- * show the appointment in adminpanel
- * @param {*} data 
- */
-function changeuseradminpanel(data) {
-
-    var username = data.user.user_name;
-    var usermail = data.usermail;
-
-        $("#username").text(username);
-        $("#usernametitle").text(username);
-        $("#usermail").text(usermail);
-
-        $("#removeuser").attr("onclick", "removeUser('"+usermail+"')");
-
-    for (const app of data.appointmentsList) {
-        var appointment = app.app_datetime;
-        var app_id = app.app_id;
-        var ws_name = "default";
-
-        for (const workstation of data.workstationList) {
-            if (app.ws_id === workstation.ws_id) {
-                ws_name = workstation.ws_name;
-                $("#appointment_table").append('<tr>');
-                $("#appointment_table").append('<td class="date">' + appointment + '</td>');
-                $("#appointment_table").append('<td class="workstation">' + ws_name + '</td>');
-                $("#appointment_table").append('<td><button id="user_app" data-id="' + app_id + '" class="btn btn-primary" onclick="sendcancelappointmentadmin(this)">Cancel</button></td>');
-                $("#appointment_table").append('</tr>');
-            }
-        }
-    }
-
-    $('.table-useraccount').DataTable(
-        // set max length of the table to 3 and not show the search bar
-        { "lengthMenu": [3], "searching": false, "lengthChange": false }
-    );
-}
-
-/**
- * change user role
- */
-function changeuserrole() {
-
-    var user_role = $("#select_role").val();
-
-  
-    $.ajax({
-        url: 'index.php?page=role',
-        type: 'POST',
-        data: { user_role: user_role },
-        dataType: "json",
-
-    });
-    location.reload();
-
-}
-
-/**
- * remove user in database
- * @param {*} usermail 
- */
-function removeUser(usermail) {
-
-    $.ajax({
-        url: 'index.php?page=removeuser',
-        type: 'POST',
-        data: { usermail: usermail },
-        dataType: "json",
-
-    });
-
-    location.reload();
 }
