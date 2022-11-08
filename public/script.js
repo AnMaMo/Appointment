@@ -281,6 +281,8 @@ function changeuserrole() {
         dataType: "json",
 
     });
+    location.reload();
+
 }
 
 /**
