@@ -141,6 +141,7 @@ body {
     width: 100%;
     border: 0px;
     color: var(--color4);
+    box-shadow: 0px 0px 5px 0px var(--color1);
 }
 
 
@@ -426,7 +427,7 @@ body {
 
 
 #adminDatepicker{
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
 
 .blockedDay{
@@ -452,4 +453,36 @@ body {
     width: 100%;
     text-align: center;
     margin-bottom: 5px;
+}
+
+.dateOn{
+    /* set in uppercase bold color black and font shadow*/
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color8);
+    color: var(--color4);
+    width: fit-content;
+    padding: 10px;
+}
+
+.dateOff{
+    /* set in uppercase bold color black and font shadow*/
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color6);
+    color: var(--color4);
+    width: fit-content;
+    padding: 10px;
+}
+
+.hourOn{
+    /* set in uppercase bold color black and font shadow*/
+    background-color: var(--color2);
+    color: var(--color4);
+}
+
+.hourOff, .hourOff:hover{
+    /* set in uppercase bold color black and font shadow*/
+    background-color: var(--color6);
+    color: var(--color4);
 }

@@ -324,22 +324,23 @@ function removeUser(usermail) {
 /* Function when open the page configure the Datepicker */
 $(function () {
     $('#adminDatepicker').datepicker({
-        //iterate the array of dates to disable and set the dates to highlight
-        beforeShowDay: function (date) {
-            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-            return [disabledDays.indexOf(string)]
-        }
+
+        // Set the date format
+        dateFormat: 'yy-mm-dd',
+
+        onSelect: selectAdminDate
+
     });
 });
 
-function selectDate(){
+function selectDate() {
     // get the element of the datepicker of the date selected
     var date = $("#adminDatepicker").val();
-    
+
     // get day month and year of the date selected
-    var day = date.substring(8,10);
-    var month = date.substring(5,7);
-    var year = date.substring(0,4);
+    var day = date.substring(8, 10);
+    var month = date.substring(5, 7);
+    var year = date.substring(0, 4);
 
     // get the element of the document with data-month = var month
     var monthElement = document.querySelector("[data-month='" + month + "']");
@@ -351,27 +352,130 @@ function selectDate(){
     return false;
 }
 
-function adminBlockDay(){
+function adminBlockDay() {
     var date = $("#admindatepicker").val();
 
     //date get day, month and year
-    var day = date.substring(0,2);
-    var month = date.substring(3,5);
-    var year = date.substring(6,10);
+    var day = date.substring(0, 2);
+    var month = date.substring(3, 5);
+    var year = date.substring(6, 10);
 
 
-//Add to the datepicker date the class "disabledDay"
-
+    //Add to the datepicker date the class "disabledDay"
 }
 
 
+/**
+ * 
+ * @param {*} wsId 
+ */
+function deleteWorkStation(wsId) {
 
-function addWorkStation(wsName){
 
     $.ajax({
-        url: 'index.php?page=addWorkstation',
+        url: 'index.php?page=deleteWSController',
         type: 'POST',
-        data: { name: wsName },
-        dataType: "json"
+        data: { id: wsId },
+        dataType: "json",
     });
+
+    location.reload();
+}
+
+
+/**
+ * Function to get if date is blocked or not
+ */
+function selectAdminDate(date) {
+
+    // with ajax see if date is blocked
+    $.ajax({
+        url: 'index.php?page=checkBlockedDate',
+        type: 'POST',
+        data: { date: date },
+        dataType: "json",
+        success: ProcessBlockedDate
+    });
+}
+
+
+/**
+ * Function to process the date blocked or not
+ * @param {*} data
+ * @returns
+ *  
+ * */
+function ProcessBlockedDate(data) {
+    // if date is blocked
+    if (data.dayisBlocked == true) {
+        // set the button to unblock
+        $("#onoffDate").removeClass("dateOn").addClass("dateOff");
+        $("#onoffDate").text("Enable Date");
+
+    } else {
+        // set the button to block
+        $("#onoffDate").removeClass("dateOff").addClass("dateOn");
+        $("#onoffDate").text("Disable Date");
+    }
+}
+
+
+/**
+ * Function to block or unblock the date
+ */
+function enableDisableDate() {
+    var date = $("#adminDatepicker").val();
+
+    //Get the class of #onoffDate if is dateOff set to dateOn and viceversa
+    var onoffDate = $("#onoffDate").attr("class");
+
+    if (onoffDate == "dateOff") {
+
+        // with ajax unset the date blocked
+        $.ajax({
+            url: 'index.php?page=enableDisableDate',
+            type: 'POST',
+            data: { date: date, onoffDate: onoffDate },
+            dataType: "json",
+        });
+
+        $("#onoffDate").removeClass("dateOff").addClass("dateOn");
+        $("#onoffDate").text("Disable Date");
+
+    } else {
+        //ajax to disable the date
+        $.ajax({
+            url: 'index.php?page=disableDate',
+            type: 'POST',
+            data: { date: date },
+            dataType: "json",
+        });
+
+        $("#onoffDate").removeClass("dateOn").addClass("dateOff");
+        $("#onoffDate").text("Enable Date");
+    }
+}
+
+function onoffHour(hour) {
+
+    // get the date selected on admindatepicker
+    var date = $("#adminDatepicker").val();
+
+    // if the hour has class hourOn set to hourOff and viceversa
+    if ($(hour).hasClass("hourOn")) {
+
+        // Ajax to create the hour blocked
+        $.ajax({
+            url: 'index.php?page=disableHour',
+            type: 'POST',
+            data: { hour: hour, date: date },
+            dataType: "json",
+        });
+
+        $(hour).removeClass("hourOn").addClass("hourOff");
+    }
+    else {
+        $(hour).removeClass("hourOff").addClass("hourOn");
+    }
+
 }

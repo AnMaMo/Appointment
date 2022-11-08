@@ -63,4 +63,27 @@ class workstations
         return $result;
     }
 
+
+    /**
+     * Function to add a new workstation
+     */
+    function addWorkStation($wsName){
+        $query = 'INSERT INTO workstation (ws_name) VALUES (:wsName)';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':wsName', $wsName);
+        $stm->execute();
+    }
+
+
+    /**
+     * Function to delete a workstation
+     */
+    function deleteWorkStationSQL($wsId){
+        $query = 'DELETE FROM workstation WHERE ws_id = :wsId';
+        $stm = $this->sql->prepare($query);
+        $stm->bindValue(':wsId', $wsId);
+        $stm->execute();
+    }
+
+
 }
