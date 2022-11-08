@@ -41,6 +41,8 @@ include "../src/models/disabledDays.php";
 
 /* Get the MiddleWare */
 include "../src/midleware/isLoged.php";
+include "../src/midleware/isAdmin.php";
+
 
 /* Get the Emeset Framework */
 include "../src/Emeset/Contenidor.php";
@@ -84,7 +86,7 @@ switch ($page) {
     $resposta = getDisabledDays($peticio, $resposta, $contenidor);
     break;
   case "adminpanel":
-    adminpanelController($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "adminpanelController");
     break;
   case "search":
     getSearchUsermail($peticio, $resposta, $contenidor);

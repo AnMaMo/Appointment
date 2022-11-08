@@ -31,7 +31,7 @@ class Users
      */
     public function getUser($usermail)
     {
-        $query = 'select user_id, user_name, user_password, user_mail from users where user_mail=:searchuser;';
+        $query = 'select user_id, user_name, user_password, user_mail, user_role from users where user_mail=:searchuser;';
         $stm = $this->sql->prepare($query);
         $result = $stm->execute([':searchuser' => $usermail]);
 
