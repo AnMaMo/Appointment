@@ -191,6 +191,24 @@ function sendcancelappointment(appointment) {
     location.reload();
 }
 
+/**
+ * 
+ * @param {*} appointment 
+ */
+function sendcancelappointmentadmin(appointment) {
+
+    var appointment_id = $(appointment).data("id");
+
+    $.ajax({
+        url: 'index.php?page=getcancelappointment',
+        type: 'POST',
+        data: { appointment_id: appointment_id },
+        dataType: "json"
+    });
+
+    //
+    location.reload();
+}
 
 /**
  * search user mail
@@ -210,27 +228,11 @@ function changeadminpanel() {
     });
 }
 
-function changeuserrole() {
-
-    var user_role = $("#select_role").val();
-
-    // alert(userrole);
-    // return;
-     
-    $.ajax({
-        url: 'index.php?page=role',
-        type: 'POST',
-        data: { user_role: user_role },
-        dataType: "json",
-
-    });
-}
-
+/**
+ * show the appointment in adminpanel
+ * @param {*} data 
+ */
 function changeuseradminpanel(data) {
-
-    // console.log(user.user.user_name);
-    // const appointmentsList = appointmentsList;
-    // const workstationList = workstationList;
 
     var username = data.user.user_name;
     var usermail = data.usermail;
@@ -252,7 +254,7 @@ function changeuseradminpanel(data) {
                 $("#appointment_table").append('<tr>');
                 $("#appointment_table").append('<td class="date">' + appointment + '</td>');
                 $("#appointment_table").append('<td class="workstation">' + ws_name + '</td>');
-                $("#appointment_table").append('<td><button type="submit" id="user_app" data-id="' + app_id + '" class="btn btn-primary" onclick="sendcancelappointment(this)">Cancel</button></td>');
+                $("#appointment_table").append('<td><button id="user_app" data-id="' + app_id + '" class="btn btn-primary" onclick="sendcancelappointmentadmin(this)">Cancel</button></td>');
                 $("#appointment_table").append('</tr>');
             }
         }
@@ -262,10 +264,29 @@ function changeuseradminpanel(data) {
         // set max length of the table to 3 and not show the search bar
         { "lengthMenu": [3], "searching": false, "lengthChange": false }
     );
-
-
 }
 
+/**
+ * change user role
+ */
+function changeuserrole() {
+
+    var user_role = $("#select_role").val();
+
+  
+    $.ajax({
+        url: 'index.php?page=role',
+        type: 'POST',
+        data: { user_role: user_role },
+        dataType: "json",
+
+    });
+}
+
+/**
+ * remove user in database
+ * @param {*} usermail 
+ */
 function removeUser(usermail) {
 
     $.ajax({

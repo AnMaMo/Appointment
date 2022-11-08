@@ -6,9 +6,6 @@ function UserRole($peticio, $resposta, $contenidor){
     // Import
     $user_role = $peticio->get(INPUT_POST, "user_role");
 
-    var_dump($user_role) ;
-    die();
-
     //
     $usermail = $peticio->get("SESSION", "edit");
 
