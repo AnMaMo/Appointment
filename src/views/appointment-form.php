@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>  
     <script src="script.js"></script>
     <script>
         $(function() {
@@ -26,7 +27,7 @@
                 <div class="form-title posicio">Appointment</div>
 
                 <div class="form-square-form ">
-                    <form action="index.php" method="POST" class="all-forms" name="appointmentForm">
+                    <form action="index.php" method="POST" class="all-forms pdfApp" name="appointmentForm">
                         <input type="hidden" name="page" value="doAppointment">
                         <div class="mb-3">
                             <div class="dateAndWorkstation">
@@ -73,7 +74,7 @@
                             </div>
                         </div>
                         <input type="text" class="hidden" name="hour_selected" id="hour_selected" required>
-                        <button type="submit" class="btn btn-red btn-primary" onclick="appointmentHourValidation()">Take Appointment</button>
+                        <button type="submit" class="btn btn-red btn-primary" id="create_pdf" onclick="appointmentHourValidation()">Take Appointment</button>
                     </form>
                 </div>
             </div>
