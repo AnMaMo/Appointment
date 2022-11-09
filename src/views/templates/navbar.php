@@ -1,3 +1,6 @@
+<?php //start a session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,12 +29,23 @@
           <li class="nav-item">
             <a class="nav-link" href="/index.php?page=appointment">Appointment</a>
           </li>
+
+          <?php
+
+          //is admin
+          if (isset($_SESSION['admin'])) {
+          ?>
+              <li class="nav-item">
+                <a class="nav-link" href="/index.php?page=appointment">Admin Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/index.php?page=appointment">Admin Appointment</a>
+              </li>
+          <?php
+            }
+          
+          ?>
         </ul>
-
-
-        <?php //start a session
-        session_start();
-        ?>
 
         <?php if (isset($_SESSION['username'])) : ?>
           <span class="navbar-text">
