@@ -89,7 +89,7 @@ switch ($page) {
     $resposta = isAdmin($peticio, $resposta, $contenidor, "adminpanelController");
     break;
   case "search":
-    getSearchUsermail($peticio, $resposta, $contenidor);
+    $resposta = getSearchUsermail($peticio, $resposta, $contenidor);
     break;
   case "role":
     $resposta = UserRole($peticio, $resposta, $contenidor);
