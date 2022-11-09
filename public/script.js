@@ -2,6 +2,14 @@
 var disabledDays = [];
 UpdateDisabledDays();
 
+/* */
+$(document).ready(function () {
+    $('.table-useraccount').DataTable(
+        // set max length of the table to 3 and not show the search bar
+        { "lengthMenu": [2], "searching": false, "lengthChange": false }
+    );
+
+});
 
 /* Function when open the page configure the Datepicker */
 $(function () {
@@ -190,10 +198,10 @@ function sendcancelappointment(appointment) {
 }
 
 /**
- * 
+ * cancel appointment from adminpanel
  * @param {*} appointment 
  */
-function sendcancelappointmentadmin(appointment) {
+ function sendcancelappointmentadmin(appointment) {
 
     var appointment_id = $(appointment).data("id");
 
@@ -211,10 +219,9 @@ function sendcancelappointmentadmin(appointment) {
 /**
  * search user mail
  */
-function changeadminpanel(searchusermail) {
-
-    // var searchusermail = $("#searchusermail").val();
-
+function changeadminpanel() {
+  
+    var searchusermail = $("#searchusermail").val();
 
     $.ajax({
         url: 'index.php?page=search',
@@ -224,19 +231,15 @@ function changeadminpanel(searchusermail) {
         success: changeuseradminpanel
 
     });
+   
 }
-
-
-
-
-
 
 /**
  * show the appointment in adminpanel
  * @param {*} data 
  */
 function changeuseradminpanel(data) {
-
+    
     var username = data.user.user_name;
     var usermail = data.usermail;
 
@@ -262,10 +265,8 @@ function changeuseradminpanel(data) {
             }
         }
     }
-    $('.table-useraccount').DataTable(
-        // set max length of the table to 3 and not show the search bar
-        { "lengthMenu": [3], "searching": false, "lengthChange": false }
-    );
+   
+
 }
 
 /**
