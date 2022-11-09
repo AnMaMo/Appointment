@@ -25,44 +25,14 @@
         <div class="container">
             <div class="row align-items-start">
                 <div class="col centre user-square ">
-                    <!-- <form class="row centre" method="POST">
+                    <form class="row centre" method="POST">
                         <div class="col user-margin">
                             <input type="text" class="user-inputbox centre" id="searchusermail" placeholder="Search user mail">
                             <button type="reset" class="user-buttom-search" onclick="changeadminpanel()"><img class="search-logo" src="../media/search.png" alt="search"></button>
                         </div>
-                    </form> -->
+                    </form>
 
-                    <div class="col centre user-margin user-square">
-                        <div>
-                            <h1>All users</h1>
-                        </div>
-                        <table class="table-useraccount display" title="asd">
-                            <!-- TABLE HEAD -->
-                            <thead>
-                                <tr>
-                                    <th>User name</th>
-                                    <th>User mail</th>
-                                    <th>Select</th>
-                                </tr>
-                            </thead>
-                            <!-- TABLE BODY -->
-                            <tbody id="user_table">
-                                <?php
-                                /* Iterate the users */
-                                foreach ($allUsers as $user) {
-                                ?>
-                                    <tr>
-                                        <td class="date"><?= $user['user_name'] ?></td>
-                                        <td class="workstation"><?= $user['user_mail'] ?></td>
-                                        <td><button type="submit" id="searchusermail" class="btn btn-primary" onclick="changeadminpanel('<?= $user['user_mail']?>')">Select</button></td>
-                                    </tr>
-                                <?php
 
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
 
 
                     <!-- Change the user role -->
@@ -112,7 +82,37 @@
                             <button id="removeuser" class="btn btn-danger cancelApp" onclick="removeUser()">Remove user</button>
                         </div>
                     </div>
+                    <div class="col centre user-margin user-square">
+                        <div>
+                            <h1>All users</h1>
+                        </div>
+                        <table class="table-useraccount display" title="asd">
+                            <!-- TABLE HEAD -->
+                            <thead>
+                                <tr>
+                                    <th>User id</th>
+                                    <th>User name</th>
+                                    <th>User mail</th>
+                                </tr>
+                            </thead>
+                            <!-- TABLE BODY -->
+                            <tbody id="user_table">
+                                <?php
+                                /* Iterate the users */
+                                foreach ($allUsers as $user) {
+                                ?>
+                                    <tr>
+                                        <td class="user_id"><?= $user['user_id'] ?></td>
+                                        <td class="user_name"><?= $user['user_name'] ?></td>
+                                        <td class="user_mail"><?= $user['user_mail'] ?></td>
+                                    </tr>
+                                <?php
 
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
