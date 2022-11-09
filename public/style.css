@@ -31,7 +31,7 @@ body {
 
 .title {
     background-color: var(--color1);
-    padding: 10px;
+    padding: 5px;
     width: max-content;
     margin: auto;
     margin-top: 75px;
@@ -141,6 +141,7 @@ body {
     width: 100%;
     border: 0px;
     color: var(--color4);
+    box-shadow: 0px 0px 5px 0px var(--color1);
 }
 
 
@@ -336,6 +337,7 @@ body {
 
 .useraccount-text {
     font-weight: bold;
+    margin: 0px;
 }
 
 .useraccount-button-save {
@@ -421,4 +423,66 @@ body {
         border: 1px solid black;
         padding: 10px;
     }
+}
+
+
+#adminDatepicker{
+    margin-bottom: 10px;
+}
+
+.blockedDay{
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 1px solid var(--color1);
+}
+
+.blockedDay:hover{
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 1px solid var(--color1);
+}
+
+.addWSDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.addWSDiv input{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.dateOn{
+    /* set in uppercase bold color black and font shadow*/
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color8);
+    color: var(--color4);
+    width: fit-content;
+    padding: 10px;
+}
+
+.dateOff{
+    /* set in uppercase bold color black and font shadow*/
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color6);
+    color: var(--color4);
+    width: fit-content;
+    padding: 10px;
+}
+
+.hourOn{
+    /* set in uppercase bold color black and font shadow*/
+    background-color: var(--color2);
+    color: var(--color4);
+}
+
+.hourOff, .hourOff:hover{
+    /* set in uppercase bold color black and font shadow*/
+    background-color: var(--color6);
+    color: var(--color4);
 }

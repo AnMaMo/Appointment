@@ -35,6 +35,35 @@ class disabledDays
         return $result;
     }
 
+    /**
+     * Function to get a day to see if day is blocked
+     */
+    public function getDay($day){
+        $stm = $this->sql->prepare("select * from disableddays where day = :day");
+        $stm->bindValue(':day', $day);
+        $stm->execute();
+        $result = $stm->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    /**
+     * Function to block a day
+     */
+    public function blockDay($day){
+        $stm = $this->sql->prepare("insert into disableddays (day) values (:day)");
+        $stm->bindValue(':day', $day);
+        $stm->execute();
+    }
+
+    /**
+     * Function to unblock a day
+     */
+    public function unblockDay($day){
+        $stm = $this->sql->prepare("delete from disableddays where day = :day");
+        $stm->bindValue(':day', $day);
+        $stm->execute();
+    }
+
 
 
 }

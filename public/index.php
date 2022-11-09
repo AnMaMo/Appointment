@@ -31,7 +31,15 @@ include "../src/controllers/getcancelappointment.php";
 include "../src/controllers/searchusermail.php";
 include "../src/controllers/changeuserrole.php";
 include "../src/controllers/removeuser.php";
-
+include "../src/controllers/adminAppointmetController.php";
+include "../src/controllers/addWorkStationController.php";
+include "../src/controllers/deleteWorkStationController.php";
+include "../src/controllers/getIfDateIsBlockedController.php";
+include "../src/controllers/disableDateController.php";
+include "../src/controllers/enableDateController.php";
+include "../src/controllers/disableHourController.php";
+include "../src/controllers/enableHourController.php";
+include "../src/controllers/checkAvaliableAdminHours.php";
 
 /* Get the Models */
 include "../src/models/users.php";
@@ -113,6 +121,33 @@ switch ($page) {
   case "getcancelappointment":
     $resposta = getCancelAppointment($peticio, $resposta, $contenidor);
     break;
+  case "adminapp":
+    //TODO: add isadmin middelware
+    $resposta = getAdminAppForm($peticio, $resposta, $contenidor);
+    break;
+  case "addWorkstation":
+    $resposta = addWorkstation($peticio, $resposta, $contenidor);
+    break;
+  case "deleteWSController":
+    $resposta = deleteWS($peticio, $resposta, $contenidor);
+    break;
+  case "checkBlockedDate":
+    $resposta = checkBlockedDate($peticio, $resposta, $contenidor);
+    break;
+  case "disableDate":
+    $resposta = disableDate($peticio, $resposta, $contenidor);
+    break;
+  case "enableDisableDate":
+    $resposta = enableDate($peticio, $resposta, $contenidor);
+    break;
+  case "disableHour":
+    $resposta = disableHour($peticio, $resposta, $contenidor);
+    break;
+  case "enableHour":
+    $resposta = enableHour($peticio, $resposta, $contenidor);
+    break;
+    case "checkAvaliableAdminHours":
+    $resposta = getAvaliableAdminHours($peticio, $resposta, $contenidor);
   default:
     $resposta = errorPage($peticio, $resposta, $contenidor);
     break;
