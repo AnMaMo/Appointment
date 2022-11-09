@@ -1,5 +1,5 @@
 <?php
-function disableHour($peticio, $resposta, $contenidor){
+function enableHour($peticio, $resposta, $contenidor){
     // Model
     $appointment = $contenidor->appointment();
 
@@ -19,7 +19,7 @@ function disableHour($peticio, $resposta, $contenidor){
     $dateTime = $year . "-" . $month . "-" . $day . " " . $hour . ":00";
 
     // Logic
-    $appointment->createAdminAppointment($dateTime, $workstation);
+    $appointment->removeAdminAppointment($dateTime, $workstation);
     
     //return
     return $resposta;
