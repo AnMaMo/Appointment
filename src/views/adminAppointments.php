@@ -46,17 +46,17 @@
 
                 <p class="useraccount-text">Enable/Disable Hours</p>
                 <select id="workstation" name="workstation_selected" onchange="selectDate()">
-                                <?php
-                                //Get the workstations of resposta
+                    <?php
+                    //Get the workstations of resposta
 
-                                foreach ($workstations as $workstation) {
-                                ?>
-                                    <option value=<?= $workstation['ws_id'] ?>><?= $workstation['ws_name'] ?></option>
-                                <?php
-                                }
+                    foreach ($workstations as $workstation) {
+                    ?>
+                        <option value=<?= $workstation['ws_id'] ?>><?= $workstation['ws_name'] ?></option>
+                    <?php
+                    }
 
-                                ?>
-                            </select>
+                    ?>
+                </select>
                 <div class="hour_selector">
                     <div class="hours-div">
                         <div class="hour hourOn" id="hour1" name="9:00" onclick="onoffHour(this)">9:00</div>
@@ -142,8 +142,59 @@
                 </table>
             </div>
 
+            <div class="col centre user-square useraccount">
+                <!-- Section Title -->
+                <p class="useraccount-text">Appointment List</p>
 
+
+
+ <!-- TABLE OF USER APPOINTMENTS -->
+ <table class="table-useraccount display" title="asd">
+                <!-- TABLE HEAD -->
+                <thead>
+                    <tr>
+                        <th>datetime</th>
+                        <th>workstation</th>
+                        <th>User</th>
+                        <th>cancel</th>
+                    </tr>
+                </thead>
+                <!-- TABLE BODY -->
+                <tbody>
+                    <?php
+                    /* Iterate the appointments */
+                    foreach ($appointments as $appointment) {
+                        /* Get the workstation id */
+                        $wsid = $appointment['ws_id'];
+                        $wsname = "default";
+
+                        /* Iterate the workstations to get the name with the id */
+                        foreach ($workstationList as $workstation) {
+                            if ($workstation['ws_id'] === $wsid) {
+                                $wsname = $workstation['ws_name'];
+                            }
+                        }
+                    ?>
+                        <!--print the appointment-->
+                        <tr>
+                            <td class="date"><?= $appointment['app_datetime'] ?></td>
+                            <td class="workstation"><?= $wsname ?></td>
+                            <td class="user"><?= $appointment['user_id'] ?></td>
+                            <td><button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-primary" onclick="sendcancelappointment(this)">Cancel</button></td>
+                        </tr>
+                    <?php
+
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+
+
+
+            </div>
         </div>
+
     </div>
     <?php include '../src/views/templates/footer.php'; ?>
 </body>

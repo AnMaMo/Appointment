@@ -41,7 +41,6 @@ $(document).ready(function () {
 
 
 
-
 /**
  * This function actualize the disabled days array.
  * Call a ajax controller to get the disabled days.
