@@ -19,70 +19,105 @@
 ?>
 
 <body>
-    <!--search-->
-    <div class="container">
-        <form class="row centre" method="POST">
-            <div class="col user-margin">
-                <input type="text" class="user-inputbox centre" id="searchusermail" placeholder="Search user mail">
-                <button type="reset" class="user-buttom-search" onclick="changeadminpanel()"><img class="search-logo" src="../media/search.png" alt="search"></button>
-            </div>
-        </form>
-    </div>
-
-    <div class="container">
-        <div class="row align-items-start">
-            <div class="col centre user-square ">
-                <p><span id="usernametitle"></span></p>
-
-                <!-- Change the user role -->
-
-                <select class="form-select centre" id="select_role" aria-label="Default select example">
-                    <option selected>Tria el rol</option>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                </select>
-                <button class="btn btn-danger cancelApp" onclick="changeuserrole()">Change the role</button>
+    <div class="principalPage">
 
 
-                <!-- Show appointments -->
-                <div class="col centre user-square user-margin">
-                    <h1>Appointment</h1>
-                    <div class="row ">
-                        <!-- Appointment table -->
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col centre user-square ">
+                    <form class="row centre" method="POST">
+                        <div class="col user-margin">
+                            <input type="text" class="user-inputbox centre" id="searchusermail" placeholder="Search user mail">
+                            <button type="reset" class="user-buttom-search" onclick="changeadminpanel()"><img class="search-logo" src="../media/search.png" alt="search"></button>
+                        </div>
+                    </form>
+
+
+
+
+                    <!-- Change the user role -->
+                    <div class="col centre user-margin user-square">
+                        <p><span id="usernametitle"></span></p>
+
+                        <select class="form-select centre" id="select_role" aria-label="Default select example">
+                            <option selected>Tria el rol</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                        <button class="btn btn-danger cancelApp" onclick="changeuserrole()">Change the role</button>
+                    </div>
+
+                    <!-- Show appointments -->
+                    <div class="col centre user-square user-margin">
+                        <h1>Appointment</h1>
+                        <div class="row ">
+                            <!-- Appointment table -->
+                            <!-- Appointment table -->
+                            <table class="table-useraccount display" title="asd">
+                                <!-- TABLE HEAD -->
+                                <thead>
+                                    <tr>
+                                        <th>datetime</th>
+                                        <th>workstation</th>
+                                        <th>cancel</th>
+                                    </tr>
+                                </thead>
+                                <!-- TABLE BODY -->
+                                <tbody id="appointment_table">
+                                    <!--print the appointment-->
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- User info -->
+                    <div class="col centre user-margin user-square">
+                        <div>
+                            <h1>User info</h1>
+                        </div>
+                        <div>
+                            <p>Name: <span id="username"></span></p>
+                            <p>Mail: <span id="usermail"><?= $usermail ?></span></p>
+                            <button id="removeuser" class="btn btn-danger cancelApp" onclick="removeUser()">Remove user</button>
+                        </div>
+                    </div>
+                    <div class="col centre user-margin user-square">
+                        <div>
+                            <h1>All users</h1>
+                        </div>
                         <table class="table-useraccount display" title="asd">
                             <!-- TABLE HEAD -->
                             <thead>
                                 <tr>
-                                    <th>datetime</th>
-                                    <th>workstation</th>
-                                    <th>cancel</th>
+                                    <th>User id</th>
+                                    <th>User name</th>
+                                    <th>User mail</th>
                                 </tr>
                             </thead>
                             <!-- TABLE BODY -->
-                            <tbody id="appointment_table">
-                                <!--print the appointment-->
+                            <tbody id="user_table">
+                                <?php
+                                /* Iterate the users */
+                                foreach ($allUsers as $user) {
+                                ?>
+                                    <tr>
+                                        <td class="user_id"><?= $user['user_id'] ?></td>
+                                        <td class="user_name"><?= $user['user_name'] ?></td>
+                                        <td class="user_mail"><?= $user['user_mail'] ?></td>
+                                    </tr>
+                                <?php
 
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-                <!-- User info -->
-                <div class="col centre user-margin user-square">
-                    <div>
-                        <h1>User info</h1>
-                    </div>
-                    <div>
-                        <p>Name: <span id="username"></span></p>
-                        <p>Mail: <span id="usermail"><?= $usermail ?></span></p>
-                        <button id="removeuser" class="btn btn-danger cancelApp" onclick="removeUser()">Remove user</button>
-                    </div>
-                </div>
-
             </div>
         </div>
+        <?php include '../src/views/templates/footer.php'; ?>
     </div>
-    <?php include '../src/views/templates/footer.php'; ?>
 </body>
 
 </html>
