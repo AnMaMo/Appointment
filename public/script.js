@@ -54,6 +54,8 @@ function UpdateDisabledDays() {
     });
 }
 
+
+
 /**
  * Function to set a disabled date in the datepicker
  * @param {*} disabledates 
@@ -67,6 +69,8 @@ function setdisabledates(disabledates) {
         disabledDays.push(date.day);
     }
 }
+
+
 
 /**
  * Function to call ajax to get the hours available for the selected date
@@ -92,6 +96,8 @@ function selectDate() {
         success: ProcessInvalidHours
     });
 }
+
+
 
 /**
  * Function to process the hours not available for the selected date and workstation
@@ -181,6 +187,8 @@ function sendchangename() {
     });
 }
 
+
+
 /**
  * It passes the id of the appointment
  * @param {*} appointment 
@@ -201,6 +209,7 @@ function sendcancelappointment(appointment) {
 }
 
 
+
 ///// ADMIN APPOINTMENT PANNEL /////
 
 /* Function when open the page configure the Datepicker */
@@ -215,24 +224,6 @@ $(function () {
     });
 });
 
-function selectDate() {
-    // get the element of the datepicker of the date selected
-    var date = $("#adminDatepicker").val();
-
-    // get day month and year of the date selected
-    var day = date.substring(8, 10);
-    var month = date.substring(5, 7);
-    var year = date.substring(0, 4);
-
-    // get the element of the document with data-month = var month
-    var monthElement = document.querySelector("[data-month='" + month + "']");
-
-    // set the class "monthSelected" to the element of the month selected with jquery
-    $(monthElement).addClass("monthSelected");
-
-    //no close the datepicker
-    return false;
-}
 
 function adminBlockDay() {
     var date = $("#admindatepicker").val();
@@ -252,8 +243,6 @@ function adminBlockDay() {
  * @param {*} wsId 
  */
 function deleteWorkStation(wsId) {
-
-
     $.ajax({
         url: 'index.php?page=deleteWSController',
         type: 'POST',
@@ -270,6 +259,9 @@ function deleteWorkStation(wsId) {
  */
 function selectAdminDate(date) {
 
+    // Get the workstation selected
+    var workstation = $("#workstation").val();
+
     // with ajax see if date is blocked
     $.ajax({
         url: 'index.php?page=checkBlockedDate',
@@ -278,6 +270,45 @@ function selectAdminDate(date) {
         dataType: "json",
         success: ProcessBlockedDate
     });
+
+
+    //Actualize the hours not available for the selected date with ajax
+    $.ajax({
+        url: 'index.php?page=checkAvaliableAdminHours',
+        type: 'POST',
+        data: { date: date, workstation: workstation },
+        dataType: "json",
+        success: ProcessInvalidAdminHours
+    });
+
+}
+
+function ProcessInvalidAdminHours(data) {
+    // Reset the hour clicked and the input "hour_selected"
+    $(".hour").removeClass("hourOff").addClass("hourOn");
+
+    // Iterate the elements of the JSON array
+    // Iterate the elements of the JSON array
+    for (const date of data.noAvaliableHours) {
+        // Save the date in a datetime variable
+        var dates = new Date(date.app_datetime);
+
+        // Get hour and minutes to the datetime
+        var hour = dates.getHours();
+        var minutes = dates.getMinutes();
+        if (minutes == 0) {
+            minutes = "00";
+        }
+
+        // Save the no valid hours in a variable
+        var novalidHour = hour + ":" + minutes;
+
+        // Get element by name novaidHour and set new class
+        var element = document.getElementsByName(novalidHour);
+
+        // Put the hour to no valid and and remove click attribute
+        $(element[0]).removeClass("hourOn").addClass("hourOff");
+    }
 }
 
 
@@ -338,10 +369,28 @@ function enableDisableDate() {
     }
 }
 
+
+/**
+ * This function create or delete a admin appointment
+ * @param {*} hour 
+ * @returns 
+ */
 function onoffHour(hour) {
+
+    var selectedHour = $(hour).attr("name");
 
     // get the date selected on admindatepicker
     var date = $("#adminDatepicker").val();
+
+    //if date is not selected alert
+    if (date == "" || date == null) {
+        alert("Select a date");
+        return;
+    }
+
+    // get the workstation selected
+    var workstation = $("#workstation").val();
+
 
     // if the hour has class hourOn set to hourOff and viceversa
     if ($(hour).hasClass("hourOn")) {
@@ -350,13 +399,22 @@ function onoffHour(hour) {
         $.ajax({
             url: 'index.php?page=disableHour',
             type: 'POST',
-            data: { hour: hour, date: date },
+            data: { hour: selectedHour, date: date, workstation: workstation},
             dataType: "json",
         });
 
         $(hour).removeClass("hourOn").addClass("hourOff");
     }
     else {
+
+        // Ajax to delete the hour blocked
+        $.ajax({
+            url: 'index.php?page=enableHour',
+            type: 'POST',
+            data: { hour: selectedHour, date: date, workstation: workstation },
+            dataType: "json",
+        });
+
         $(hour).removeClass("hourOff").addClass("hourOn");
     }
 

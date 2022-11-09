@@ -45,6 +45,18 @@
                 <button class="dateOn" id="onoffDate" onclick="enableDisableDate()">Enable/Disable</button>
 
                 <p class="useraccount-text">Enable/Disable Hours</p>
+                <select id="workstation" name="workstation_selected" onchange="selectDate()">
+                                <?php
+                                //Get the workstations of resposta
+
+                                foreach ($workstations as $workstation) {
+                                ?>
+                                    <option value=<?= $workstation['ws_id'] ?>><?= $workstation['ws_name'] ?></option>
+                                <?php
+                                }
+
+                                ?>
+                            </select>
                 <div class="hour_selector">
                     <div class="hours-div">
                         <div class="hour hourOn" id="hour1" name="9:00" onclick="onoffHour(this)">9:00</div>
