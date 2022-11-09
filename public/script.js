@@ -152,7 +152,7 @@ function invalidCredentials(){
  * It passes the new name
  * @returns 
  */
-function sendchangename(){
+ function sendchangename() {
 
     var name_new = $("#newName").val();
 
@@ -165,7 +165,7 @@ function sendchangename(){
     $.ajax({
         url: 'index.php?page=getchangename',
         type: 'POST',
-        data: { name_new: name_new},
+        data: { name_new: name_new },
         dataType: "json"
     });
 }
@@ -174,50 +174,134 @@ function sendchangename(){
  * It passes the id of the appointment
  * @param {*} appointment 
  */
- function sendcancelappointment(appointment) {
+function sendcancelappointment(appointment) {
 
     var appointment_id = $(appointment).data("id");
-   
+
     $.ajax({
         url: 'index.php?page=getcancelappointment',
         type: 'POST',
-        data: { appointment_id: appointment_id},
-        dataType: "json" 
+        data: { appointment_id: appointment_id },
+        dataType: "json"
     });
+
+    //
+    location.reload();
 }
 
 /**
- * create pdf appointment
+ * 
+ * @param {*} appointment 
  */
-$(document).ready(function () {  
-    var pdfapp = $('.pdfApp'),  
-    cache_width = form.width(),  
-    a4 = [595.28, 841.89]; // for a4 size paper width and height  
+function sendcancelappointmentadmin(appointment) {
 
-    $('#create_pdf').on('click', function () {  
-        $('body').scrollTop(0);  
-        createPDF();  
-    });  
+    var appointment_id = $(appointment).data("id");
 
-    function createPDF() {  
-        getCanvas().then(function (canvas) {  
-            var  
-             img = canvas.toDataURL("image/png"),  
-             doc = new jsPDF({  
-                 unit: 'px',  
-                 format: 'a4'  
-             });  
-            doc.addImage(img, 'JPEG', 20, 20);  
-            doc.save('Bhavdip-html-to-pdf.pdf');  
-            pdfapp.width(cache_width);  
-        });  
-    }  
+    $.ajax({
+        url: 'index.php?page=getcancelappointment',
+        type: 'POST',
+        data: { appointment_id: appointment_id },
+        dataType: "json"
+    });
 
-    function getCanvas() {  
-        pdfapp.width((a4[0] * 1.33333) - 80).css('max-width', 'none');  
-        return html2canvas(pdfapp, {  
-            imageTimeout: 2000,  
-            removeContainer: true  
-        });  
+    //
+    location.reload();
+}
+
+/**
+ * search user mail
+ */
+function changeadminpanel(searchusermail) {
+
+    // var searchusermail = $("#searchusermail").val();
+
+
+    $.ajax({
+        url: 'index.php?page=search',
+        type: 'POST',
+        data: { searchusermail: searchusermail },
+        dataType: "json",
+        success: changeuseradminpanel
+
+    });
+}
+
+
+
+
+
+
+/**
+ * show the appointment in adminpanel
+ * @param {*} data 
+ */
+function changeuseradminpanel(data) {
+
+    var username = data.user.user_name;
+    var usermail = data.usermail;
+
+        $("#username").text(username);
+        $("#usernametitle").text(username);
+        $("#usermail").text(usermail);
+
+        $("#removeuser").attr("onclick", "removeUser('"+usermail+"')");
+
+    for (const app of data.appointmentsList) {
+        var appointment = app.app_datetime;
+        var app_id = app.app_id;
+        var ws_name = "default";
+
+        for (const workstation of data.workstationList) {
+            if (app.ws_id === workstation.ws_id) {
+                ws_name = workstation.ws_name;
+                $("#appointment_table").append('<tr id="appointment_element">');
+                $("#appointment_table").append('<td class="date">' + appointment + '</td>');
+                $("#appointment_table").append('<td class="workstation">' + ws_name + '</td>');
+                $("#appointment_table").append('<td><button id="user_app" data-id="' + app_id + '" class="btn btn-primary" onclick="sendcancelappointmentadmin(this)">Cancel</button></td>');
+                $("#appointment_table").append('</tr>');
+            }
+        }
     }
-});
+    $('.table-useraccount').DataTable(
+        // set max length of the table to 3 and not show the search bar
+        { "lengthMenu": [3], "searching": false, "lengthChange": false }
+    );
+}
+
+/**
+ * change user role
+ */
+function changeuserrole() {
+
+    var user_role = $("#select_role").val();
+
+  
+    $.ajax({
+        url: 'index.php?page=role',
+        type: 'POST',
+        data: { user_role: user_role },
+        dataType: "json",
+
+    });
+    location.reload();
+
+}
+
+/**
+ * remove user in database
+ * @param {*} usermail 
+ */
+function removeUser(usermail) {
+
+    $.ajax({
+        url: 'index.php?page=removeuser',
+        type: 'POST',
+        data: { usermail: usermail },
+        dataType: "json",
+
+    });
+
+    location.reload();
+}
+
+  

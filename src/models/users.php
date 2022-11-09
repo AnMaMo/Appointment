@@ -104,4 +104,16 @@ class Users
         $result = $stm->execute();
     }
 
+
+    /**
+     * get all users
+     */
+    public function getAllUsers()
+    {
+        $query = 'SELECT * FROM users';
+        $stm = $this->sql->prepare($query);
+        $stm->execute();
+        $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
