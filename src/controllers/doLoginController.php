@@ -28,6 +28,10 @@ function initLogin($peticio, $resposta, $contenidor)
     if($user_password === $password){
         $resposta->setSession("loged", $usermail);
         $resposta->setSession("username", $username);
+        //save session if the user is admin
+        if ($user["user_role"]==="admin") {
+            $resposta->setSession("admin", $user);
+        }
         $resposta->redirect("location: index.php");
     // Else is a bad credentials    
     }else{

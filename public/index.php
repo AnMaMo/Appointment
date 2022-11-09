@@ -39,6 +39,7 @@ include "../src/models/appointment.php";
 include "../src/models/workstations.php";
 include "../src/models/disabledDays.php";
 
+
 /* Get the MiddleWare */
 include "../src/midleware/isLoged.php";
 include "../src/midleware/isAdmin.php";
