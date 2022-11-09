@@ -90,7 +90,7 @@ switch ($page) {
     $resposta = isAdmin($peticio, $resposta, $contenidor, "adminpanelController");
     break;
   case "search":
-    $resposta = getSearchUsermail($peticio, $resposta, $contenidor);
+     getSearchUsermail($peticio, $resposta, $contenidor);
     break;
   case "role":
     $resposta = UserRole($peticio, $resposta, $contenidor);
@@ -105,7 +105,7 @@ switch ($page) {
     $resposta = getchangename($peticio, $resposta, $contenidor);
     break;
   case "changepassword":
-    $resposta = isLogged($peticio, $resposta, $contenidor, "getchangepassword");
+    isLogged($peticio, $resposta, $contenidor, "getchangepassword");
     break;
   case "getchangepassword":
     $resposta = getchangepassword($peticio, $resposta, $contenidor);
