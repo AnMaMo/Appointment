@@ -157,6 +157,24 @@ function invalidCredentials(){
 
 
 /**
+ * send mail
+ */
+function sendmail() {
+
+    // Get the element
+    var datepicker = $("#datepicker").val();
+    var workstation = $("#workstation").val();
+    var hour = $('.hourclicked').attr('name');
+
+    $.ajax({
+        url: 'index.php?page=sendmail',
+        type: 'POST',
+        data: { datepicker: datepicker, workstation: workstation, hour: hour},
+        dataType: "json"
+    });
+}
+
+/**
  * It passes the new name
  * @returns 
  */

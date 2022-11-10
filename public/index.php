@@ -31,6 +31,7 @@ include "../src/controllers/getcancelappointment.php";
 include "../src/controllers/searchusermail.php";
 include "../src/controllers/changeuserrole.php";
 include "../src/controllers/removeuser.php";
+include "../src/controllers/senMailToUser.php";
 
 
 /* Get the Models */
@@ -90,7 +91,7 @@ switch ($page) {
     $resposta = isAdmin($peticio, $resposta, $contenidor, "adminpanelController");
     break;
   case "search":
-     getSearchUsermail($peticio, $resposta, $contenidor);
+    getSearchUsermail($peticio, $resposta, $contenidor);
     break;
   case "role":
     $resposta = UserRole($peticio, $resposta, $contenidor);
@@ -109,6 +110,9 @@ switch ($page) {
     break;
   case "getchangepassword":
     $resposta = getchangepassword($peticio, $resposta, $contenidor);
+    break;
+  case "sendmail":
+    $resposta = sendmailtouser($peticio, $resposta, $contenidor);
     break;
   case "getcancelappointment":
     $resposta = getCancelAppointment($peticio, $resposta, $contenidor);

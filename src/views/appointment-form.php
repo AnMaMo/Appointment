@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <input type="text" class="hidden" name="hour_selected" id="hour_selected" required>
-                        <button type="submit" class="btn btn-red btn-primary" id="create_pdf" onclick="appointmentHourValidation()">Take Appointment</button>
+                        <button type="submit" class="btn btn-red btn-primary" id="create_pdf" onclick="sendmail()">Take Appointment</button>
                     </form>
                 </div>
             </div>
