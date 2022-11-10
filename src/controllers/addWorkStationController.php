@@ -11,7 +11,7 @@ function addWorkstation($peticio, $resposta, $contenidor)
     //Add the workstation to the database
     $workstations->addWorkStation($wsName);
 
-    $resposta->redirect("location: index.php?page=adminApp");
+    $resposta->redirect("location: index.php?page=adminapp");
 
     //return resposta
     return $resposta;

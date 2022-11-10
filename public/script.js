@@ -30,17 +30,6 @@ $(function () {
 });
 
 
-/* */
-$(document).ready(function () {
-    $('.table-useraccount').DataTable(
-        // set max length of the table to 3 and not show the search bar
-        { "lengthMenu": [2], "searching": false, "lengthChange": false }
-    );
-
-});
-
-
-
 /**
  * This function actualize the disabled days array.
  * Call a ajax controller to get the disabled days.

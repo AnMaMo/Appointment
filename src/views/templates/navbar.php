@@ -36,10 +36,10 @@ session_start();
           if (isset($_SESSION['admin'])) {
           ?>
               <li class="nav-item">
-                <a class="nav-link" href="/index.php?page=adminpanel">Admin Users</a>
+                <a class="nav-link" href="/index.php?page=adminpanel">Users</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/index.php?page=adminapp">Admin Appointment</a>
+                <a class="nav-link" href="/index.php?page=adminapp">Appointments</a>
               </li>
           <?php
             }

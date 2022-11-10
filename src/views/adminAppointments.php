@@ -31,6 +31,7 @@
 
             <!-- PAGE FLEXBOX COLUMN -->
             <div class="col centre user-square useraccount">
+                
                 <!-- Section Title -->
                 <p class="useraccount-text">Enable/Disable Days</p>
 
@@ -148,46 +149,46 @@
 
 
 
- <!-- TABLE OF USER APPOINTMENTS -->
- <table class="table-useraccount display" title="asd">
-                <!-- TABLE HEAD -->
-                <thead>
-                    <tr>
-                        <th>datetime</th>
-                        <th>workstation</th>
-                        <th>User</th>
-                        <th>cancel</th>
-                    </tr>
-                </thead>
-                <!-- TABLE BODY -->
-                <tbody>
-                    <?php
-                    /* Iterate the appointments */
-                    foreach ($appointments as $appointment) {
-                        /* Get the workstation id */
-                        $wsid = $appointment['ws_id'];
-                        $wsname = "default";
-
-                        /* Iterate the workstations to get the name with the id */
-                        foreach ($workstationList as $workstation) {
-                            if ($workstation['ws_id'] === $wsid) {
-                                $wsname = $workstation['ws_name'];
-                            }
-                        }
-                    ?>
-                        <!--print the appointment-->
+                <!-- TABLE OF USER APPOINTMENTS -->
+                <table class="table-useraccount display" title="asd">
+                    <!-- TABLE HEAD -->
+                    <thead>
                         <tr>
-                            <td class="date"><?= $appointment['app_datetime'] ?></td>
-                            <td class="workstation"><?= $wsname ?></td>
-                            <td class="user"><?= $appointment['user_id'] ?></td>
-                            <td><button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-primary" onclick="sendcancelappointment(this)">Cancel</button></td>
+                            <th>datetime</th>
+                            <th>workstation</th>
+                            <th>User</th>
+                            <th>cancel</th>
                         </tr>
-                    <?php
+                    </thead>
+                    <!-- TABLE BODY -->
+                    <tbody>
+                        <?php
+                        /* Iterate the appointments */
+                        foreach ($appointments as $appointment) {
+                            /* Get the workstation id */
+                            $wsid = $appointment['ws_id'];
+                            $wsname = "default";
 
-                    }
-                    ?>
-                </tbody>
-            </table>
+                            /* Iterate the workstations to get the name with the id */
+                            foreach ($workstationList as $workstation) {
+                                if ($workstation['ws_id'] === $wsid) {
+                                    $wsname = $workstation['ws_name'];
+                                }
+                            }
+                        ?>
+                            <!--print the appointment-->
+                            <tr>
+                                <td class="date"><?= $appointment['app_datetime'] ?></td>
+                                <td class="workstation"><?= $wsname ?></td>
+                                <td class="user"><?= $appointment['user_id'] ?></td>
+                                <td><button type="submit" id="user_app" data-id="<?= $appointment['app_id'] ?>" class="btn btn-primary" onclick="sendcancelappointment(this)">Cancel</button></td>
+                            </tr>
+                        <?php
+
+                        }
+                        ?>
+                    </tbody>
+                </table>
 
 
 
