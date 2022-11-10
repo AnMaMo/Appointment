@@ -20,7 +20,6 @@
             <!-- Section Title -->
             <p class="useraccount-text">Change Info</p>
 
-
             <!-- Change Name Form -->
             <form method="POST">
                 <div name="changeNameForm">
@@ -39,10 +38,7 @@
                     <div class="changeconfig"><button type="submit" class="btn btn-primary">Save</button></div>
                 </div>
 
-
-
                 <?php
-
                 /* If the password does not match */
                 if (isset($_GET['error'])) {
                     if ($_GET['error'] === "password") {
@@ -58,8 +54,6 @@
             </form>
 
         </div>
-
-
 
         <!-- PAGE FLEXBOX COLUMN -->
         <div class="col centre user-square useraccount">
@@ -105,8 +99,6 @@
                 </tbody>
             </table>
         </div>
-
-
     </div>
 </div>
 <?php include '../src/views/templates/footer.php'; ?>

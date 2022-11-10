@@ -4,11 +4,18 @@ UpdateDisabledDays();
 
 /* */
 $(document).ready(function () {
-    $('.table-useraccount').DataTable(
+    $('.table-useraccount').DataTable({
         // set max length of the table to 3 and not show the search bar
-        { "lengthMenu": [2], "searching": false, "lengthChange": false }
+         "lengthMenu": [2], "searching": false, "lengthChange": false,
+        
+        dom: 'Bfrtip        ',
+  
+        /* ----- EXPORT TABLE ----- */
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    }
     );
-
 });
 
 /* Function when open the page configure the Datepicker */
@@ -19,8 +26,8 @@ $(function () {
         minDate: "dateToday", // Calendar starts today
         maxDate: "+2M", // Calendar ends in 2 months
 
-// TODO: Function to disable the days
-      //  beforeShowDay: DisableSpecificDates, // Call function to disable specific dates
+        // TODO: Function to disable the days
+        //  beforeShowDay: DisableSpecificDates, // Call function to disable specific dates
 
         /* Iterate the array of dates to disable */
         beforeShowDay: function (date) {
@@ -148,7 +155,7 @@ function clickHour(hourclicked) {
  * Function to see if user has entered invalid credentials
  * in the login form and hide the error message
  */
-function invalidCredentials(){
+function invalidCredentials() {
     //get element and set new class
     var element = document.getElementById("credentials-error");
     element.classList.add("invalid-credentials");
@@ -169,16 +176,36 @@ function sendmail() {
     $.ajax({
         url: 'index.php?page=sendmail',
         type: 'POST',
-        data: { datepicker: datepicker, workstation: workstation, hour: hour},
+        data: { datepicker: datepicker, workstation: workstation, hour: hour },
         dataType: "json"
     });
 }
 
 /**
+ * download user appointment
+ */
+// function downloadpdf() {
+//     // include class
+//     require('vendor/fpdf/fpdf.php');
+
+//     // create document
+//     $pdf = new FPDF();
+//     $pdf -> AddPage();
+
+//     // add text
+//     $pdf -> SetFont('Arial', '', 12);
+//     $pdf -> Cell(0, 10, 'Generar archivos PDF con PHP', 0, 1);
+
+//     // output file
+//     $pdf -> Output('', 'fpdf-basic.pdf');
+
+// }
+
+/**
  * It passes the new name
  * @returns 
  */
- function sendchangename() {
+function sendchangename() {
 
     var name_new = $("#newName").val();
 
@@ -219,7 +246,7 @@ function sendcancelappointment(appointment) {
  * cancel appointment from adminpanel
  * @param {*} appointment 
  */
- function sendcancelappointmentadmin(appointment) {
+function sendcancelappointmentadmin(appointment) {
 
     var appointment_id = $(appointment).data("id");
 
@@ -238,7 +265,7 @@ function sendcancelappointment(appointment) {
  * search user mail
  */
 function changeadminpanel() {
-  
+
     var searchusermail = $("#searchusermail").val();
 
     $.ajax({
@@ -249,7 +276,7 @@ function changeadminpanel() {
         success: changeuseradminpanel
 
     });
-   
+
 }
 
 /**
@@ -257,15 +284,15 @@ function changeadminpanel() {
  * @param {*} data 
  */
 function changeuseradminpanel(data) {
-    
+
     var username = data.user.user_name;
     var usermail = data.usermail;
 
-        $("#username").text(username);
-        $("#usernametitle").text(username);
-        $("#usermail").text(usermail);
+    $("#username").text(username);
+    $("#usernametitle").text(username);
+    $("#usermail").text(usermail);
 
-        $("#removeuser").attr("onclick", "removeUser('"+usermail+"')");
+    $("#removeuser").attr("onclick", "removeUser('" + usermail + "')");
 
     for (const app of data.appointmentsList) {
         var appointment = app.app_datetime;
@@ -283,7 +310,7 @@ function changeuseradminpanel(data) {
             }
         }
     }
-   
+
 
 }
 
@@ -294,7 +321,7 @@ function changeuserrole() {
 
     var user_role = $("#select_role").val();
 
-  
+
     $.ajax({
         url: 'index.php?page=role',
         type: 'POST',
@@ -323,4 +350,4 @@ function removeUser(usermail) {
     location.reload();
 }
 
-  
+
