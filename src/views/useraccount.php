@@ -24,7 +24,7 @@
             <!-- Change Name Form -->
             <form method="POST">
                 <div name="changeNameForm">
-                    <div class="changeconfig"><input type="text" id="newName" placeholder="<?= $user['user_name'] ?>"></div>
+                    <div class="changeconfig"><input type="text" maxlength="25" id="newName" placeholder="<?= $user['user_name'] ?>"></div>
                     <div class="changeconfig"><button type="submit" class="btn btn-primary" onclick="sendchangename()">Save</button></div>
                 </div>
             </form>

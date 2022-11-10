@@ -15,6 +15,7 @@
     --color9: #f3f3f3;
 }
 
+/*#region ALLPAGES*/
 .hidden {
     visibility: hidden;
 }
@@ -53,15 +54,50 @@ body {
     text-shadow: 2px 1px 2px black;
 }
 
+
 .bg-dark {
     background-color: #2B2F3A !important;
 }
 
-/* NavBar */
+.centre {
+    text-align: center;
+}
+
+.flexDiv{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.flex-item{
+    color: var(--color4);
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.margin{
+    margin: 10px;
+}
+
+.IndexCard{
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--color1);
+    color: var(--color4);
+}
+/*#endregion */
+
+
+/*#region NAVBAR */
 #logo {
     width: 45px;
 }
-
 
 .navbar {
     width: 100%;
@@ -75,8 +111,10 @@ body {
 .container-fluid {
     background-color: #2B2F3A;
 }
+/*#endregion */
 
-/* FOOTER */
+
+/*#region FOOTER */
 .footer {
     height: 50px;
     background-color: #2B2F3A;
@@ -100,17 +138,12 @@ body {
     margin: 0px;
     width: fit-content;
 }
-
-.footer a,
-.footer p {
-    margin: 0px;
-}
+/*#endregion */
 
 
+/*#region INDEXPAGES */
 .indexPage,
 .principalPage {
-    width: 100%;
-    height: auto;
     margin-top: 70px;
     margin-bottom: 50px;
 }
@@ -123,9 +156,10 @@ body {
     background-size: cover;
     background-position: center;
 }
+/*#endregion */
 
 
-/* Login y Register form*/
+/*#region FORMS*/
 .form-contenedor {
     width: 65vw;
     height: 60vh;
@@ -137,7 +171,6 @@ body {
     background-color: #D8D8D8;
 }
 
-
 .form-square-form {
     padding: 10px;
 }
@@ -147,27 +180,6 @@ body {
     text-align: center;
     font-weight: bold;
 }
-
-.btn {
-    background-color: var(--color6);
-    border-radius: 0px;
-    width: 100%;
-    border: 0px;
-    color: var(--color4);
-    box-shadow: 0px 0px 5px 0px var(--color1);
-}
-
-
-.btn:hover {
-    background-color: var(--color5);
-    color: var(--color4);
-}
-
-/* btn primary change background color active */
-.btn-primary:active {
-    background-color: var(--color5) !important;
-}
-
 
 .form-control {
     border-radius: 0px;
@@ -189,6 +201,44 @@ body {
     display: inline-block;
 }
 
+.subform {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+/*Appointment-form*/
+.dateAndWorkstation {
+    display: flex;
+    justify-content: left;
+}
+
+.all-forms {
+    height: max-content;
+}
+/*#endregion */
+
+
+/*#region  BUTTONS */
+.btn {
+    background-color: var(--color6);
+    border-radius: 0px;
+    width: 100%;
+    border: 0px;
+    color: var(--color4);
+    box-shadow: 0px 0px 5px 0px var(--color1);
+}
+
+.btn:hover {
+    background-color: var(--color5);
+    color: var(--color4);
+}
+
+.btn-primary:active {
+    background-color: var(--color5) !important;
+}
+
 .button a {
     cursor: pointer;
     text-decoration: none;
@@ -206,27 +256,35 @@ body {
     font-size: 15px;
 
 }
+/*#endregion */
 
-.subform {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 20px;
-}
 
+/*#region ERRORS */
 .incorrect-credentials {
     visibility: visible;
     color: red;
     display: block;
 }
 
-
-/*Appointment-form*/
-.dateAndWorkstation {
+.error-square {
     display: flex;
-    justify-content: left;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.error-square img {
+    margin: 50px;
+    width: 15%;
+}
+
+.error-text {
+    color: white;
+}
+/*#endregion */
+
+
+/*#region DATEPICKERS*/
 #datepicker,
 #workstation {
     text-align: center;
@@ -238,7 +296,10 @@ body {
 .ui-datepicker-unselectable .ui-state-disabled .undefined {
     background-color: red;
 }
+/*#endregion */
 
+
+/*#region HOURS TABLE */
 .hours-div {
     display: flex;
 }
@@ -276,33 +337,10 @@ body {
     width: 100%;
     margin: 0px;
 }
+/*#endregion */
 
-.all-forms {
-    height: max-content;
-}
 
-/*error*/
-.error-square {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.error-square img {
-    margin: 50px;
-    width: 15%;
-}
-
-.error-text {
-    color: white;
-}
-
-/*user-form*/
-.centre {
-    text-align: center;
-}
-
+/*#region User account */
 .search-logo {
     width: 15px;
 }
@@ -327,11 +365,9 @@ body {
 .user-buttom-search {
     width: 35px;
     height: 35px;
-    background-color: blue;
+    background-color: var(--color7);
     border-radius: 10px;
 }
-
-/*useraccount*/
 
 .useraccount {
     margin: 20PX;
@@ -386,57 +422,22 @@ body {
     margin-bottom: 10px;
 }
 
-
-
-/** Index page */
-.indexoptions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+.changeRol{
+    display: flex !important;
     justify-content: center;
-}
-
-.option_index {
-    width: 25%;
-    text-align: center;
     margin: 10px;
-    border: 1px solid black;
-    padding: 10px;
 }
 
-
-@media only screen and (max-width: 600px) {
-    .form-contenedor {
-        width: 100%;
-        height: calc(100vh - (70px + 50px));
-        margin-top: calc(20vh - 70px);
-    }
-
-    .subform {
-        font-size: 15px;
-    }
-
-    .hour {
-        font-size: 15px;
-    }
-
-
-    /** Index page */
-    .indexoptions {
-        flex-direction: column;
-    }
-
-    .option_index {
-        width: 75%;
-        text-align: center;
-        margin: 10px;
-        border: 1px solid black;
-        padding: 10px;
-    }
+.userInfo{
+    background-color: var(--color1);
+    width: 75%;
+    margin: auto;
 }
 
+/*#endregion */
 
+
+/*#region  admin appointments */
 #adminDatepicker{
     margin-bottom: 10px;
 }
@@ -498,33 +499,6 @@ body {
     color: var(--color4);
 }
 
-
-
-.changeRol{
-    display: flex !important;
-    justify-content: center;
-    margin: 10px;
-}
-
-.flexDiv{
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-}
-
-.flex-item{
-    color: var(--color4);
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
-}
-
-.userInfo{
-    background-color: var(--color1);
-    width: 75%;
-    margin: auto;
-}
-
 .adminUserApp{
     background-color: var(--color4);
     width: 90%;
@@ -532,3 +506,37 @@ body {
     padding: 10px;
     margin-bottom: 15px;
 }
+/*#endregion */
+
+
+/*#region  media query mobile */
+@media only screen and (max-width: 600px) {
+    .form-contenedor {
+        width: 100%;
+        height: calc(100vh - (70px + 50px));
+        margin-top: calc(20vh - 70px);
+    }
+
+    .subform {
+        font-size: 15px;
+    }
+
+    .hour {
+        font-size: 15px;
+    }
+
+
+    /** Index page */
+    .indexoptions {
+        flex-direction: column;
+    }
+
+    .option_index {
+        width: 75%;
+        text-align: center;
+        margin: 10px;
+        border: 1px solid black;
+        padding: 10px;
+    }
+}
+/*#endregion */
