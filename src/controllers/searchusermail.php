@@ -35,4 +35,5 @@ function getSearchUsermail($peticio, $resposta, $contenidor){
 
   //
   $resposta->setJSON();
+  return $resposta;
 }

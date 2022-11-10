@@ -35,6 +35,19 @@ body {
     width: max-content;
     margin: auto;
     margin-top: 75px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--color9);
+    text-shadow: 2px 1px 2px black;
+}
+
+.subtitle{
+    background-color: var(--color1);
+    padding: 5px;
+    width: max-content;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: center;
     color: var(--color9);
     text-shadow: 2px 1px 2px black;
@@ -299,13 +312,11 @@ body {
 }
 
 .user-inputbox {
-    width: 400px;
-    height: 35px;
-    background-color: #ABAEC4;
+    color: var(--color1);
 }
 
 .user-inputbox::placeholder {
-    color: white;
+    color: var(--color1);
 }
 
 .user-square {
@@ -485,4 +496,39 @@ body {
     /* set in uppercase bold color black and font shadow*/
     background-color: var(--color6);
     color: var(--color4);
+}
+
+
+
+.changeRol{
+    display: flex !important;
+    justify-content: center;
+    margin: 10px;
+}
+
+.flexDiv{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.flex-item{
+    color: var(--color4);
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.userInfo{
+    background-color: var(--color1);
+    width: 75%;
+    margin: auto;
+}
+
+.adminUserApp{
+    background-color: var(--color4);
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 15px;
 }

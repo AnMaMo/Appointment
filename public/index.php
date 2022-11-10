@@ -86,68 +86,68 @@ switch ($page) {
     $resposta = isLogged($peticio, $resposta, $contenidor, "getAppointmentForm");
     break;
   case "doAppointment":
-    $resposta = saveAppointment($peticio, $resposta, $contenidor);
+    $resposta = isLogged($peticio, $resposta, $contenidor, "saveAppointment");
     break;
   case "checkAvaliableHours":
-    $resposta = getAvaliableHours($peticio, $resposta, $contenidor);
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getAvaliableHours");
     break;
   case "setDisabledDates":
-    $resposta = getDisabledDays($peticio, $resposta, $contenidor);
-    break;
-  case "adminpanel":
-    $resposta = isAdmin($peticio, $resposta, $contenidor, "adminpanelController");
-    break;
-  case "search":
-     getSearchUsermail($peticio, $resposta, $contenidor);
-    break;
-  case "role":
-    $resposta = UserRole($peticio, $resposta, $contenidor);
-    break;
-  case "removeuser":
-    $resposta = removeUser($peticio, $resposta, $contenidor);
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getDisabledDays");
     break;
   case "useraccount":
     $resposta = isLogged($peticio, $resposta, $contenidor, "getUseraccount");
     break;
   case "getchangename":
-    $resposta = getchangename($peticio, $resposta, $contenidor);
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getchangename");
     break;
   case "changepassword":
-    isLogged($peticio, $resposta, $contenidor, "getchangepassword");
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getchangepassword");
     break;
   case "getchangepassword":
-    $resposta = getchangepassword($peticio, $resposta, $contenidor);
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getchangepassword");
     break;
   case "getcancelappointment":
-    $resposta = getCancelAppointment($peticio, $resposta, $contenidor);
+    $resposta = isLogged($peticio, $resposta, $contenidor, "getCancelAppointment");
     break;
   case "adminapp":
-    //TODO: add isadmin middelware
-    $resposta = getAdminAppForm($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "getAdminAppForm");
     break;
   case "addWorkstation":
-    $resposta = addWorkstation($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "addWorkstation");
     break;
   case "deleteWSController":
-    $resposta = deleteWS($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "deleteWS");
     break;
   case "checkBlockedDate":
-    $resposta = checkBlockedDate($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "checkBlockedDate");
     break;
   case "disableDate":
-    $resposta = disableDate($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "disableDate");
     break;
   case "enableDisableDate":
-    $resposta = enableDate($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "enableDate");
     break;
   case "disableHour":
-    $resposta = disableHour($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "disableHour");
     break;
   case "enableHour":
-    $resposta = enableHour($peticio, $resposta, $contenidor);
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "enableHour");
     break;
-    case "checkAvaliableAdminHours":
-    $resposta = getAvaliableAdminHours($peticio, $resposta, $contenidor);
+  case "checkAvaliableAdminHours":
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "getAvaliableAdminHours");
+    break;
+  case "adminpanel":
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "adminpanelController");
+    break;
+  case "search":
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "getSearchUsermail");
+    break;
+  case "role":
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "UserRole");
+    break;
+  case "removeuser":
+    $resposta = isAdmin($peticio, $resposta, $contenidor, "removeUser");
+    break;
   default:
     $resposta = errorPage($peticio, $resposta, $contenidor);
     break;
