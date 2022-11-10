@@ -29,7 +29,7 @@ class disabledDays
  */
     public function getBlockedDays()
     {
-        $stm = $this->sql->prepare("select * from disableddays");
+        $stm = $this->sql->prepare("select * from DISABLEDDAYS");
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
         return $result;
@@ -39,7 +39,7 @@ class disabledDays
      * Function to get a day to see if day is blocked
      */
     public function getDay($day){
-        $stm = $this->sql->prepare("select * from disableddays where day = :day");
+        $stm = $this->sql->prepare("select * from DISABLEDDAYS where day = :day");
         $stm->bindValue(':day', $day);
         $stm->execute();
         $result = $stm->fetch(PDO::FETCH_ASSOC);
@@ -50,7 +50,7 @@ class disabledDays
      * Function to block a day
      */
     public function blockDay($day){
-        $stm = $this->sql->prepare("insert into disableddays (day) values (:day)");
+        $stm = $this->sql->prepare("insert into DISABLEDDAYS (day) values (:day)");
         $stm->bindValue(':day', $day);
         $stm->execute();
     }
@@ -59,7 +59,7 @@ class disabledDays
      * Function to unblock a day
      */
     public function unblockDay($day){
-        $stm = $this->sql->prepare("delete from disableddays where day = :day");
+        $stm = $this->sql->prepare("delete from DISABLEDDAYS where day = :day");
         $stm->bindValue(':day', $day);
         $stm->execute();
     }

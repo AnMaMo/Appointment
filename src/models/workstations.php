@@ -29,7 +29,7 @@ class workstations
      */
     public function getAllWorkstations()
     {
-        $query = 'SELECT * FROM workstation';
+        $query = 'SELECT * FROM WORKSTATION';
         $stm = $this->sql->prepare($query);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -41,7 +41,7 @@ class workstations
      */
     public function getWorkstationByName($wsName)
     {
-        $query = 'SELECT * FROM workstation WHERE ws_name = :wsName';
+        $query = 'SELECT * FROM WORKSTATION WHERE ws_name = :wsName';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':wsName', $wsName);
         $stm->execute();
@@ -55,7 +55,7 @@ class workstations
      */
     public function getWorkstationById($wsId)
     {
-        $query = 'SELECT * FROM workstation WHERE ws_id = :wsId';
+        $query = 'SELECT * FROM WORKSTATION WHERE ws_id = :wsId';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':wsName', $wsId);
         $stm->execute();
@@ -68,7 +68,7 @@ class workstations
      * Function to add a new workstation
      */
     function addWorkStation($wsName){
-        $query = 'INSERT INTO workstation (ws_name) VALUES (:wsName)';
+        $query = 'INSERT INTO WORKSTATION (ws_name) VALUES (:wsName)';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':wsName', $wsName);
         $stm->execute();
@@ -79,7 +79,7 @@ class workstations
      * Function to delete a workstation
      */
     function deleteWorkStationSQL($wsId){
-        $query = 'DELETE FROM workstation WHERE ws_id = :wsId';
+        $query = 'DELETE FROM WORKSTATION WHERE ws_id = :wsId';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':wsId', $wsId);
         $stm->execute();

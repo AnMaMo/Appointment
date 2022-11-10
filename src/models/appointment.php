@@ -29,7 +29,7 @@ class appointment
      */
     public function addAppointmentToDatabase($userId, $dateTime, $wsId, $app_type)
     {
-        $query = 'INSERT INTO appointments (app_datetime, app_type, user_id, ws_id) VALUES (:appDate, :appType, :userId, :wsId)';
+        $query = 'INSERT INTO APPOINTMENTS (app_datetime, app_type, user_id, ws_id) VALUES (:appDate, :appType, :userId, :wsId)';
         $stm = $this->sql->prepare($query);
 
         $stm->bindValue(':appDate', $dateTime);
@@ -45,7 +45,7 @@ class appointment
      */
     public function getAllAppointments()
     {
-        $query = 'SELECT * FROM appointments';
+        $query = 'SELECT * FROM APPOINTMENTS';
         $stm = $this->sql->prepare($query);
         $stm->execute();
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -58,7 +58,7 @@ class appointment
      */
     public function getNoAvaliableHours($date, $ws_id)
     {
-        $stm = $this->sql->prepare("select app_datetime from appointments where date(app_datetime) = :date AND ws_id = :ws_id");
+        $stm = $this->sql->prepare("select app_datetime from APPOINTMENTS where date(app_datetime) = :date AND ws_id = :ws_id");
         $stm->execute([':date' => $date, ':ws_id' => $ws_id]);
 
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -71,7 +71,7 @@ class appointment
      */
     public function getNoAvaliableAdminHours($date, $ws_id)
     {
-        $stm = $this->sql->prepare("select app_datetime from appointments where date(app_datetime) = :date AND ws_id = :ws_id AND app_type = 'blocked'");
+        $stm = $this->sql->prepare("select app_datetime from APPOINTMENTS where date(app_datetime) = :date AND ws_id = :ws_id AND app_type = 'blocked'");
         $stm->execute([':date' => $date, ':ws_id' => $ws_id]);
 
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
@@ -84,7 +84,7 @@ class appointment
      */
     public function getUserAppointments($userid)
     {
-        $query = 'SELECT * FROM appointments where user_id=:userid';
+        $query = 'SELECT * FROM APPOINTMENTS where user_id=:userid';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':userid', $userid);
         $stm->execute();
@@ -98,7 +98,7 @@ class appointment
      */
     public function cancelUserAppointment($appointment_id, $userid)
     {
-        $query = 'DELETE FROM appointments WHERE app_id = :appointment_id and user_id = :userid';
+        $query = 'DELETE FROM APPOINTMENTS WHERE app_id = :appointment_id and user_id = :userid';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':userid', $userid);
         $stm->bindValue(':appointment_id', $appointment_id);
@@ -111,7 +111,7 @@ class appointment
      */
     public function createAdminAppointment($dateTime, $wsId)
     {
-        $query = 'INSERT INTO appointments (app_datetime, app_type, ws_id) VALUES (:appDate, "blocked", :wsId)';
+        $query = 'INSERT INTO APPOINTMENTS (app_datetime, app_type, ws_id) VALUES (:appDate, "blocked", :wsId)';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':appDate', $dateTime);
         $stm->bindValue(':wsId', $wsId);
@@ -123,7 +123,7 @@ class appointment
      */
     public function removeAdminAppointment($dateTime, $wsId)
     {
-        $query = 'DELETE FROM appointments WHERE app_datetime = :appDate AND ws_id = :wsId AND app_type = "blocked"';
+        $query = 'DELETE FROM APPOINTMENTS WHERE app_datetime = :appDate AND ws_id = :wsId AND app_type = "blocked"';
         $stm = $this->sql->prepare($query);
         $stm->bindValue(':appDate', $dateTime);
         $stm->bindValue(':wsId', $wsId);
