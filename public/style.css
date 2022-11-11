@@ -1,0 +1,542 @@
+/* Import JQuery  */
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css);
+@import url(https://www.jqueryscript.net/css/jquerysctipttop.css);
+
+
+:root {
+    --color1: #2B2F3A;
+    --color2: #575F64;
+    --color3: #ABAEC4;
+    --color4: #CDCFE0;
+    --color5: #D12424;
+    --color6: #FC4549;
+    --color7: #2B6299;
+    --color8: #4B7FBC;
+    --color9: #f3f3f3;
+}
+
+/*#region ALLPAGES*/
+.hidden {
+    visibility: hidden;
+}
+
+body {
+    background-image: url(media/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title {
+    background-color: var(--color1);
+    padding: 5px;
+    width: max-content;
+    margin: auto;
+    margin-top: 75px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--color9);
+    text-shadow: 2px 1px 2px black;
+}
+
+.subtitle{
+    background-color: var(--color1);
+    padding: 5px;
+    width: max-content;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--color9);
+    text-shadow: 2px 1px 2px black;
+}
+
+
+.bg-dark {
+    background-color: #2B2F3A !important;
+}
+
+.centre {
+    text-align: center;
+}
+
+.flexDiv{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.flex-item{
+    color: var(--color4);
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.margin{
+    margin: 10px;
+}
+
+.IndexCard{
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--color1);
+    color: var(--color4);
+}
+/*#endregion */
+
+
+/*#region NAVBAR */
+#logo {
+    width: 45px;
+}
+
+.navbar {
+    width: 100%;
+    height: 70px !important;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+/* Mobile Navbar */
+.container-fluid {
+    background-color: #2B2F3A;
+}
+/*#endregion */
+
+
+/*#region FOOTER */
+.footer {
+    height: 50px;
+    background-color: #2B2F3A;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.footer-element {
+    margin: 0px;
+    width: fit-content;
+}
+/*#endregion */
+
+
+/*#region INDEXPAGES */
+.indexPage,
+.principalPage {
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+
+.indexPage {
+    width: 100%;
+    height: calc(100vh - 120px);
+    background-image: url(media/background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+/*#endregion */
+
+
+/*#region FORMS*/
+.form-contenedor {
+    width: 65vw;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 10px;
+    box-shadow: 1px 1px 10px 1px #000000;
+    background-color: #D8D8D8;
+}
+
+.form-square-form {
+    padding: 10px;
+}
+
+.form-title {
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 0px;
+    text-align: center;
+}
+
+.square {
+    width: 20px;
+    height: 30px;
+    background-color: var(--color6);
+    margin: 5px;
+    margin-left: 20px;
+}
+
+
+.square,
+.form-title,
+.square-red {
+    display: inline-block;
+}
+
+.subform {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+/*Appointment-form*/
+.dateAndWorkstation {
+    display: flex;
+    justify-content: left;
+}
+
+.all-forms {
+    height: max-content;
+}
+/*#endregion */
+
+
+/*#region  BUTTONS */
+.btn {
+    background-color: var(--color6);
+    border-radius: 0px;
+    width: 100%;
+    border: 0px;
+    color: var(--color4);
+    box-shadow: 0px 0px 5px 0px var(--color1);
+}
+
+.btn:hover {
+    background-color: var(--color5);
+    color: var(--color4);
+}
+
+.btn-primary:active {
+    background-color: var(--color5) !important;
+}
+
+.button a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.button {
+    text-align: right;
+}
+
+.button a {
+    font-size: 15px;
+
+}
+/*#endregion */
+
+
+/*#region ERRORS */
+.incorrect-credentials {
+    visibility: visible;
+    color: red;
+    display: block;
+}
+
+.error-square {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-square img {
+    margin: 50px;
+    width: 15%;
+}
+
+.error-text {
+    color: white;
+}
+/*#endregion */
+
+
+/*#region DATEPICKERS*/
+#datepicker,
+#workstation {
+    text-align: center;
+    width: 50%;
+    height: 25px;
+    margin: 10px;
+}
+
+.ui-datepicker-unselectable .ui-state-disabled .undefined {
+    background-color: red;
+}
+/*#endregion */
+
+
+/*#region HOURS TABLE */
+.hours-div {
+    display: flex;
+}
+
+.hour {
+    text-align: center;
+    background: var(--color4);
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.hour:hover {
+    background-color: var(--color2);
+    color: var(--color4);
+}
+
+.hourclicked {
+    display: inline-block;
+    text-align: center;
+    background: var(--color3);
+    cursor: pointer;
+    width: 100%;
+    margin: 0px;
+}
+
+.noValidHour {
+    display: inline-block;
+    text-align: center;
+    background: var(--color1);
+    color: var(--color4);
+    cursor: pointer;
+    width: 100%;
+    margin: 0px;
+}
+/*#endregion */
+
+
+/*#region User account */
+.search-logo {
+    width: 15px;
+}
+
+.user-margin {
+    margin: 15px 50px 15px 50px;
+}
+
+.user-inputbox {
+    color: var(--color1);
+}
+
+.user-inputbox::placeholder {
+    color: var(--color1);
+}
+
+.user-square {
+    border: 1px solid black;
+    background-color: #D9D9D9;
+}
+
+.user-buttom-search {
+    width: 35px;
+    height: 35px;
+    background-color: var(--color7);
+    border-radius: 10px;
+}
+
+.useraccount {
+    margin: 20PX;
+    padding: 10px;
+    box-shadow: 1px 1px 10px 1px #000000;
+    background-color: #D8D8D8;
+    border: 0px;
+}
+
+.table-useraccount {
+    width: 100%;
+    margin: auto;
+}
+
+.useraccount-text {
+    font-weight: bold;
+    margin: 0px;
+}
+
+.useraccount-button-save {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.title-views {
+    color: white;
+}
+
+.changeNameForm {
+    display: flex;
+    flex-direction: row;
+}
+
+.changeconfig{
+    margin: auto;
+    margin-top: 5px;
+    width: 75%;
+}
+
+
+.changeconfig input {
+    width: 100%;
+    text-align: center;
+}
+.changeconfig button {
+    margin-bottom: 10px;
+}
+
+.changeRol{
+    display: flex !important;
+    justify-content: center;
+    margin: 10px;
+}
+
+.userInfo{
+    background-color: var(--color1);
+    width: 75%;
+    margin: auto;
+}
+
+/*#endregion */
+
+
+/*#region  admin appointments */
+#adminDatepicker{
+    margin-bottom: 10px;
+}
+
+.blockedDay{
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 1px solid var(--color1);
+}
+
+.blockedDay:hover{
+    background-color: var(--color2);
+    color: var(--color4);
+    border: 1px solid var(--color1);
+}
+
+.addWSDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.addWSDiv input{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.dateOn{
+    /* set in uppercase bold color black and font shadow*/
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color8);
+    color: var(--color4);
+    width: fit-content;
+    padding: 10px;
+}
+
+.dateOff{
+    /* set in uppercase bold color black and font shadow*/
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--color6);
+    color: var(--color4);
+    width: fit-content;
+    padding: 10px;
+}
+
+.hourOn{
+    /* set in uppercase bold color black and font shadow*/
+    background-color: var(--color2);
+    color: var(--color4);
+}
+
+.hourOff, .hourOff:hover{
+    /* set in uppercase bold color black and font shadow*/
+    background-color: var(--color6);
+    color: var(--color4);
+}
+
+.adminUserApp{
+    background-color: var(--color4);
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+/*#endregion */
+
+
+/*#region  media query mobile */
+@media only screen and (max-width: 600px) {
+    .form-contenedor {
+        width: 100%;
+        height: calc(100vh - (70px + 50px));
+        margin-top: calc(20vh - 70px);
+    }
+
+    .subform {
+        font-size: 15px;
+    }
+
+    .hour {
+        font-size: 15px;
+    }
+
+
+    /** Index page */
+    .indexoptions {
+        flex-direction: column;
+    }
+
+    .option_index {
+        width: 75%;
+        text-align: center;
+        margin: 10px;
+        border: 1px solid black;
+        padding: 10px;
+    }
+}
+/*#endregion */
