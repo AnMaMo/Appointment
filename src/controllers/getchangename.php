@@ -4,7 +4,7 @@ function getChangeName($peticio, $resposta, $contenidor){
     $users = $contenidor->users();
 
     // Import
-    $name_new = $peticio->get(INPUT_POST, "name_new");
+    $name_new = strip_tags($peticio->get(INPUT_POST, "name_new"));
 
     //Get the session email
     $usermail = $peticio->get("SESSION", "loged");

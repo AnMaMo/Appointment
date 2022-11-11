@@ -22,7 +22,7 @@ function initLogin($peticio, $resposta, $contenidor)
 
     // Now get the password and username of user
     $user_password = $user["user_password"];
-    $username = $user["user_name"];
+    $username = strip_tags($user["user_name"]);
 
     // Check if the password is the same
     if($user_password === $password){
