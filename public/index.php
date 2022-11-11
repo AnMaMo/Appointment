@@ -65,6 +65,7 @@ $resposta = $contenidor->resposta();
 /* Get the param "page", if is null or "" set to "index" */
 $page = $peticio->get("INPUT_REQUEST", "page") ?? "index";
 
+
 /* Switch to select the controller */
 switch ($page) {
   case 'index':

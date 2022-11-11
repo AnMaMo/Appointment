@@ -1,5 +1,4 @@
 <?php
-
 function isAdmin($peticio, $resposta, $contenidor, $next){
     // Models
     $users = $contenidor->users();

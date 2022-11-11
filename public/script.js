@@ -2,6 +2,7 @@
 var disabledDays = [];
 UpdateDisabledDays();
 
+
 /* */
 $(document).ready(function () {
     $('.table-useraccount').DataTable(
@@ -10,6 +11,7 @@ $(document).ready(function () {
     );
 
 });
+
 
 /* Function when open the page configure the Datepicker */
 $(function () {
@@ -205,6 +207,7 @@ function sendcancelappointment(appointment) {
     location.reload();
 }
 
+
 /**
  * cancel appointment from adminpanel
  * @param {*} appointment 
@@ -224,6 +227,7 @@ function sendcancelappointment(appointment) {
     location.reload();
 }
 
+
 /**
  * search user mail
  */
@@ -241,6 +245,7 @@ function changeadminpanel() {
     });
    
 }
+
 
 /**
  * show the appointment in adminpanel
@@ -277,6 +282,7 @@ function changeuseradminpanel(data) {
 
 }
 
+
 /**
  * change user role
  */
@@ -296,6 +302,7 @@ function changeuserrole() {
 
 }
 
+
 /**
  * remove user in database
  * @param {*} usermail 
@@ -313,10 +320,9 @@ function removeUser(usermail) {
     location.reload();
 }
 
-  
-
 
 ///// ADMIN APPOINTMENT PANNEL /////
+
 
 /* Function when open the page configure the Datepicker */
 $(function () {
@@ -329,19 +335,6 @@ $(function () {
 
     });
 });
-
-
-function adminBlockDay() {
-    var date = $("#admindatepicker").val();
-
-    //date get day, month and year
-    var day = date.substring(0, 2);
-    var month = date.substring(3, 5);
-    var year = date.substring(6, 10);
-
-
-    //Add to the datepicker date the class "disabledDay"
-}
 
 
 /**
@@ -388,6 +381,7 @@ function selectAdminDate(date) {
     });
 
 }
+
 
 function ProcessInvalidAdminHours(data) {
     // Reset the hour clicked and the input "hour_selected"

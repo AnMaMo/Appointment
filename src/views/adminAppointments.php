@@ -21,7 +21,6 @@
 
 <body>
 
-
     <!-- PRINCIPAL PAGE (VIEW) -->
     <div class="principalPage">
         <h1 class="title">ADMIN APPOINTMENTS</h1>

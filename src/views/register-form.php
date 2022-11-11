@@ -45,7 +45,7 @@
             <?php
             }
             ?>
-            <div class="button"><a href="">Signup</a></div>
+            <div class="button"><a href="index.php?page=login">Signup</a></div>
         </div>
 
 

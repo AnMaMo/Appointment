@@ -80,7 +80,7 @@ class appointment
 
 
     /**
-     * Function to get all workstations
+     * Function to get userappointments 
      */
     public function getUserAppointments($userid)
     {

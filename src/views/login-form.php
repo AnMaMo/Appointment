@@ -45,7 +45,7 @@
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">Remember me</label>
                             </div>
-                            <div class="button" id="reg-button"><a href="">Don't have account?</a></div>
+                            <div class="button" id="reg-button"><a href="index.php?page=register">Don't have account?</a></div>
                         </div>
 
                     </form>
