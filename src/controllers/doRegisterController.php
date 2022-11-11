@@ -4,9 +4,16 @@ function setUserInDatabase($peticio, $resposta, $contenidor){
     $users = $contenidor->users();
 
     // Get the post info to user
-    $username = $peticio->get(INPUT_POST, "username");
     $usermail = $peticio->get(INPUT_POST, "mail");
     $password = $peticio->get(INPUT_POST, "password");
+    $username = $peticio->getRaw(INPUT_POST, "username");
+
+    $username = str_replace("<", "&lt;", $username);
+    if ($username === "") {
+        $resposta->redirect("location: index.php?page=error");
+        return $resposta;
+    }
+
 
     // Encript the password
     $password = hash("sha256", $password);
